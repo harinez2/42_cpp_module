@@ -37,7 +37,7 @@ void	Phonebook::search_contact()
 	int		i;
 
 	_print_contact_table();
-	std::cout << "  Input contact number:";
+	std::cout << "Input contact number to show the details:";
 	std::cin >> i;
 	if (i < 0 || MAX_CONATCT_NUM < i || m_cnt <= i)
 	{

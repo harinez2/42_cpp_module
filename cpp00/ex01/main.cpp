@@ -9,6 +9,7 @@ int	main()
 	Phonebook		b;
 
 	std::cout << "\\\\\\ Welcome to PhoneBook!! ///" << std::endl;
+	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
 	while (std::cin)
 	{
 		std::cout << "> ";
@@ -20,10 +21,7 @@ int	main()
 		else if (cmd.compare("EXIT") == 0 || cmd.compare("") == 0)
 			break ;
 		else
-		{
-			std::cout << "Invalid command. Acceptable commands are "
-				<< "ADD, SEARCH, and EXIT." << std::endl;
-		}
+			std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
 	}
 	return (0);
 }

@@ -33,7 +33,7 @@ void	Contact::add_contact()
 	std::cin >> m_underwear_color;
 	std::cout << "  (11/11) darkest secret: ";
 	std::cin >> m_darkest_seret;
-	std::cout << "Adding contact information has completed!" << std::endl;
+	std::cout << "Completed adding contact information!" << std::endl;
 }
 
 void	Contact::print_contact_detail()
@@ -55,16 +55,16 @@ void	Contact::print_contact_as_table_line(int i)
 {
 	std::cout << "|" << std::setw(2) << i << "|";
 	if (m_first_name.length() > 10)
-		std::cout << std::setw(10) << m_first_name.substr(0, 9) << ".|";
+		std::cout << std::setw(9) << std::left << m_first_name.substr(0, 9) << ".|";
 	else
-		std::cout << std::setw(10) << m_first_name.substr(0, 10) << "|";
-	if (m_first_name.length() > 10)
-		std::cout << std::setw(10) << m_last_name.substr(0, 9) << ".|";
+		std::cout << std::setw(10) << std::left << m_first_name.substr(0, 10) << "|";
+	if (m_last_name.length() > 10)
+		std::cout << std::setw(9) << std::left << m_last_name.substr(0, 9) << ".|";
 	else
-		std::cout << std::setw(10) << m_last_name.substr(0, 10) << "|";
-	if (m_first_name.length() > 10)
-		std::cout << std::setw(10) << m_nickname.substr(0, 9) << ".|";
+		std::cout << std::setw(10) << std::left << m_last_name.substr(0, 10) << "|";
+	if (m_nickname.length() > 10)
+		std::cout << std::setw(9) << std::left << m_nickname.substr(0, 9) << ".|";
 	else
-		std::cout << std::setw(10) << m_nickname.substr(0, 10) << "|";
-	std::cout << "|" << std::endl;
+		std::cout << std::setw(10) << std::left << m_nickname.substr(0, 10) << "|";
+	std::cout << std::endl;
 }
