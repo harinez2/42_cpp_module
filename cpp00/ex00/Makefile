@@ -2,16 +2,16 @@ NAME		= megaphone
 SRCS		= megaphone.cpp
 OBJS		= $(SRCS:.cpp=.o)
 CXX			= clang++
-CFLAGS		= -Wall -Wextra -Werror
+CXXFLAGS	= -Wall -Wextra -Werror
 DBGFLG		= -g3 -fsanitize=address
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(OBJS) $(CFLAGS) -o $(NAME)
+	$(CXX) $(OBJS) $(CXXFLAGS) -o $(NAME)
 
 .cpp.o: $(SRCS)
-	$(CXX) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+	$(CXX) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
 
 clean:
 	rm -f $(OBJS)

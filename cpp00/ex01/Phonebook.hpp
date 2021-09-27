@@ -10,9 +10,9 @@
 class Phonebook
 {
 private:
-	Contact	m_contact[8];
-	int		m_cnt;
-	int		m_idx;
+	Contact	_contact[8];
+	int		_cnt;
+	int		_idx;
 	void	_print_contact_table();
 public:
 	Phonebook();

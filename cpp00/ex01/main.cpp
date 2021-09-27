@@ -10,10 +10,16 @@ int	main()
 
 	std::cout << "\\\\\\ Welcome to PhoneBook!! ///" << std::endl;
 	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
-	while (std::cin)
+	while (1)
 	{
 		std::cout << "> ";
-		std::cin >> cmd;
+		// std::cin >> cmd;
+		std::getline(std::cin, cmd);
+		// if (std::cin.eof())
+		// {
+		// 	std::cout << std::endl;
+		// 	break ;
+		// }
 		if (cmd.compare("ADD") == 0)
 			b.add_contact();
 		else if (cmd.compare("SEARCH") == 0)
