@@ -75,13 +75,6 @@ void	Account::_displayTimestamp(void)
 	ss << std::put_time(localtime(&now_tt), "[%Y%m%d_%H%M%S] ");
 	std::cout << ss.str();
 
-	// std::cout << "[";
-	// time_t now = time(nullptr);
-	// struct tm* localNow = localtime(&now);
-	// std::cout << localNow->tm_year + 1900 << localNow->tm_mon << localNow->tm_mday + 1 << "_";
-	// std::cout << localNow-> + 1900 << localNow->tm_mon << localNow->tm_mday + 1 << "_";
-	// std::cout << "] ";
-
 	// std::cout << "[19920104_091532] ";
 }
 
