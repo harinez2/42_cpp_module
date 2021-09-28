@@ -54,7 +54,5 @@ void	Phonebook::search_contact()
 		return ;
 	}
 	_contact[i].print_contact_detail();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
-
-//	if (i < 0 || _cnt <= i || _max_contact_num <= i)
-// if (0 <= i &&  i < _cnt && i < _max_contact_num)
