@@ -13,18 +13,21 @@ int	main()
 	while (1)
 	{
 		std::cout << "> ";
-		// std::cin >> cmd;
-		std::getline(std::cin, cmd);
-		// if (std::cin.eof())
+		if (!std::getline(std::cin, cmd))
+		{
+			std::cout << std::endl;
+			break ;
+		}
+		// if (std::cin.fail())
 		// {
-		// 	std::cout << std::endl;
-		// 	break ;
+		// 	std::cout << "fail  Available commands: ADD, SEARCH, EXIT" << std::endl;
+		// 	continue ;
 		// }
 		if (cmd.compare("ADD") == 0)
 			b.add_contact();
 		else if (cmd.compare("SEARCH") == 0)
 			b.search_contact();
-		else if (cmd.compare("EXIT") == 0 || cmd.compare("") == 0)
+		else if (cmd.compare("EXIT") == 0)
 			break ;
 		else
 			std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
