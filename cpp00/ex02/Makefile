@@ -1,4 +1,4 @@
-NAME		= account
+NAME		= account_tests
 SRCS		= tests.cpp Account.cpp
 OBJS		= $(SRCS:.cpp=.o)
 CXX			= clang++
