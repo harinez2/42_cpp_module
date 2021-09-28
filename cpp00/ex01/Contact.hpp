@@ -8,20 +8,14 @@
 class Contact
 {
 private:
-	static const int	_param_cnt = 11;
+	static const int	_param_cnt = 5;
 	const std::string	_param_name[_param_cnt] =
 	{
 		"First name",
 		"Last name",
-		"Nick name",
-		"Login",
-		"Postal address",
-		"Email address",
+		"Nickname",
 		"Phone number",
-		"Birthday date",
-		"Favorite meal",
-		"Underware color",
-		"darkest secret"
+		"Darkest secret"
 	};
 	std::string			_param_value[_param_cnt];
 public:
