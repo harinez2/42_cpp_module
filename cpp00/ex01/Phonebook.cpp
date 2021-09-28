@@ -41,7 +41,7 @@ void	Phonebook::search_contact()
 	_print_contact_table();
 	std::cout << "Input contact number to show the details: ";
 	std::cin >> i;
-	if (std::cin.eof())
+	if (std::cin.bad() || std::cin.eof())
 	{
 		std::cout << std::endl << "Aborted." << std::endl;
 		return ;

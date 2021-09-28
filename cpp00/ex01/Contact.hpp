@@ -8,8 +8,8 @@
 class Contact
 {
 private:
-	const int			_param_cnt = 11;
-	const std::string	_param_name[11] =
+	static const int	_param_cnt = 11;
+	const std::string	_param_name[_param_cnt] =
 	{
 		"First name",
 		"Last name",
@@ -23,7 +23,7 @@ private:
 		"Underware color",
 		"darkest secret"
 	};
-	std::string			_param_value[11];
+	std::string			_param_value[_param_cnt];
 public:
 	Contact();
 	~Contact();
