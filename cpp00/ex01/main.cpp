@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include "Phonebook.hpp"
@@ -18,11 +17,6 @@ int	main()
 			std::cout << std::endl;
 			break ;
 		}
-		// if (std::cin.fail())
-		// {
-		// 	std::cout << "fail  Available commands: ADD, SEARCH, EXIT" << std::endl;
-		// 	continue ;
-		// }
 		if (cmd.compare("ADD") == 0)
 			b.add_contact();
 		else if (cmd.compare("SEARCH") == 0)

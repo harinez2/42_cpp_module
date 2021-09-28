@@ -15,9 +15,7 @@ bool	Contact::add_contact()
 	{
 		std::cout << "  (" << std::setw(2) << i + 1 << "/" << _param_cnt
 			<< ") " << _param_name[i] << ": ";
-		// std::cin >> _param_value[i];
   		if (!std::getline(std::cin, _param_value[i]))
-		// if (std::cin.eof())
 		{
 			std::cout << std::endl << "Aborted." << std::endl;
 			return false;

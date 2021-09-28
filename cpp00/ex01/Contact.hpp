@@ -8,7 +8,7 @@
 class Contact
 {
 private:
-	const int	_param_cnt = 11;
+	const int			_param_cnt = 11;
 	const std::string	_param_name[11] =
 	{
 		"First name",
@@ -23,13 +23,13 @@ private:
 		"Underware color",
 		"darkest secret"
 	};
-	std::string	_param_value[11];
+	std::string			_param_value[11];
 public:
 	Contact();
 	~Contact();
-	bool	add_contact();
-	void	print_contact_detail();
-	void	print_contact_as_table_line(int i);
+	bool				add_contact();
+	void				print_contact_detail();
+	void				print_contact_as_table_line(int i);
 };
 
 #endif
