@@ -15,7 +15,7 @@ int	main()
 		if (!std::getline(std::cin, cmd))
 		{
 			std::cout << std::endl;
-			break ;
+			std::exit(1);
 		}
 		if (cmd.compare("ADD") == 0)
 			b.add_contact();

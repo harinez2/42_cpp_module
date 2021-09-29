@@ -21,7 +21,7 @@ private:
 public:
 	Contact();
 	~Contact();
-	bool				add_contact();
+	void				add_contact();
 	void				print_contact_detail();
 	void				print_contact_as_table_line(int i);
 };

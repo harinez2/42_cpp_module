@@ -8,7 +8,7 @@ Contact::~Contact()
 {
 }
 
-bool	Contact::add_contact()
+void	Contact::add_contact()
 {
 	std::cout << "Input contact informatin." << std::endl;
 	for (int i = 0; i < _param_cnt; i++)
@@ -18,11 +18,10 @@ bool	Contact::add_contact()
   		if (!std::getline(std::cin, _param_value[i]))
 		{
 			std::cout << std::endl << "Aborted." << std::endl;
-			return false;
+			std::exit(1);
 		}
 	}
 	std::cout << "Completed adding contact information!" << std::endl;
-	return true;
 }
 
 void	Contact::print_contact_detail()

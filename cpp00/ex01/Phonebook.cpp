@@ -27,11 +27,9 @@ void	Phonebook::_print_contact_table()
 
 void	Phonebook::add_contact()
 {
-	if (_contact[_idx].add_contact())
-	{
-		_idx = ++_idx % _max_contact_num;
-		_cnt++;
-	}
+	_contact[_idx].add_contact();
+	_idx = ++_idx % _max_contact_num;
+	_cnt++;
 }
 
 void	Phonebook::search_contact()
@@ -44,7 +42,7 @@ void	Phonebook::search_contact()
 	if (std::cin.bad() || std::cin.eof())
 	{
 		std::cout << std::endl << "Aborted." << std::endl;
-		return ;
+		std::exit(1);
 	}
 	else if (std::cin.fail() || i < 0 || _cnt <= i || _max_contact_num <= i)
 	{
