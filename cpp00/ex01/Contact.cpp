@@ -13,8 +13,8 @@ bool	Contact::add_contact()
 	std::cout << "Input contact informatin." << std::endl;
 	for (int i = 0; i < _param_cnt; i++)
 	{
-		std::cout << "  (" << std::setw(2) << i + 1 << "/" << _param_cnt
-			<< ") " << _param_name[i] << ": ";
+		std::cout << "  (" << std::setw(2) << std::right
+			<< i + 1 << "/" << _param_cnt << ") " << _param_name[i] << ": ";
   		if (!std::getline(std::cin, _param_value[i]))
 		{
 			std::cout << std::endl << "Aborted." << std::endl;
@@ -35,7 +35,7 @@ void	Contact::print_contact_detail()
 
 void	Contact::print_contact_as_table_line(int i)
 {
-	std::cout << "|" << std::setw(2) << i << "|";
+	std::cout << "|" << std::setw(10) << std::right << i << "|";
 	for (int i = 0; i < 3; i++)
 	{
 		if (_param_value[i].length() > 10)
