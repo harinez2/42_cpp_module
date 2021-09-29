@@ -1,5 +1,14 @@
 #include "Contact.hpp"
 
+const std::string	Contact::_param_name[_param_cnt] =
+{
+	"first name",
+	"last name",
+	"nickname",
+	"phone number",
+	"darkest secret"
+};
+
 Contact::Contact()
 {
 }
