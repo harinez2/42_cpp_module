@@ -17,12 +17,12 @@ void	Phonebook::_print_contact_table()
 	loop_cnt = _cnt;
 	if (loop_cnt > _max_contact_num)
 		loop_cnt = _max_contact_num;
-	std::cout << "+--+----------+----------+----------+" << std::endl;
-	std::cout << "| #|First.N   |Last.N    |Nickname  |" << std::endl;
-	std::cout << "+--+----------+----------+----------+" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "|         #|First.N   |Last.N    |Nickname  |" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	for (int i = 0; i < loop_cnt; i++)
 		_contact[i].print_contact_as_table_line(i);
-	std::cout << "+--+----------+----------+----------+" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
 }
 
 void	Phonebook::add_contact()

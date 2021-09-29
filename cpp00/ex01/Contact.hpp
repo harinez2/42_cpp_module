@@ -11,11 +11,11 @@ private:
 	static const int	_param_cnt = 5;
 	const std::string	_param_name[_param_cnt] =
 	{
-		"First name",
-		"Last name",
-		"Nickname",
-		"Phone number",
-		"Darkest secret"
+		"first name",
+		"last name",
+		"nickname",
+		"phone number",
+		"darkest secret"
 	};
 	std::string			_param_value[_param_cnt];
 public:
