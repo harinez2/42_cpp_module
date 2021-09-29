@@ -72,9 +72,9 @@ void	Account::_displayTimestamp(void)
 
 	t = std::time(nullptr);
 	std::strftime(date, sizeof(date), "[%Y%m%d_%H%M%S] ", localtime(&t));
-	// std::cout << date;
+	std::cout << date;
 
-	std::cout << "[19920104_091532] ";
+	// std::cout << "[19920104_091532] ";
 }
 
 void	Account::makeDeposit(int deposit)
