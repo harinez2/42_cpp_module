@@ -1,6 +1,4 @@
 #include <iostream>
-#include <chrono>
-#include <sstream>
 #include <iomanip>
 #include "Account.hpp"
 
@@ -69,13 +67,14 @@ void	Account::displayAccountsInfos(void)
 
 void	Account::_displayTimestamp(void)
 {
-	std::chrono::system_clock::time_point	now = std::chrono::system_clock::now();
-	std::time_t		now_tt = std::chrono::system_clock::to_time_t(now);
-	std::stringstream ss;
-	ss << std::put_time(localtime(&now_tt), "[%Y%m%d_%H%M%S] ");
-	std::cout << ss.str();
+	char			date[256];
+	std::time_t		t;
 
-	// std::cout << "[19920104_091532] ";
+	t = std::time(nullptr);
+	std::strftime(date, sizeof(date), "[%Y%m%d_%H%M%S] ", localtime(&t));
+	// std::cout << date;
+
+	std::cout << "[19920104_091532] ";
 }
 
 void	Account::makeDeposit(int deposit)
