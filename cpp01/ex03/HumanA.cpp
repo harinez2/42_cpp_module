@@ -1,14 +1,17 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA()
-{
-	_weapon.setType("weapon-type");
-}
+// HumanA::HumanA() : _weapon(Weapon("default weapon"))
+// {
+// 	// Weapon *w;
+// 	// w = new Weapon("default weapon");
+// 	Weapon w("default weapon");
+// 	&_weapon = w;
+// }
 
-HumanA::HumanA(std::string name, Weapon weapon)
+HumanA::HumanA(std::string name, Weapon &weapon) : _weapon(weapon)
 {
 	_name = name;
-	_weapon = weapon;
+	// &_weapon = weapon;
 }
 
 HumanA::~HumanA()

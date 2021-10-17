@@ -1,8 +1,8 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB()
+HumanB::HumanB() : _weapon(nullptr)
 {
-	_weapon.setType("weapon-type");
+	// _weapon = NULL;
 }
 
 HumanB::HumanB(std::string name)
