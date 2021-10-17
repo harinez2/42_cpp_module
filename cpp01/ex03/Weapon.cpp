@@ -2,14 +2,18 @@
 
 Weapon::Weapon()
 {
+	setType("");
+}
 
+Weapon::Weapon(std::string type)
+{
+	setType(type);
 }
 
 Weapon::~Weapon()
 {
 
 }
-
 
 void	Weapon::setType(std::string type)
 {

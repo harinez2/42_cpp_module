@@ -2,13 +2,13 @@
 
 HumanA::HumanA()
 {
-	_weapon.setType("wep-type");
+	_weapon.setType("weapon-type");
 }
 
-HumanA::HumanA(std::string name)
+HumanA::HumanA(std::string name, Weapon weapon)
 {
 	_name = name;
-	_weapon.setType("wep-type");
+	_weapon = weapon;
 }
 
 HumanA::~HumanA()
