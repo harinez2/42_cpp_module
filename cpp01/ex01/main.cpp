@@ -12,13 +12,7 @@ int		main(void)
 	for (int i = 0; i < N; i++)
 	{
 		z[i].announce();
-		// (z + i)->announce();
-		// z++;
 	}
-	// for (int i = 0; i < N; i++)
-	// {
-	// 	delete (z+i);
-	// }
 	delete[] z;
 
 	return (0);
