@@ -17,10 +17,10 @@ Weapon::~Weapon()
 
 void	Weapon::setType(std::string type)
 {
-	_type = type;
+	this->type = type;
 }
 
 const std::string	&Weapon::getType()
 {
-	return (_type);
+	return (this->type);
 }
