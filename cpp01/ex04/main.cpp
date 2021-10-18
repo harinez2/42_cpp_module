@@ -46,7 +46,7 @@ static int	write_to_file(std::string filename, std::string &read_data)
 		std::cerr << "Failed to open file: " << filename << std::endl;
 		return (-1);
 	}
-	ofs << read_data << std::endl;
+	ofs << read_data;
 	return (0);
 }
 
