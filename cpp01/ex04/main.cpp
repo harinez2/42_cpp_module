@@ -7,7 +7,7 @@ static int	read_from_file(std::string filename, std::string &read_data)
 	std::ifstream	ifs(filename);
 	if (!ifs)
 	{
-		std::cerr << "Failed to open file." << std::endl;
+		std::cerr << "Failed to open file: " << filename << std::endl;
 		return (-1);
 	}
 
@@ -40,7 +40,13 @@ static int	write_to_file(std::string filename, std::string &read_data)
 {
 	filename += ".replace";
 
-	std::cout << read_data << std::endl;
+	std::ofstream	ofs(filename);
+	if (!ofs)
+	{
+		std::cerr << "Failed to open file: " << filename << std::endl;
+		return (-1);
+	}
+	ofs << read_data << std::endl;
 	return (0);
 }
 
