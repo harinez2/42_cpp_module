@@ -58,7 +58,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 
-	std::string	read_data = "";
+	std::string	read_data;
 	if (read_from_file(argv[1], read_data) != 0)
 		return (-1);
 	replace_str(read_data, argv[2], argv[3]);
