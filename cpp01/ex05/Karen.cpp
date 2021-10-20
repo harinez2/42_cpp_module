@@ -30,12 +30,22 @@ void	Karen::error(void)
 
 void	Karen::complain(std::string level)
 {
-	void (Karen::*f)() = &Karen::debug;
+	std::string msg_level[4] = {
+		"DEBUG",
+		"INFO",
+		"WARNING",
+		"ERROR"
+	};
+	void (Karen::*func[4])() = {
+		&Karen::debug,
+		&Karen::info,
+		&Karen::warning,
+		&Karen::error
+	};
 
-	(this->*f)();
-
-	// void (Karen::*func)(void);
-	// func = (void *)() &Karen::debug;
-	// (this->*func)();
-	(void)level;
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == msg_level[i])
+			(this->*func[i])();
+	}
 }
