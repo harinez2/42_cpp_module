@@ -47,28 +47,36 @@ void	Karen::insufficient(void)
 
 void	Karen::complain(std::string level)
 {
-	std::string msg_level[4] = {
+	const int msg_level_len = 4;
+	std::string msg_level_txt[msg_level_len] = {
 		"DEBUG",
 		"INFO",
 		"WARNING",
 		"ERROR"
 	};
+	enum msg_level_num {
+		DEBUG,
+		INFO,
+		WARNING,
+		ERROR
+	};
+
 	int	print_level = -1;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < msg_level_len; i++)
 	{
-		if (level == msg_level[i])
+		if (level == msg_level_txt[i])
 			print_level = i;
 	}
 
 	switch (print_level)
 	{
-		case 0:
+		case DEBUG:
 			debug();
-		case 1:
+		case INFO:
 			info();
-		case 2:
+		case WARNING:
 			warning();
-		case 3:
+		case ERROR:
 			error();
 			break ;
 		default:
