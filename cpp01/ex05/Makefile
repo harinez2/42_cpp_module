@@ -1,4 +1,4 @@
-NAME		= replace
+NAME		= karen
 SRCS		= \
 			main.cpp \
 			Karen.cpp

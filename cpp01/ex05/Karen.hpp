@@ -2,15 +2,15 @@
 #define KAREN_HPP
 
 #include <iostream>
+#include <string>
 
 class Karen
 {
 private:
-	static void	debug(void);
+	void	debug(void);
 	void	info(void);
 	void	warning(void);
 	void	error(void);
-	static void	(*fp)();
 public:
 	Karen();
 	~Karen();
