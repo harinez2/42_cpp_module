@@ -11,7 +11,6 @@ private:
 	void	info(void);
 	void	warning(void);
 	void	error(void);
-	void	insufficient(void);
 public:
 	Karen();
 	~Karen();
