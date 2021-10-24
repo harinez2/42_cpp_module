@@ -2,12 +2,10 @@
 
 Zombie::Zombie()
 {
-	_name = "";
 }
 
-Zombie::Zombie(std::string s)
+Zombie::Zombie(std::string s) : _name(s)
 {
-	_name = s;
 }
 
 Zombie::~Zombie()
