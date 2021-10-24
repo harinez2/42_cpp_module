@@ -6,13 +6,15 @@
 class Fixed
 {
 private:
-	int			_num;
+	int					_fixed_point_value;
+	static const int	_fractional_bits = 8;
 public:
 	Fixed();
 	Fixed(const Fixed &obj);
-	Fixed&		operator=(const Fixed& obj);
+	Fixed&				operator=(const Fixed& obj);
 	~Fixed();
-	int			getRawBits(void);
+	int					getRawBits(void) const;
+	void				setRawBits(int const raw);
 };
 
 #endif
