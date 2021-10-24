@@ -14,5 +14,8 @@ int	main(void)
 	std::cout << std::endl;
 	
 	k.complain("ERROR");
+	std::cout << std::endl;
+	
+	k.complain("not defined");
 	return (0);
 }
