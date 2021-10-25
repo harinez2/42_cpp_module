@@ -20,6 +20,7 @@ Fixed::Fixed(const int value) : _fixed_point_value(value)
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
+	(void)value;
 }
 
 Fixed&	Fixed::operator=(const Fixed& obj)
@@ -29,12 +30,6 @@ Fixed&	Fixed::operator=(const Fixed& obj)
 	return (*this);
 }
 
-std::ostream&	std::operator<<(std::ostream& os, const Fixed& obj)
-{
-	os << obj.toFloat();
-	return (os);
-}
-
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -42,7 +37,6 @@ Fixed::~Fixed()
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_fixed_point_value);
 }
 
@@ -53,10 +47,16 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-
+	return (-1.0);
 }
 
 int	Fixed::toInt(void) const
 {
+	return (-1);
+}
 
+std::ostream&	operator<<(std::ostream& os, const Fixed& obj)
+{
+	os << obj.toFloat();
+	return (os);
 }

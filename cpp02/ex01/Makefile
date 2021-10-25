@@ -1,4 +1,4 @@
-NAME		= orthodox
+NAME		= fixedpoint
 SRCS		= \
 			main.cpp \
 			Fixed.cpp
