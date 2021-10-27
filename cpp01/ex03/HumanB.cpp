@@ -1,6 +1,6 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB() : _weapon(nullptr)
+HumanB::HumanB() : _weapon(NULL)
 {
 }
 
