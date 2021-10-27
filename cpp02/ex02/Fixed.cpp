@@ -23,16 +23,64 @@ Fixed::Fixed(const float value)
 	std::cout << "Float constructor called" << std::endl;
 }
 
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
 Fixed&	Fixed::operator=(const Fixed& obj)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	_fixed_point_value = obj.getRawBits();
-	return (*this);
+	return *this;
 }
 
-Fixed::~Fixed()
+bool	Fixed::operator>(const Fixed& obj)
 {
-	std::cout << "Destructor called" << std::endl;
+	if (_fixed_point_value > obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator<(const Fixed& obj)
+{
+	if (_fixed_point_value < obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator>=(const Fixed& obj)
+{
+	if (_fixed_point_value >= obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator<=(const Fixed& obj)
+{
+	if (_fixed_point_value <= obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator==(const Fixed& obj)
+{
+	if (_fixed_point_value == obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator!=(const Fixed& obj)
+{
+	if (_fixed_point_value != obj.getRawBits())
+		return true;
+	else
+		return false;
 }
 
 int	Fixed::getRawBits(void) const
