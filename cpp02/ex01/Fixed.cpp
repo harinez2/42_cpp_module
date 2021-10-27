@@ -45,30 +45,8 @@ void	Fixed::setRawBits(int const raw)
 	this->_fixed_point_value = raw;
 }
 
-void printb(unsigned int v) {
-  unsigned int mask = (int)1 << (sizeof(v) * 8 - 1);
-  do putchar(mask & v ? '1' : '0');
-  while (mask >>= 1);
-}
-
 float	Fixed::toFloat(void) const
 {
-// 	float	float_value = 0;
-// 	int		pow = 1;
-// 	float	base = 0.5;
-// printf("\n");
-// 	for (int i = 0; i < _fractional_bits; i++)
-// 	{
-// 		printf("i=%d, pow=%d, base=%f, 0b=", i, pow, base);
-// 		printb(pow);
-// 		printf(", bitval=%d, floatval=%f\n",
-// 			(_fixed_point_value & pow) != 0, base * ((_fixed_point_value & pow) != 0));
-// 		float_value += base * ((_fixed_point_value & pow) != 0);
-// 		pow *= 2;
-// 		base /= 2;
-// 	}
-// 	float_value += _fixed_point_value << _fractional_bits;
-
 	return (_fixed_point_value / static_cast<float>(1 << _fractional_bits));
 }
 
