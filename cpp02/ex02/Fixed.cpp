@@ -83,6 +83,30 @@ bool	Fixed::operator!=(const Fixed& obj)
 		return false;
 }
 
+Fixed&	Fixed::operator+(const Fixed& obj)
+{
+	_fixed_point_value += obj._fixed_point_value;
+	return *this;
+}
+
+Fixed&	Fixed::operator-(const Fixed& obj)
+{
+	_fixed_point_value -= obj._fixed_point_value;
+	return *this;
+}
+
+Fixed&	Fixed::operator*(const Fixed& obj)
+{
+	_fixed_point_value *= obj._fixed_point_value;
+	return *this;
+}
+
+Fixed&	Fixed::operator/(const Fixed& obj)
+{
+	_fixed_point_value /= obj._fixed_point_value;
+	return *this;
+}
+
 int	Fixed::getRawBits(void) const
 {
 	return (_fixed_point_value);
