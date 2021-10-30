@@ -16,16 +16,24 @@ public:
 	Fixed(const float value);
 	~Fixed();
 	Fixed&				operator=(const Fixed& obj);
+
 	bool				operator>(const Fixed& obj);
 	bool				operator<(const Fixed& obj);
 	bool				operator>=(const Fixed& obj);
 	bool				operator<=(const Fixed& obj);
 	bool				operator==(const Fixed& obj);
 	bool				operator!=(const Fixed& obj);
+
 	Fixed&				operator+(const Fixed& obj);
 	Fixed&				operator-(const Fixed& obj);
 	Fixed&				operator*(const Fixed& obj);
 	Fixed&				operator/(const Fixed& obj);
+
+	Fixed&				operator++(const Fixed& obj);
+	Fixed&				operator--(const Fixed& obj);
+	Fixed&				operator++(void);
+	Fixed&				operator--(void);
+
 	int					getRawBits(void) const;
 	void				setRawBits(int const raw);
 	float				toFloat(void) const;

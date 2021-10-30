@@ -107,6 +107,30 @@ Fixed&	Fixed::operator/(const Fixed& obj)
 	return *this;
 }
 
+Fixed&	Fixed::operator++(const Fixed& obj)
+{
+	_fixed_point_value += 1 << _fractional_bits;
+	return *this;
+}
+
+Fixed&	Fixed::operator--(const Fixed& obj)
+{
+	_fixed_point_value -= 1 << _fractional_bits;
+	return *this;
+}
+
+Fixed&	Fixed::operator++(void)
+{
+	_fixed_point_value += 1 << _fractional_bits;
+	return *this;
+}
+
+Fixed&	Fixed::operator--(void)
+{
+	_fixed_point_value -= 1 << _fractional_bits;
+	return *this;
+}
+
 int	Fixed::getRawBits(void) const
 {
 	return (_fixed_point_value);
