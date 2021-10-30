@@ -15,6 +15,9 @@ $(NAME): $(OBJS)
 .cpp.o: $(SRCS)
 	$(CXX) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
 
+test:
+	$(CXX) test.cpp Fixed.cpp $(CXXFLAGS) -o $(NAME)
+
 clean:
 	rm -f $(OBJS)
 
