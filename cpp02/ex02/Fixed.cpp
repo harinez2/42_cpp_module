@@ -116,7 +116,7 @@ Fixed&	Fixed::operator++(void)
 Fixed	Fixed::operator++(int)
 {
 	Fixed f = *this;
-	*this._fixed_point_value += 1 << _fractional_bits;
+	_fixed_point_value += 1 << _fractional_bits;
 	return f;
 }
 
@@ -129,8 +129,40 @@ Fixed&	Fixed::operator--(void)
 Fixed	Fixed::operator--(int)
 {
 	Fixed f = *this;
-	*this->_fixed_point_value -= 1 << _fractional_bits;
+	_fixed_point_value -= 1 << _fractional_bits;
 	return f;
+}
+
+Fixed&	Fixed::min(Fixed& obj1, Fixed& obj2)
+{
+	if (obj1.getRawBits() < obj2.getRawBits())
+		return obj1;
+	else
+		return obj2;
+}
+
+const Fixed&	Fixed::min(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.getRawBits() < obj2.getRawBits())
+		return obj1;
+	else
+		return obj2;
+}
+
+Fixed&	Fixed::max(Fixed& obj1, Fixed& obj2)
+{
+	if (obj1.getRawBits() > obj2.getRawBits())
+		return obj1;
+	else
+		return obj2;
+}
+
+const Fixed&	Fixed::max(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.getRawBits() > obj2.getRawBits())
+		return obj1;
+	else
+		return obj2;
 }
 
 int	Fixed::getRawBits(void) const
