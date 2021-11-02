@@ -24,10 +24,10 @@ public:
 	bool				operator==(const Fixed& obj);
 	bool				operator!=(const Fixed& obj);
 
-	Fixed&				operator+(const Fixed& obj);
-	Fixed&				operator-(const Fixed& obj);
-	Fixed&				operator*(const Fixed& obj);
-	Fixed&				operator/(const Fixed& obj);
+	Fixed				operator+(const Fixed& obj);
+	Fixed				operator-(const Fixed& obj);
+	Fixed				operator*(const Fixed& obj);
+	Fixed				operator/(const Fixed& obj);
 
 	Fixed&				operator++(void);
 	Fixed				operator++(int);

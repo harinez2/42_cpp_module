@@ -76,28 +76,30 @@ bool	Fixed::operator!=(const Fixed& obj)
 		return false;
 }
 
-Fixed&	Fixed::operator+(const Fixed& obj)
+Fixed	Fixed::operator+(const Fixed& obj)
 {
-	_fixed_point_value += obj._fixed_point_value;
-	return *this;
+	Fixed f(*this);
+	f.setRawBits(f.getRawBits() + obj.getRawBits());
+	return f;
 }
 
-Fixed&	Fixed::operator-(const Fixed& obj)
+Fixed	Fixed::operator-(const Fixed& obj)
 {
-	_fixed_point_value -= obj._fixed_point_value;
-	return *this;
+	Fixed f(*this);
+	f.setRawBits(f.getRawBits() - obj.getRawBits());
+	return f;
 }
 
-Fixed&	Fixed::operator*(const Fixed& obj)
+Fixed	Fixed::operator*(const Fixed& obj)
 {
-	_fixed_point_value *= obj._fixed_point_value;
-	return *this;
+	Fixed f(this->toFloat() * obj.toFloat());
+	return f;
 }
 
-Fixed&	Fixed::operator/(const Fixed& obj)
+Fixed	Fixed::operator/(const Fixed& obj)
 {
-	_fixed_point_value /= obj._fixed_point_value;
-	return *this;
+	Fixed f(this->toFloat() / obj.toFloat());
+	return f;
 }
 
 Fixed&	Fixed::operator++(void)
@@ -108,7 +110,7 @@ Fixed&	Fixed::operator++(void)
 
 Fixed	Fixed::operator++(int)
 {
-	Fixed f = *this;
+	Fixed f(*this);
 	++_fixed_point_value;
 	return f;
 }
@@ -121,7 +123,7 @@ Fixed&	Fixed::operator--(void)
 
 Fixed	Fixed::operator--(int)
 {
-	Fixed f = *this;
+	Fixed f(*this);
 	--_fixed_point_value;
 	return f;
 }
