@@ -35,9 +35,9 @@ public:
 	Fixed				operator--(int);
 
 	static Fixed&		min(Fixed& obj1, Fixed& obj2);
-	const Fixed&		min(const Fixed& obj1, const Fixed& obj2);
+	static const Fixed&	min(const Fixed& obj1, const Fixed& obj2);
 	static Fixed&		max(Fixed& obj1, Fixed& obj2);
-	const Fixed&		max(const Fixed& obj1, const Fixed& obj2);
+	static const Fixed&	max(const Fixed& obj1, const Fixed& obj2);
 
 	int					getRawBits(void) const;
 	void				setRawBits(int const raw);
