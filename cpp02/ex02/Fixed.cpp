@@ -165,7 +165,7 @@ int	Fixed::getRawBits(void) const
 
 void	Fixed::setRawBits(int const raw)
 {
-	this->_fixed_point_value = raw;
+	_fixed_point_value = raw;
 }
 
 float	Fixed::toFloat(void) const
