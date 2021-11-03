@@ -8,3 +8,8 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << _name << " constructor called." << std::endl;
 	showStatus();
 }
+
+void	ScavTrap::guardGate(void)
+{
+	std::cout << "ScavTrap have enterred in Gate keeper mode." << std::endl;
+}
