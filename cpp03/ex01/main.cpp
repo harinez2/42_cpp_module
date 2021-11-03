@@ -1,8 +1,8 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap me("me");
+	ScavTrap me("me");
 	me.attack("enemy");
 	me.takeDamage(10);
 	me.beRepaired(10);
