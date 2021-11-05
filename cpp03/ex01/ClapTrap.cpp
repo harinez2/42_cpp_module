@@ -58,7 +58,7 @@ void ClapTrap::showStatus(void) const
 
 void	ClapTrap::attack(std::string const & target)
 {
-	_hit_points -= _attack_damage;
+	_energy_points -= _attack_damage;
 	std::cout << "ClapTrap " << _name << " attacks " << target;
 	std::cout << ", causing " << _attack_damage << " points of damage!" << std::endl;
 	showStatus();
