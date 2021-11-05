@@ -9,6 +9,11 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	showStatus();
 }
 
+ScavTrap::~ScavTrap(void)
+{
+	std::cout << "ScavTrap " << _name << " destructor called." << std::endl;
+}
+
 void	ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap have enterred in Gate keeper mode." << std::endl;
