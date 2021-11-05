@@ -9,6 +9,8 @@ private:
 public:
 	FragTrap(std::string name);
 	~FragTrap(void);
+
+	void		highFivesGuys(void);
 };
 
 #endif
