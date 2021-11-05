@@ -8,3 +8,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	std::cout << "FragTrap " << _name << " constructor called." << std::endl;
 	showStatus();
 }
+
+FragTrap::~FragTrap(void)
+{
+	std::cout << "FragTrap " << _name << " destructor called." << std::endl;
+}
