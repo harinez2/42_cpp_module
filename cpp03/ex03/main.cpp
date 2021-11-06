@@ -1,8 +1,9 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
-	FragTrap me("me");
+	DiamondTrap me("me");
+	me.whoAmI();
 	me.attack("enemy");
 	me.takeDamage(10);
 	me.beRepaired(10);
