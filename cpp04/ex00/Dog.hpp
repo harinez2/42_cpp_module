@@ -8,6 +8,8 @@ class Dog : public Animal
 public:
 	Dog(void);
 	~Dog(void);
+
+	virtual void	makeSound(void) const;
 };
 
 #endif

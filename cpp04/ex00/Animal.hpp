@@ -12,7 +12,7 @@ public:
 	~Animal(void);
 
 	std::string		getType(void) const;
-	void			makeSound(void) const;
+	virtual void	makeSound(void) const;
 };
 
 #endif
