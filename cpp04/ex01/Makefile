@@ -3,7 +3,8 @@ SRCS		= \
 			main.cpp \
 			Animal.cpp \
 			Dog.cpp \
-			Cat.cpp
+			Cat.cpp \
+			Brain.cpp
 OBJS		= $(SRCS:.cpp=.o)
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors
