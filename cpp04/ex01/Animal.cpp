@@ -3,10 +3,12 @@
 
 Animal::Animal(void) : type("Animal")
 {
+	std::cout << "Animal construcotr called" << std::endl;
 }
 
 Animal::~Animal(void)
 {
+	std::cout << "Animal destrucotr called" << std::endl;
 }
 
 std::string	Animal::getType(void) const
