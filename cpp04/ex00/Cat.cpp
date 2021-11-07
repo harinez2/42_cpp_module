@@ -3,6 +3,7 @@
 
 Cat::Cat(void)
 {
+	type = "Cat";
 }
 
 void	Cat::makeSound(void) const

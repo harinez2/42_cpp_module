@@ -3,6 +3,7 @@
 
 Dog::Dog(void)
 {
+	type = "Dog";
 }
 
 void	Dog::makeSound(void) const

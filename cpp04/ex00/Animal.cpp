@@ -5,6 +5,10 @@ Animal::Animal(void) : type("Animal")
 {
 }
 
+Animal::~Animal(void)
+{
+}
+
 std::string	Animal::getType(void) const
 {
 	return type;
