@@ -6,8 +6,8 @@
 class Cat : public Animal
 {
 public:
-	Cat();
-	~Cat();
+	Cat(void);
+	~Cat(void);
 };
 
 #endif
