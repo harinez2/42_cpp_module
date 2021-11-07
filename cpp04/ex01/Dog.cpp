@@ -4,10 +4,12 @@
 Dog::Dog(void)
 {
 	type = "Dog";
+	brain = new Brain();
 }
 
 Dog::~Dog(void)
 {
+	delete brain;
 }
 
 void	Dog::makeSound(void) const
