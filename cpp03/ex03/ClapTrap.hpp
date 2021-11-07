@@ -11,6 +11,10 @@ protected:
 	int					_hit_points;
 	int					_energy_points;
 	int					_attack_damage;
+
+	static const int	_hit_points_init = 10;
+	static const int	_energy_points_init = 10;
+	static const int	_attack_damage_init = 0;
 public:
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &obj);
