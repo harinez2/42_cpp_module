@@ -8,6 +8,12 @@ Dog::Dog(void)
 	brain = new Brain();
 }
 
+Dog&	Dog::operator=(const Dog& obj)
+{
+	brain = new Brain(obj.brain);
+	return *this;
+}
+
 Dog::~Dog(void)
 {
 	delete brain;

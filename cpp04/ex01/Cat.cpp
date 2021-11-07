@@ -8,6 +8,12 @@ Cat::Cat(void)
 	brain = new Brain();
 }
 
+Cat&	Cat::operator=(const Cat& obj)
+{
+	brain = new Brain(obj.brain);
+	return *this;
+}
+
 Cat::~Cat(void)
 {
 	delete brain;
