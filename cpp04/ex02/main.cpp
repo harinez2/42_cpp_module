@@ -5,6 +5,9 @@
 
 int	main(void)
 {
+	// impossible to instantiate Animal class
+	// const Animal* a = new Animal();
+
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
