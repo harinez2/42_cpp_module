@@ -9,6 +9,10 @@ class Cure : public AMateria
 protected:
 
 public:
+	Cure();
+
+	virtual AMateria*		clone() const;
+	virtual void			use(ICharacter& target);
 };
 
 #endif

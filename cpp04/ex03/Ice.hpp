@@ -9,6 +9,9 @@ class Ice : public AMateria
 protected:
 
 public:
+	Ice();
+
+	virtual void			use(ICharacter& target);
 };
 
 #endif
