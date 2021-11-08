@@ -70,7 +70,7 @@ void	Account::_displayTimestamp(void)
 	char			date[256];
 	std::time_t		t;
 
-	t = std::time(nullptr);
+	t = std::time(NULL);
 	std::strftime(date, sizeof(date), "[%Y%m%d_%H%M%S] ", localtime(&t));
 	std::cout << date;
 
