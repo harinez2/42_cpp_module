@@ -6,9 +6,9 @@ Cure::Cure()
 	this->type = "cure";
 }
 
-AMateria*	Cure::clone() const
+Cure*	Cure::clone() const
 {
-	return *this;
+	return this;
 }
 
 void	Cure::use(ICharacter& target)

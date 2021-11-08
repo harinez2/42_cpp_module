@@ -11,7 +11,7 @@ protected:
 public:
 	Cure();
 
-	virtual AMateria*		clone() const;
+	virtual Cure*			clone() const;
 	virtual void			use(ICharacter& target);
 };
 

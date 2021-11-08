@@ -3,7 +3,8 @@ SRCS		= \
 			main.cpp \
 			AMateria.cpp \
 			Ice.cpp \
-			Cure.cpp
+			Cure.cpp \
+			Character.cpp
 OBJS		= $(SRCS:.cpp=.o)
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors

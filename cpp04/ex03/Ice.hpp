@@ -11,6 +11,7 @@ protected:
 public:
 	Ice();
 
+	virtual AMateria*		clone() const;
 	virtual void			use(ICharacter& target);
 };
 

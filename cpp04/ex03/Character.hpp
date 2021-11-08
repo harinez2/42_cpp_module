@@ -8,10 +8,13 @@ class Character : public ICharacter
 {
 private:
 	std::string					name;
-	AMateria					materia[4];
+	AMateria*					materia[4];
+	bool						equipped[4];
 public:
-	virtual Character();
-	virtual ~Character();
+	Character(const std::string name);
+	Character(const Character & obj);
+	~Character();
+
 	virtual std::string const &	getName() const;
 	virtual void				equip(AMateria* m);
 	virtual void				unequip(int idx);
