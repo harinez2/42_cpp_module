@@ -6,6 +6,7 @@
 class MateriaSource : public IMateriaSource
 {
 public:
+	MateriaSource();
 	~MateriaSource();
 
 	virtual void			learnMateria(AMateria*);

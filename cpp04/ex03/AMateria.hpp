@@ -10,7 +10,10 @@ protected:
 	std::string				type;
 
 public:
-	AMateria(std::string const & type);
+	AMateria();
+	AMateria(const AMateria & obj);
+	~AMateria();
+	AMateria &operator=(const AMateria& obj);
 
 	std::string const&		getType() const; //Returns the materia type
 

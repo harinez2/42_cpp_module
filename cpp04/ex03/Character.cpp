@@ -11,6 +11,7 @@ Character::Character(const std::string name) : name(name)
 
 Character::Character(const Character & obj)
 {
+	(void)obj;
 	//deep
 }
 
@@ -26,16 +27,17 @@ std::string const &	Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
-
+	(void)m;
 }
 
 void	Character::unequip(int idx)
 {
-
+	(void)idx;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
+	(void)target;
 	equipped[idx] = true;
 	materia[idx] = NULL;
 }

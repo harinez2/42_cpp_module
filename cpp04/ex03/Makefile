@@ -4,7 +4,8 @@ SRCS		= \
 			AMateria.cpp \
 			Ice.cpp \
 			Cure.cpp \
-			Character.cpp
+			Character.cpp \
+			MateriaSource.cpp
 OBJS		= $(SRCS:.cpp=.o)
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors

@@ -6,12 +6,18 @@ Cure::Cure()
 	this->type = "cure";
 }
 
+Cure::Cure(const Cure & obj)
+{
+	*this = obj;
+}
+
 Cure*	Cure::clone() const
 {
-	return this;
+	return new Cure(*this);
 }
 
 void	Cure::use(ICharacter& target)
 {
+	(void)target;
 	std::cout << "* heals " << type << "’s wounds *" << std::endl;
 }
