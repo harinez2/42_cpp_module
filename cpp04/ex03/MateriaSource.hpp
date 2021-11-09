@@ -2,9 +2,14 @@
 #define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource
 {
+private:
+	static const int		slot_max = 4;
+	int						slot_idx;
+	AMateria*				slot[slot_max];
 public:
 	MateriaSource();
 	~MateriaSource();
