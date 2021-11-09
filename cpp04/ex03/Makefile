@@ -1,15 +1,10 @@
 NAME		= interface
-SRCS		= \
-			main.cpp \
-			AMateria.cpp \
-			Ice.cpp \
-			Cure.cpp \
-			Character.cpp \
-			MateriaSource.cpp
+SRCDIR		= .
+SRCS		= $(shell find $(SRCDIR) -name "*.cpp" -type f | xargs)
 OBJS		= $(SRCS:.cpp=.o)
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors
-DBGFLG		= -g3 -fsanitize=address
+DBGFLAGS	= -g3 -fsanitize=address
 
 all: $(NAME)
 
