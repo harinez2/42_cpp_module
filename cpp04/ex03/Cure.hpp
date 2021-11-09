@@ -10,7 +10,6 @@ protected:
 
 public:
 	Cure();
-	Cure(const Cure & obj);
 
 	virtual Cure*			clone() const;
 	virtual void			use(ICharacter& target);

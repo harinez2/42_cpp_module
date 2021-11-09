@@ -12,8 +12,8 @@ protected:
 public:
 	AMateria();
 	AMateria(const AMateria & obj);
-	~AMateria();
 	AMateria &operator=(const AMateria& obj);
+	~AMateria();
 
 	std::string const&		getType() const; //Returns the materia type
 

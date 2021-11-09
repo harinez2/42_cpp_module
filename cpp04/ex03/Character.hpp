@@ -8,8 +8,8 @@ class Character : public ICharacter
 {
 private:
 	std::string					name;
-	AMateria*					materia[4];
-	bool						equipped[4];
+	AMateria*					slot[4];
+	int							equipped[4];
 
 public:
 	Character(const std::string name);

@@ -6,11 +6,6 @@ Cure::Cure()
 	this->type = "cure";
 }
 
-Cure::Cure(const Cure & obj)
-{
-	*this = obj;
-}
-
 Cure*	Cure::clone() const
 {
 	return new Cure(*this);
