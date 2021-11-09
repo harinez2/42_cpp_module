@@ -2,7 +2,6 @@
 
 AMateria::AMateria()
 {
-
 }
 
 AMateria::AMateria(const AMateria & obj)
@@ -12,7 +11,6 @@ AMateria::AMateria(const AMateria & obj)
 
 AMateria::~AMateria()
 {
-
 }
 
 AMateria &AMateria::operator=(const AMateria& obj)

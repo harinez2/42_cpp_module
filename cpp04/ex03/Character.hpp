@@ -10,6 +10,7 @@ private:
 	std::string					name;
 	AMateria*					materia[4];
 	bool						equipped[4];
+
 public:
 	Character(const std::string name);
 	Character(const Character & obj);
@@ -19,7 +20,6 @@ public:
 	virtual void				equip(AMateria* m);
 	virtual void				unequip(int idx);
 	virtual void				use(int idx, ICharacter& target);
-
 };
 
 #endif

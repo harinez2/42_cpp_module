@@ -17,7 +17,6 @@ Character::Character(const Character & obj)
 
 Character::~Character()
 {
-
 }
 
 std::string const &	Character::getName() const
