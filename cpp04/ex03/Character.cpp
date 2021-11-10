@@ -2,10 +2,10 @@
 
 Character::Character(const std::string name) : name(name)
 {
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < slot_max; ++i)
 	{
 		equipped[i] = false;
-		materia[i] = NULL;
+		slot[i] = NULL;
 	}
 }
 
@@ -26,17 +26,24 @@ std::string const &	Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
-	(void)m;
+	for (int i = 0; i < slot_max; ++i)
+	{
+		if (slot[i] != NULL)
+		{
+			slot[i] = m;
+			return;
+		}
+	}
+	delete m;
 }
 
 void	Character::unequip(int idx)
 {
-	(void)idx;
+	delete slot[idx];
+	slot[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	(void)target;
-	equipped[idx] = true;
-	materia[idx] = NULL;
+	slot[idx]->use(target);
 }

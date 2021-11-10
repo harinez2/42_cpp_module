@@ -7,9 +7,10 @@
 class Character : public ICharacter
 {
 private:
+	static const int			slot_max = 4;
 	std::string					name;
-	AMateria*					slot[4];
-	int							equipped[4];
+	AMateria*					slot[slot_max];
+	int							equipped[slot_max];
 
 public:
 	Character(const std::string name);

@@ -27,5 +27,5 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		if (type == slot[i]->getType())
 			return slot[i]->clone();
 	}
-	return NULL;
+	return 0;
 }
