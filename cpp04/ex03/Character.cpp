@@ -28,7 +28,7 @@ void	Character::equip(AMateria* m)
 {
 	for (int i = 0; i < slot_max; ++i)
 	{
-		if (slot[i] != NULL)
+		if (slot[i] == NULL)
 		{
 			slot[i] = m;
 			return;
@@ -45,5 +45,6 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	slot[idx]->use(target);
+	if (slot[idx])
+		slot[idx]->use(target);
 }
