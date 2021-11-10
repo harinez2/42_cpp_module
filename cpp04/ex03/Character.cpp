@@ -11,8 +11,21 @@ Character::Character(const std::string name) : name(name)
 
 Character::Character(const Character & obj)
 {
-	(void)obj;
-	//deep
+	*this = obj;
+}
+
+Character& Character::operator=(const Character& obj)
+{
+	if (this != &obj)
+	{
+		name = obj.name;
+		for (int i = 0; i < slot_max; ++i)
+		{
+			slot[i] = obj.slot[i]->clone();
+			equipped[i] = obj.equipped[i];
+		}
+	}
+	return *this;
 }
 
 Character::~Character()

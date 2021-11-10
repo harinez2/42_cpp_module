@@ -15,6 +15,7 @@ private:
 public:
 	Character(const std::string name);
 	Character(const Character & obj);
+	Character &operator=(const Character& obj);
 	~Character();
 
 	virtual std::string const &	getName() const;
