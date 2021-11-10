@@ -4,8 +4,8 @@ Character::Character(const std::string name) : name(name)
 {
 	for (int i = 0; i < slot_max; ++i)
 	{
-		equipped[i] = false;
 		slot[i] = NULL;
+		equipped[i] = false;
 	}
 }
 
@@ -31,6 +31,7 @@ void	Character::equip(AMateria* m)
 		if (slot[i] == NULL)
 		{
 			slot[i] = m;
+			equipped[i] = true;
 			return;
 		}
 	}
@@ -39,12 +40,11 @@ void	Character::equip(AMateria* m)
 
 void	Character::unequip(int idx)
 {
-	delete slot[idx];
-	slot[idx] = NULL;
+	equipped[idx] = false;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (slot[idx])
+	if (equipped[idx] == true)
 		slot[idx]->use(target);
 }

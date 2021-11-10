@@ -10,7 +10,7 @@ private:
 	static const int			slot_max = 4;
 	std::string					name;
 	AMateria*					slot[slot_max];
-	int							equipped[slot_max];
+	bool						equipped[slot_max];
 
 public:
 	Character(const std::string name);
