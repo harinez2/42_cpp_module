@@ -44,7 +44,7 @@ static int	write_to_file(char* filename, std::string &read_data)
 	std::ofstream	ofs(out_filename.c_str());
 	if (!ofs)
 	{
-		std::cerr << "Failed to open file: " << filename << std::endl;
+		std::cerr << "Failed to open file: " << out_filename << std::endl;
 		return (-1);
 	}
 	ofs << read_data;
