@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-static int	read_from_file(std::string filename, std::string &read_data)
+static int	read_from_file(char* filename, std::string &read_data)
 {
 	std::ifstream	ifs(filename);
 	if (!ifs)
@@ -36,11 +36,12 @@ static void	replace_str(
 	}
 }
 
-static int	write_to_file(std::string filename, std::string &read_data)
+static int	write_to_file(char* filename, std::string &read_data)
 {
-	filename += ".replace";
+	std::string out_filename(filename);
+	out_filename.append(".replace");
 
-	std::ofstream	ofs(filename);
+	std::ofstream	ofs(out_filename.c_str());
 	if (!ofs)
 	{
 		std::cerr << "Failed to open file: " << filename << std::endl;
@@ -54,7 +55,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 4)
 	{
-		std::cout << "Usage: ./replace <filename> <replacestr> <newstr>" << std::endl;
+		std::cout << "Usage: ./replace <filename> <replacing_str> <replaced_str>" << std::endl;
 		return (0);
 	}
 
