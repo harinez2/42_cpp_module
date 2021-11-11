@@ -3,7 +3,7 @@ SRCS		= \
 			main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 CXX			= clang++
-CXXFLAGS	= -Wall -Wextra -Werror
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 DBGFLG		= -g3 -fsanitize=address
 
 all: $(NAME)
