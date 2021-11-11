@@ -4,16 +4,16 @@
 class Fixed {
  public:
   Fixed();
-  Fixed(const Fixed &obj);
-  Fixed& operator=(const Fixed &obj);
+  Fixed(const Fixed& obj);
+  Fixed& operator=(const Fixed& obj);
   ~Fixed();
 
   int getRawBits(void) const;
   void setRawBits(int const raw);
 
  private:
-  static const int _fractional_bits = 8;
-  int _fixed_point_value;
+  static const int kFractionalBits_ = 8;
+  int fixed_point_value_;
 };
 
 #endif  // FIXED_HPP
