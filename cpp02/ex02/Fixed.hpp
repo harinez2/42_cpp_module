@@ -40,8 +40,8 @@ public:
   int toInt(void) const;
 
  private:
-  static const int _fractional_bits = 8;
-  int _fixed_point_value;
+  static const int kFractionalBits_ = 8;
+  int fixed_point_value_;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
