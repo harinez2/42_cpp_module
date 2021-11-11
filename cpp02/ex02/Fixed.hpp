@@ -4,7 +4,7 @@
 #include <iostream>
 
 class Fixed {
-public:
+ public:
   Fixed();
   Fixed(const Fixed& obj);
   Fixed(const int value);
@@ -29,15 +29,16 @@ public:
   Fixed& operator--(void);
   Fixed operator--(int);
 
+  int getRawBits(void) const;
+  void setRawBits(int const raw);
+
+  float toFloat(void) const;
+  int toInt(void) const;
+
   static Fixed& min(Fixed& obj1, Fixed& obj2);
   static const Fixed& min(const Fixed& obj1, const Fixed& obj2);
   static Fixed& max(Fixed& obj1, Fixed& obj2);
   static const Fixed& max(const Fixed& obj1, const Fixed& obj2);
-
-  int getRawBits(void) const;
-  void setRawBits(int const raw);
-  float toFloat(void) const;
-  int toInt(void) const;
 
  private:
   static const int kFractionalBits_ = 8;
