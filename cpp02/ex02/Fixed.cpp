@@ -5,7 +5,7 @@
 
 Fixed::Fixed() : fixed_point_value_(0) {}
 
-Fixed::Fixed(const Fixed &obj) {
+Fixed::Fixed(const Fixed& obj) {
   *this = obj;
 }
 
