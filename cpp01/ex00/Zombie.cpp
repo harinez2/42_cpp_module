@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-Zombie::Zombie() : _name("no-name")
+Zombie::Zombie() : _name("no-name-zombie")
 {
 }
 
@@ -15,7 +15,7 @@ Zombie::~Zombie()
 	std::cout << "... " << _name << " has gone to hell ..." << std::endl;
 }
 
-void	Zombie::announce(void)
+void	Zombie::announce(void) const
 {
 	std::cout << _name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }

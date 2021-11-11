@@ -12,7 +12,7 @@ public:
 	Zombie();
 	Zombie(std::string s);
 	~Zombie();
-	void			announce(void);
+	void			announce(void) const;
 };
 
 #endif
