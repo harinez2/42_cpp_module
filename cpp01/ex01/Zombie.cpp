@@ -1,13 +1,13 @@
 #include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-Zombie::Zombie()
+Zombie::Zombie() : _name("no-name-zombie")
 {
-	_name = "";
 }
 
-Zombie::Zombie(std::string s)
+Zombie::Zombie(std::string s) : _name(s)
 {
-	_name = s;
 }
 
 Zombie::~Zombie()
@@ -20,7 +20,7 @@ void	Zombie::set_name(std::string s)
 	_name = s;
 }
 
-void	Zombie::announce() const
+void	Zombie::announce(void) const
 {
 	std::cout << _name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }
