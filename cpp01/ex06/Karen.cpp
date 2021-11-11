@@ -1,4 +1,6 @@
 #include "Karen.hpp"
+#include <iostream>
+#include <string>
 
 Karen::Karen()
 {
@@ -46,9 +48,9 @@ void	Karen::complain(std::string level)
 		&Karen::error
 	};
 
-	for (int i = 0; i < 4; i++)
-	{
-		if (level == msg_level[i])
-			(this->*func[i])();
-	}
+	int msg_level_i = (level == msg_level[0]) ? 0 :
+			(level == msg_level[1]) ? 1 :
+			(level == msg_level[2]) ? 2 :
+			(level == msg_level[3]) ? 3 : throw "Incorrect parameter.";
+	(this->*func[msg_level_i])();
 }
