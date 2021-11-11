@@ -33,6 +33,8 @@ static void	replace_str(
 		read_data.erase(pos, replacing_str.length());
 		read_data.insert(pos, replaced_str);
 		pos = read_data.find(replacing_str, pos + replaced_str.length());
+		if (pos == std::string::npos)
+			read_data += '\n';
 	}
 }
 
