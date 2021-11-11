@@ -2,10 +2,6 @@
 #define FIXED_HPP
 
 class Fixed {
- private:
-  int _fixed_point_value;
-  static const int _fractional_bits = 8;
-
  public:
   Fixed();
   Fixed(const Fixed &obj);
@@ -14,6 +10,10 @@ class Fixed {
 
   int getRawBits(void) const;
   void setRawBits(int const raw);
+
+ private:
+  static const int _fractional_bits = 8;
+  int _fixed_point_value;
 };
 
 #endif  // FIXED_HPP

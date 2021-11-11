@@ -1,26 +1,29 @@
 NAME		= fixedpoint
-SRCS		= \
-			main.cpp \
-			Fixed.cpp
+SRCDIR		= .
+SRCS		= $(shell find $(SRCDIR) -name "*.cpp" -type f | xargs)
 OBJS		= $(SRCS:.cpp=.o)
+DEPENDS		= $(OBJS:.o=.d)
 CXX			= clang++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
-DBGFLG		= -g3 -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -MMD -MP
+-include $(DEPENDS)
 
+.PHONY: all
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(OBJS) $(CXXFLAGS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-.cpp.o: $(SRCS)
-	$(CXX) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
-
+.PHONY: clean
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEPENDS)
 
+.PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
 
+.PHONY: re
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: debug
+debug: CXXFLAGS += -g -fsanitize=integer -fsanitize=address -fsanitize=leak
+debug: re

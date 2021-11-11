@@ -1,6 +1,7 @@
 #include "Fixed.hpp"
 
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed() : _fixed_point_value(0) {
   std::cout << "Default constructor called" << std::endl;
@@ -22,7 +23,9 @@ Fixed::Fixed(const float value)
 
 Fixed& Fixed::operator=(const Fixed& obj) {
   std::cout << "Assignation operator called" << std::endl;
-  _fixed_point_value = obj.getRawBits();
+  if (&obj == this) {
+    _fixed_point_value = obj.getRawBits();
+  }
   return *this;
 }
 
