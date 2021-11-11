@@ -8,7 +8,7 @@ int		main(void)
 	int		N = 3;
 	
 	z = zombieHorde(N, "zom");
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i < N; ++i)
 	{
 		z[i].announce();
 	}
