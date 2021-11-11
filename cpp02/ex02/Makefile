@@ -6,10 +6,11 @@ OBJS		= $(SRCS:.cpp=.o)
 DEPENDS		= $(OBJS:.o=.d)
 CXX			= clang++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -MMD -MP
--include $(DEPENDS)
 
 .PHONY: all
 all: $(NAME)
+
+-include $(DEPENDS)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
