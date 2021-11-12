@@ -1,7 +1,6 @@
 NAME		= fixedpoint
-SRCS		= \
-			main.cpp \
-			Fixed.cpp
+SRCDIR		= .
+SRCS		= $(shell find $(SRCDIR) -name "*.cpp" -type f | xargs)
 OBJS		= $(SRCS:.cpp=.o)
 DEPENDS		= $(OBJS:.o=.d)
 CXX			= clang++
@@ -29,7 +28,3 @@ re: fclean all
 .PHONY: debug
 debug: CXXFLAGS += -g -fsanitize=integer -fsanitize=address -fsanitize=leak
 debug: re
-
-.PHONY: test
-test:
-	$(CXX) test.cpp Fixed.cpp $(CXXFLAGS) -o $(NAME)
