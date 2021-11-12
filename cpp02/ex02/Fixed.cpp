@@ -1,6 +1,7 @@
 #include "Fixed.hpp"
 
 #include <iostream>
+#include <stdexcept>
 #include <cmath>
 
 Fixed::Fixed() : fixed_point_value_(0) {}
@@ -42,8 +43,15 @@ Fixed Fixed::operator-(const Fixed& obj) const {
   return f;
 }
 
-Fixed Fixed::operator*(const Fixed& obj) const { return Fixed(this->toFloat() * obj.toFloat()); }
-Fixed Fixed::operator/(const Fixed& obj) const { return Fixed(this->toFloat() / obj.toFloat()); }
+Fixed Fixed::operator*(const Fixed& obj) const {
+  return Fixed(this->toFloat() * obj.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& obj) const {
+  if (obj.getRawBits() == 0)
+    throw std::runtime_error("divided by zero");
+  return Fixed(this->toFloat() / obj.toFloat());
+}
 
 Fixed& Fixed::operator++(void) {
   ++fixed_point_value_;

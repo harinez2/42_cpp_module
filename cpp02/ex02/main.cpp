@@ -3,18 +3,18 @@
 #include <iostream>
 
 void basic_patterns( void ) {
-	Fixed		a;
-	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed		a;
+    Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
 
-	std::cout << b << std::endl;
+    std::cout << b << std::endl;
 
-	std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
 }
 
 void test_rt(float left_f, float right_f) {
@@ -122,7 +122,8 @@ void test_max_const(float left_f, float right_f) {
 }
 
 void test_all_patterns(float left_f, float right_f) {
-  std::cout << "test: " << left_f << ", " << right_f << "---------------------" << std::endl;
+  std::cout << "-------------------------------------" << std::endl;
+  std::cout << "        " << left_f << "  ,  " << right_f << std::endl;
   test_rt(left_f, right_f);
   test_lt(left_f, right_f);
   test_re(left_f, right_f);
@@ -144,17 +145,23 @@ void test_all_patterns(float left_f, float right_f) {
   test_min_const(left_f, right_f);
   test_max(left_f, right_f);
   test_max_const(left_f, right_f);
-  std::cout << "----------------------------test end" << std::endl;
+  std::cout << "-------------------------------------" << std::endl;
   std::cout << std::endl;
 }
 
 int main(void) {
-  basic_patterns();
+  try {
+    basic_patterns();
 
-  test_all_patterns(42.42f, 10.0f);
-  test_all_patterns(0.1f, 0.02f);
-  test_all_patterns(0.1f, -0.02f);
-  test_all_patterns(-0.004f, -0.02f);
-  test_all_patterns(42.42f, 42.42f);
+    test_all_patterns(42.42f, 10.0f);
+    test_all_patterns(0.1f, 0.02f);
+    test_all_patterns(0.1f, -0.02f);
+    test_all_patterns(-0.004f, -0.02f);
+    test_all_patterns(42.42f, 42.42f);
+    test_all_patterns(42.42f, 0);
+  }
+  catch (const std::runtime_error& e) {
+    std::cerr << e.what() << std::endl;
+  }
   return 0;
 }
