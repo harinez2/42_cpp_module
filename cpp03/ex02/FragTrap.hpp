@@ -6,7 +6,7 @@
 #include <string>
 
 class FragTrap : public ClapTrap {
-public:
+ public:
   FragTrap(std::string name);
   ~FragTrap(void);
 

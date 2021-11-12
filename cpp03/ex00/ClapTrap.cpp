@@ -28,7 +28,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
 }
 
 ClapTrap::~ClapTrap() {
- std::cout << "ClapTrap " << _name << " destructor called." << std::endl;
+  std::cout << "ClapTrap " << _name << " destructor called." << std::endl;
 }
 
 std::string ClapTrap::getName(void) const { return _name; }
