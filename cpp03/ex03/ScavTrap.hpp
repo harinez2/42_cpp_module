@@ -5,7 +5,7 @@
 
 #include <string>
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : public virtual ClapTrap {
  public:
   ScavTrap(std::string name);
   ~ScavTrap(void);
@@ -17,7 +17,5 @@ protected:
   static const int _energy_points_init = 50;
   static const int _attack_damage_init = 20;
 };
-
-#endif
 
 #endif

@@ -4,10 +4,10 @@
 #include <string>
 
 DiamondTrap::DiamondTrap(std::string name)
-  : ClapTrap(name + "_clap_name"),
-    FragTrap(name + "_clap_name"),
-    ScavTrap(name + "_clap_name"),
-    _name(name) {
+    : ClapTrap(name + "_clap_name"),
+      FragTrap(name + "_clap_name"),
+      ScavTrap(name + "_clap_name"),
+      _name(name) {
   _hit_points = FragTrap::_hit_points_init;
   _energy_points = ScavTrap::_energy_points_init;
   _attack_damage = FragTrap::_attack_damage_init;
