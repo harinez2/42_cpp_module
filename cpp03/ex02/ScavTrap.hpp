@@ -11,6 +11,11 @@ class ScavTrap : public ClapTrap {
   ~ScavTrap(void);
 
   void guardGate(void);
+
+ protected:
+  static const int kHitPointsInitValue = 100;
+  static const int kEnergyPointsInitValue = 50;
+  static const int kAttackDamageInitValue = 20;
 };
 
 #endif

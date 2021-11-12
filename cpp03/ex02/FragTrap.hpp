@@ -11,6 +11,11 @@ public:
   ~FragTrap(void);
 
   void highFivesGuys(void);
+
+ protected:
+  static const int kHitPointsInitValue = 100;
+  static const int kEnergyPointsInitValue = 100;
+  static const int kAttackDamageInitValue = 30;
 };
 
 #endif

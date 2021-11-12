@@ -4,9 +4,9 @@
 #include <string>
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-  _hit_points = 100;
-  _energy_points = 100;
-  _attack_damage = 30;
+  _hit_points = kHitPointsInitValue;
+  _energy_points = kEnergyPointsInitValue;
+  _attack_damage = kAttackDamageInitValue;
   std::cout << "FragTrap " << _name << " constructor called." << std::endl;
   showStatus();
 }

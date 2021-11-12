@@ -4,7 +4,10 @@
 #include <string>
 
 ClapTrap::ClapTrap(std::string name)
-    : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0) {
+    : _name(name),
+      _hit_points(kHitPointsInitValue),
+      _energy_points(kEnergyPointsInitValue),
+      _attack_damage(kAttackDamageInitValue) {
   std::cout << "ClapTrap " << _name << " constructor called." << std::endl;
   showStatus();
 }

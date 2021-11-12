@@ -12,10 +12,10 @@ class ScavTrap : public virtual ClapTrap {
 
   void guardGate(void);
 
-protected:
-  static const int _hit_points_init = 100;
-  static const int _energy_points_init = 50;
-  static const int _attack_damage_init = 20;
+ protected:
+  static const int kHitPointsInitValue = 100;
+  static const int kEnergyPointsInitValue = 50;
+  static const int kAttackDamageInitValue = 20;
 };
 
 #endif
