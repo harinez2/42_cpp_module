@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+const int Fixed::kFractionalBits_ = 8;
+
 Fixed::Fixed() : fixed_point_value_(0) {
   std::cout << "Default constructor called" << std::endl;
 }

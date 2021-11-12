@@ -4,6 +4,8 @@
 #include <stdexcept>
 #include <cmath>
 
+const int Fixed::kFractionalBits_ = 8;
+
 Fixed::Fixed() : fixed_point_value_(0) {}
 
 Fixed::Fixed(const Fixed& obj) {
