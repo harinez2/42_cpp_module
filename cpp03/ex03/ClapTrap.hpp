@@ -1,36 +1,34 @@
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
-#include <iostream>
 #include <string>
 
-class ClapTrap
-{
-protected:
-	std::string			_name;
-	int					_hit_points;
-	int					_energy_points;
-	int					_attack_damage;
+class ClapTrap {
+ public:
+  ClapTrap(std::string name);
+  ClapTrap(const ClapTrap& obj);
+  ClapTrap& operator=(const ClapTrap& obj);
+  ~ClapTrap();
 
-	static const int	_hit_points_init = 10;
-	static const int	_energy_points_init = 10;
-	static const int	_attack_damage_init = 0;
+  std::string getName(void) const;
+  int getHitPoints(void) const;
+  int getEnergyPoints(void) const;
+  int getAttackDamage(void) const;
+  void showStatus(void) const;
 
-public:
-	ClapTrap(std::string name);
-	ClapTrap(const ClapTrap &obj);
-	ClapTrap&			operator=(const ClapTrap& obj);
-	~ClapTrap();
+  void attack(std::string const &target);
+  void takeDamage(unsigned int amount);
+  void beRepaired(unsigned int amount);
 
-	std::string			getName(void) const;
-	int					getHitPoints(void) const;
-	int					getEnergyPoints(void) const;
-	int					getAttackDamage(void) const;
-	void				showStatus(void) const;
+ private:
+  std::string _name;
+  int _hit_points;
+  int _energy_points;
+  int _attack_damage;
 
-	void				attack(std::string const & target);
-	void				takeDamage(unsigned int amount);
-	void				beRepaired(unsigned int amount);
+  static const int _hit_points_init = 10;
+  static const int _energy_points_init = 10;
+  static const int _attack_damage_init = 0;
 };
 
 #endif

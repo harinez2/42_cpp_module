@@ -3,14 +3,14 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
-{
-private:
-public:
-	FragTrap(std::string name);
-	~FragTrap(void);
+#include <string>
 
-	void		highFivesGuys(void);
+class FragTrap : public ClapTrap {
+public:
+  FragTrap(std::string name);
+  ~FragTrap(void);
+
+  void highFivesGuys(void);
 };
 
 #endif
