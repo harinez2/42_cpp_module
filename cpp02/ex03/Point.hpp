@@ -15,10 +15,6 @@ class Point {
 
   const Fixed getX() const;
   const Fixed getY() const;
-  // int getRawBitsOfX(void) const;
-  // int getRawBitsOfY(void) const;
-  // void setRawBitsOfX(int const raw);
-  // void setRawBitsOfY(int const raw);
 
  private:
   const Fixed x_;

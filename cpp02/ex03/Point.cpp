@@ -16,7 +16,3 @@ Point::~Point() {}
 
 const Fixed Point::getX() const { return x_; }
 const Fixed Point::getY() const { return y_; }
-// int Point::getRawBitsOfX(void) const { return x_.getRawBits(); }
-// int Point::getRawBitsOfY(void) const { return y_.getRawBits(); }
-// void Point::setRawBitsOfX(int const raw) { x_.setRawBits(raw); }
-// void Point::setRawBitsOfY(int const raw) { y_.setRawBits(raw); }
