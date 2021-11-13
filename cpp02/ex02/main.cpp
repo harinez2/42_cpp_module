@@ -158,7 +158,15 @@ int main(void) {
     test_all_patterns(0.1f, -0.02f);
     test_all_patterns(-0.004f, -0.02f);
     test_all_patterns(42.42f, 42.42f);
+    test_all_patterns(0, 42.42f);
     test_all_patterns(42.42f, 0);
+  }
+  catch (const std::runtime_error& e) {
+    std::cerr << e.what() << std::endl;
+  }
+
+  try {
+    test_all_patterns(0, 0);
   }
   catch (const std::runtime_error& e) {
     std::cerr << e.what() << std::endl;
