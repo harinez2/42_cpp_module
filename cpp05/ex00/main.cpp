@@ -1,5 +1,13 @@
+#include "Bureaucrat.hpp"
 
 int main(void)
 {
-	return 0;
+  try {
+    //
+  }
+  catch (std::exception & e) {
+
+  }
+
+  return 0;
 }
