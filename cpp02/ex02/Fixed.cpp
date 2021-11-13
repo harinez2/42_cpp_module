@@ -51,7 +51,7 @@ Fixed Fixed::operator*(const Fixed& obj) const {
 
 Fixed Fixed::operator/(const Fixed& obj) const {
   if (obj.getRawBits() == 0)
-    throw std::runtime_error("divided by zero");
+    throw std::runtime_error("[divided by zero]");
   return Fixed(this->toFloat() / obj.toFloat());
 }
 
