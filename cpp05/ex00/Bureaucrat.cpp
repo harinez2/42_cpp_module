@@ -4,8 +4,10 @@ Bureaucrat::Bureaucrat() : kName_("fresh-person"), grade_(150) {}
 
 Bureaucrat::Bureaucrat(const std::string name, const int grade)
     : kName_("fresh-person") {
-  if (grade < 1 || 150 < grade)
-    throw std::exception();
+  if (grade < 1)
+    throw exception::GradeTooHighException("aa");
+  else if (150 < grade)
+    throw GradeTooLowException();
   grade_ = grade;
 }
 
@@ -26,13 +28,13 @@ int Bureaucrat::getGrade() { return grade_; }
 
 void Bureaucrat::incrementGrade() {
   if (grade_ == 1)
-    throw std::exception();
+    throw GradeTooHighException();
   --grade_;
 }
 
 void Bureaucrat::decrementGrade() {
   if (grade_ == 150)
-    throw std::runtime_error("a");
+    throw GradeTooLowException();
   ++grade_;
 }
 

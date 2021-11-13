@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <exception>
 
 class Bureaucrat {
  public:
@@ -21,6 +22,11 @@ class Bureaucrat {
   const std::string kName_;
   int grade_;
 };
+
+namespace exception {
+class GradeTooHighException : public std::overflow_error {};
+class GradeTooLowException : public std::underflow_error {};
+}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
