@@ -41,7 +41,7 @@ class Fixed {
   static const Fixed& max(const Fixed& obj1, const Fixed& obj2);
 
  private:
-  static const int kFractionalBits_ = 8;
+  static const int kFractionalBits_;
   int fixed_point_value_;
 };
 
