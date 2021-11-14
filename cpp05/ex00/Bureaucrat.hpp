@@ -13,20 +13,24 @@ class Bureaucrat {
   Bureaucrat& operator=(const Bureaucrat& obj);
   ~Bureaucrat();
 
-  std::string getName();
-  int getGrade();
+  std::string getName() const;
+  int getGrade() const;
   void incrementGrade();
   void decrementGrade();
+
+  class GradeTooHighException : public std::invalid_argument {
+   public:
+    GradeTooHighException(const std::string& message);
+  };
+  class GradeTooLowException : public std::invalid_argument {
+   public:
+    GradeTooLowException(const std::string& message);
+  };
 
  protected:
   const std::string kName_;
   int grade_;
 };
-
-namespace exception {
-class GradeTooHighException : public std::overflow_error {};
-class GradeTooLowException : public std::underflow_error {};
-}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 

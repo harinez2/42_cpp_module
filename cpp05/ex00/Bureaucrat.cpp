@@ -3,11 +3,11 @@
 Bureaucrat::Bureaucrat() : kName_("fresh-person"), grade_(150) {}
 
 Bureaucrat::Bureaucrat(const std::string name, const int grade)
-    : kName_("fresh-person") {
+    : kName_(name) {
   if (grade < 1)
-    throw exception::GradeTooHighException("aa");
+    throw Bureaucrat::GradeTooHighException("grade is too high in constructor");
   else if (150 < grade)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException("grade is too low in constructor");
   grade_ = grade;
 }
 
@@ -23,18 +23,18 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 
 Bureaucrat::~Bureaucrat() {}
 
-std::string Bureaucrat::getName() { return kName_; }
-int Bureaucrat::getGrade() { return grade_; }
+std::string Bureaucrat::getName() const { return kName_; }
+int Bureaucrat::getGrade() const { return grade_; }
 
 void Bureaucrat::incrementGrade() {
   if (grade_ == 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException("");
   --grade_;
 }
 
 void Bureaucrat::decrementGrade() {
   if (grade_ == 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException("");
   ++grade_;
 }
 
