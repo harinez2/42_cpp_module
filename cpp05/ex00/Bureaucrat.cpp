@@ -11,8 +11,9 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade)
   grade_ = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj)
-    : kName_(obj.kName_), grade_(obj.grade_) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
+  *this = obj;
+}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
   if (this == &obj) {
@@ -37,6 +38,11 @@ void Bureaucrat::decrementGrade() {
     throw Bureaucrat::GradeTooLowException("");
   ++grade_;
 }
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& message)
+    : invalid_argument(message) {}
+Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& message)
+    : invalid_argument(message) {}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
   os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
