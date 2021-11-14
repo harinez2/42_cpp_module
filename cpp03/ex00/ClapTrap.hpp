@@ -16,7 +16,7 @@ class ClapTrap {
   int getAttackDamage(void) const;
   void showStatus(void) const;
 
-  void attack(std::string const &target);
+  void attack(std::string const& target);
   void takeDamage(unsigned int amount);
   void beRepaired(unsigned int amount);
 
@@ -26,9 +26,9 @@ class ClapTrap {
   int energy_points_;
   int attack_damage_;
 
-  static const int kHitPointsInitValue;
-  static const int kEnergyPointsInitValue;
-  static const int kAttackDamageInitValue;
+  static const int kHitPointsInitValue_;
+  static const int kEnergyPointsInitValue_;
+  static const int kAttackDamageInitValue_;
 };
 
 #endif

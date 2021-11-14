@@ -3,15 +3,15 @@
 #include <iostream>
 #include <string>
 
-const int ClapTrap::kHitPointsInitValue = 10;
-const int ClapTrap::kEnergyPointsInitValue = 10;
-const int ClapTrap::kAttackDamageInitValue = 0;
+const int ClapTrap::kHitPointsInitValue_ = 10;
+const int ClapTrap::kEnergyPointsInitValue_ = 10;
+const int ClapTrap::kAttackDamageInitValue_ = 0;
 
 ClapTrap::ClapTrap(std::string name)
     : name_(name),
-      hit_points_(kHitPointsInitValue),
-      energy_points_(kEnergyPointsInitValue),
-      attack_damage_(kAttackDamageInitValue) {
+      hit_points_(kHitPointsInitValue_),
+      energy_points_(kEnergyPointsInitValue_),
+      attack_damage_(kAttackDamageInitValue_) {
   std::cout << "ClapTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }
@@ -46,7 +46,7 @@ void ClapTrap::showStatus(void) const {
   std::cout << std::endl;
 }
 
-void ClapTrap::attack(std::string const & target) {
+void ClapTrap::attack(std::string const& target) {
   energy_points_ -= attack_damage_;
   std::cout << "ClapTrap " << name_ << " attacks " << target;
   std::cout << ", causing " << attack_damage_ << " points of damage!" << std::endl;
