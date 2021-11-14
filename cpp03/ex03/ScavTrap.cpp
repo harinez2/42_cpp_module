@@ -4,9 +4,9 @@
 #include <string>
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-  _hit_points = kHitPointsInitValue;
-  _energy_points = kEnergyPointsInitValue;
-  _attack_damage = kAttackDamageInitValue;
+  hit_points_ = kHitPointsInitValue;
+  energy_points_ = kEnergyPointsInitValue;
+  attack_damage_ = kAttackDamageInitValue;
   std::cout << "ScavTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }

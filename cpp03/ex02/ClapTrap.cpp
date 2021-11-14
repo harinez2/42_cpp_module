@@ -5,9 +5,9 @@
 
 ClapTrap::ClapTrap(std::string name)
     : name_(name),
-      _hit_points(kHitPointsInitValue),
-      _energy_points(kEnergyPointsInitValue),
-      _attack_damage(kAttackDamageInitValue) {
+      hit_points_(kHitPointsInitValue),
+      energy_points_(kEnergyPointsInitValue),
+      attack_damage_(kAttackDamageInitValue) {
   std::cout << "ClapTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }
@@ -20,9 +20,9 @@ ClapTrap::ClapTrap(const ClapTrap& obj) {
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
   name_ = obj.getName();
-  _hit_points = obj.getHitPoints();
-  _energy_points = obj.getEnergyPoints();
-  _attack_damage = obj.getAttackDamage();
+  hit_points_ = obj.getHitPoints();
+  energy_points_ = obj.getEnergyPoints();
+  attack_damage_ = obj.getAttackDamage();
   std::cout << "ClapTrap " << name_ << " operator= called." << std::endl;
   return *this;
 }
@@ -32,9 +32,9 @@ ClapTrap::~ClapTrap() {
 }
 
 std::string	ClapTrap::getName(void) const { return name_; }
-int	ClapTrap::getHitPoints(void) const { return _hit_points; }
-int	ClapTrap::getEnergyPoints(void) const { return _energy_points; }
-int	ClapTrap::getAttackDamage(void) const { return _attack_damage; }
+int	ClapTrap::getHitPoints(void) const { return hit_points_; }
+int	ClapTrap::getEnergyPoints(void) const { return energy_points_; }
+int	ClapTrap::getAttackDamage(void) const { return attack_damage_; }
 
 void ClapTrap::showStatus(void) const {
   std::cout << "  name:" << getName() << ", hitpoint:" << getHitPoints();
@@ -43,20 +43,20 @@ void ClapTrap::showStatus(void) const {
 }
 
 void ClapTrap::attack(std::string const & target) {
-  _energy_points -= _attack_damage;
+  energy_points_ -= attack_damage_;
   std::cout << "ClapTrap " << name_ << " attacks " << target;
-  std::cout << ", causing " << _attack_damage << " points of damage!" << std::endl;
+  std::cout << ", causing " << attack_damage_ << " points of damage!" << std::endl;
   showStatus();
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
   std::cout << "takeDamage " << amount << std::endl;
-  _hit_points -= amount;
+  hit_points_ -= amount;
   showStatus();
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
   std::cout << "beRepaired " << amount << std::endl;
-  _hit_points += amount;
+  hit_points_ += amount;
   showStatus();
 }

@@ -22,9 +22,9 @@ class ClapTrap {
 
  private:
   std::string name_;
-  int _hit_points;
-  int _energy_points;
-  int _attack_damage;
+  int hit_points_;
+  int energy_points_;
+  int attack_damage_;
 
   static const int kHitPointsInitValue = 10;
   static const int kEnergyPointsInitValue = 10;
