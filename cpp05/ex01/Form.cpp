@@ -34,6 +34,7 @@ Form& Form::operator=(const Form& obj) {
 Form::~Form() {}
 
 std::string Form::getName() const { return kName_; }
+int Form::getGradeRequiredToSign() const { return grade_required_to_sign_; }
 bool Form::getSigned() const { return signed_; }
 
 void Form::beSigned(Bureaucrat& b) {
@@ -48,6 +49,6 @@ Form::GradeTooLowException::GradeTooLowException(const std::string& message)
     : invalid_argument(message) {}
 
 std::ostream& operator<<(std::ostream& os, const Form& obj) {
-  os << obj.getName() << ", signed status is " << obj.getSigned();
+  os << "Form " << obj.getName() << ", signed status is " << obj.getSigned();
   return os;
 }

@@ -17,6 +17,7 @@ class Form {
   ~Form();
 
   std::string getName() const;
+  int getGradeRequiredToSign() const;
   bool getSigned() const;
   void beSigned(Bureaucrat& b);
 

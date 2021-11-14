@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : kName_("fresh-person"), grade_(150) {}
 
@@ -39,9 +40,12 @@ void Bureaucrat::decrementGrade() {
   ++grade_;
 }
 
-void Bureaucrat::signForm() {
-  std::cout << "<bureaucrat> signs <form>" << std::endl;
-  std::cout << "<bureaucrat> cannot sign <form> because <reason>" << std::endl;
+void Bureaucrat::signForm(Form& form) {
+  if (grade_ > form.getGradeRequiredToSign())
+    throw GradeTooLowException(
+      kName_ + " cannot sign " + form.getName() + " because the bureaucrat grade is too low");
+  form.beSigned(*this);
+  std::cout << kName_ << " signs " << form.getName() << std::endl;
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& message)
