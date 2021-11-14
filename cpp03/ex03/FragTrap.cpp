@@ -7,12 +7,12 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
   _hit_points = kHitPointsInitValue;
   _energy_points = kEnergyPointsInitValue;
   _attack_damage = kAttackDamageInitValue;
-  std::cout << "FragTrap " << _name << " constructor called." << std::endl;
+  std::cout << "FragTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }
 
 FragTrap::~FragTrap(void) {
-  std::cout << "FragTrap " << _name << " destructor called." << std::endl;
+  std::cout << "FragTrap " << name_ << " destructor called." << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) {

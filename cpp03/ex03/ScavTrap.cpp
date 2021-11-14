@@ -7,12 +7,12 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   _hit_points = kHitPointsInitValue;
   _energy_points = kEnergyPointsInitValue;
   _attack_damage = kAttackDamageInitValue;
-  std::cout << "ScavTrap " << _name << " constructor called." << std::endl;
+  std::cout << "ScavTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }
 
 ScavTrap::~ScavTrap(void) {
-  std::cout << "ScavTrap " << _name << " destructor called." << std::endl;
+  std::cout << "ScavTrap " << name_ << " destructor called." << std::endl;
 }
 
 void ScavTrap::guardGate(void) {
