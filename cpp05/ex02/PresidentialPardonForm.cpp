@@ -1,4 +1,4 @@
-#ifndef PRESIDENTIAL_PARDON_FORM_HPP
-#define PRESIDENTIAL_PARDON_FORM_HPP
+#include "PresidentialPardonForm.hpp"
 
-#endif
+const int RobotomyRequestForm::grade_required_to_sign_ = 25;
+const int RobotomyRequestForm::grade_required_to_execute_ = 5;

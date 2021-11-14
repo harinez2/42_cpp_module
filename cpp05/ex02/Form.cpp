@@ -43,6 +43,14 @@ void Form::beSigned(Bureaucrat& b) {
   signed_ = true;
 }
 
+void Form::execute(Bureaucrat const & executor) const {
+
+}
+
+void Form::executeForm(Form const & form) {
+
+}
+
 Form::GradeTooHighException::GradeTooHighException(const std::string& message)
     : invalid_argument(message) {}
 Form::GradeTooLowException::GradeTooLowException(const std::string& message)

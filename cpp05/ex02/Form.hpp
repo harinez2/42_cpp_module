@@ -20,6 +20,8 @@ class Form {
   int getGradeRequiredToSign() const;
   bool getSigned() const;
   void beSigned(Bureaucrat& b);
+  void execute(Bureaucrat const & executor) const;
+  void executeForm(Form const & form);
 
   class GradeTooHighException : public std::invalid_argument {
    public:
