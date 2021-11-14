@@ -13,9 +13,9 @@ class FragTrap : public ClapTrap {
   void highFivesGuys(void);
 
  protected:
-  static const int kHitPointsInitValue = 100;
-  static const int kEnergyPointsInitValue = 100;
-  static const int kAttackDamageInitValue = 30;
+  static const int kHitPointsInitValue;
+  static const int kEnergyPointsInitValue;
+  static const int kAttackDamageInitValue;
 };
 
 #endif

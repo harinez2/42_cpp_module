@@ -2,6 +2,10 @@
 
 #include <iostream>
 #include <string>
+  
+const int FragTrap::kHitPointsInitValue = 100;
+const int FragTrap::kEnergyPointsInitValue = 100;
+const int FragTrap::kAttackDamageInitValue = 30;
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
   hit_points_ = kHitPointsInitValue;

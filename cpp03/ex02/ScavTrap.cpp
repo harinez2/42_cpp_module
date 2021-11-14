@@ -3,6 +3,10 @@
 #include <iostream>
 #include <string>
 
+const int ScavTrap::kHitPointsInitValue = 100;
+const int ScavTrap::kEnergyPointsInitValue = 50;
+const int ScavTrap::kAttackDamageInitValue = 20;
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   hit_points_ = kHitPointsInitValue;
   energy_points_ = kEnergyPointsInitValue;

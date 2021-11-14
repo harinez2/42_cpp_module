@@ -3,6 +3,10 @@
 #include <iostream>
 #include <string>
 
+const int ClapTrap::kHitPointsInitValue = 10;
+const int ClapTrap::kEnergyPointsInitValue = 10;
+const int ClapTrap::kAttackDamageInitValue = 0;
+
 ClapTrap::ClapTrap(std::string name)
     : name_(name),
       hit_points_(kHitPointsInitValue),

@@ -13,9 +13,9 @@ class ScavTrap : public virtual ClapTrap {
   void guardGate(void);
 
  protected:
-  static const int kHitPointsInitValue = 100;
-  static const int kEnergyPointsInitValue = 50;
-  static const int kAttackDamageInitValue = 20;
+  static const int kHitPointsInitValue;
+  static const int kEnergyPointsInitValue;
+  static const int kAttackDamageInitValue;
 };
 
 #endif

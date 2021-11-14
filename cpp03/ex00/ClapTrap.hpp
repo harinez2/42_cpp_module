@@ -26,9 +26,9 @@ class ClapTrap {
   int energy_points_;
   int attack_damage_;
 
-  static const int kHitPointsInitValue = 10;
-  static const int kEnergyPointsInitValue = 10;
-  static const int kAttackDamageInitValue = 0;
+  static const int kHitPointsInitValue;
+  static const int kEnergyPointsInitValue;
+  static const int kAttackDamageInitValue;
 };
 
 #endif
