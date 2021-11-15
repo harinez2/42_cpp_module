@@ -12,7 +12,7 @@ class ScavTrap : public virtual ClapTrap {
   ScavTrap& operator=(const ScavTrap& obj);
   ~ScavTrap(void);
 
-  void attack(std::string const& target);
+  virtual void attack(std::string const& target);
   void guardGate(void);
 
  protected:
