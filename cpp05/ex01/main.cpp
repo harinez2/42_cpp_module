@@ -1,31 +1,37 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+#include <iostream>
+#include <exception>
+
+void test_form(const int bureaucrat_grade,
+               const int grade_required_to_sign,
+               const int grade_required_to_execute) {
+  try {
+    Bureaucrat b("A bureaucrat", bureaucrat_grade);
+    // Form f;
+    Form form("sample-form", grade_required_to_sign, grade_required_to_execute);
+    std::cout << form << std::endl;
+    form.beSigned(b);
+    std::cout << form << std::endl;
+  }
+  catch (std::exception & e) {
+    std::cerr << e.what() << std::endl;
+  }
+  std::cout << std::endl;
+}
+
 int main(void)
 {
-  try {
-    Bureaucrat b("me", 30);
-    Form f;
-    std::cout << f << std::endl;
-    b.signForm(f);
-    std::cout << f << std::endl;
-    std::cout << std::endl;
-  }
-  catch (std::exception & e) {
-    std::cerr << e.what() << std::endl;
-  }
+  // normal case
+  test_form(30, 70, 80);
 
-  try {
-    Bureaucrat b("me", 50);
-    Form f;
-    std::cout << f << std::endl;
-    b.signForm(f);
-    std::cout << f << std::endl;
-    std::cout << std::endl;
-  }
-  catch (std::exception & e) {
-    std::cerr << e.what() << std::endl;
-  }
+  // error cases
+  test_form(30, 0, 80);
+  test_form(30, 70, 0);
+  test_form(30, 151, 80);
+  test_form(30, 70, 151);
+  test_form(30, 10, 80);
 
   return 0;
 }

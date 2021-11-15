@@ -1,5 +1,9 @@
 #include "Form.hpp"
 
+#include <string>
+#include <iostream>
+#include <exception>
+
 Form::Form()
     : kName_("buy-goods"),
       kGradeRequiredToSign_(30),
@@ -40,9 +44,8 @@ int Form::getGradeRequiredToExecute() const { return kGradeRequiredToExecute_; }
 bool Form::getSigned() const { return signed_; }
 
 void Form::beSigned(Bureaucrat& b) {
-  if (b.getGrade() > kGradeRequiredToSign_)
-    throw GradeTooLowException("Cannot be signed because the bureaucrat grade is too low.");
-  signed_ = true;
+  if (b.signForm(*this) == true)
+    signed_ = true;
 }
 
 Form::GradeTooHighException::GradeTooHighException(const std::string& message)
