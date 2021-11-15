@@ -43,21 +43,27 @@ int	ClapTrap::getEnergyPoints(void) const { return energy_points_; }
 int	ClapTrap::getAttackDamage(void) const { return attack_damage_; }
 
 void ClapTrap::showStatus(void) const {
-  std::cout << "  name:" << getName() << ", hitpoint:" << getHitPoints();
+  std::cout << "  Status:  name:" << getName() << ", hitpoint:" << getHitPoints();
   std::cout << ", energy points:" << getEnergyPoints() << ", attackdamage:" << getAttackDamage();
   std::cout << std::endl;
 }
 
-void ClapTrap::attack(std::string const & target) {
-  energy_points_ -= attack_damage_;
-  std::cout << "ClapTrap " << name_ << " attacks " << target;
-  std::cout << ", causing " << attack_damage_ << " points of damage!" << std::endl;
+void ClapTrap::attack(std::string const& target) {
+  if (energy_points_ >= attack_damage_) {
+    energy_points_ -= attack_damage_;
+    std::cout << "ClapTrap " << name_ << " attacks " << target;
+    std::cout << ", causing " << attack_damage_ << " points of damage!" << std::endl;
+  } else {
+    std::cout << "Lacked energy of ClapTrap " << name_ << "!" << std::endl;
+  }
   showStatus();
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
   std::cout << "takeDamage " << amount << std::endl;
   hit_points_ -= amount;
+  if (hit_points_ < 0)
+    hit_points_ = 0;
   showStatus();
 }
 
