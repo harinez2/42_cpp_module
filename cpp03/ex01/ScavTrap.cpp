@@ -15,7 +15,11 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   showStatus();
 }
 
-ScavTrap::ScavTrap(const ScavTrap& obj) : ClapTrap(obj) {}
+ScavTrap::ScavTrap(const ScavTrap& obj) {
+  *this = obj;
+  std::cout << "ScavTrap " << name_ << " copy constructor called." << std::endl;
+  showStatus();
+}
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
   if (this != &obj) {
@@ -30,6 +34,17 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
 
 ScavTrap::~ScavTrap(void) {
   std::cout << "ScavTrap " << name_ << " destructor called." << std::endl;
+}
+
+void ScavTrap::attack(std::string const& target) {
+  if (energy_points_ >= attack_damage_) {
+    energy_points_ -= attack_damage_;
+    std::cout << "ScavTrap " << name_ << " attacks " << target;
+    std::cout << ", causing " << attack_damage_ << " points of damage!" << std::endl;
+  } else {
+    std::cout << "Lacked energy of ScavTrap " << name_ << "!" << std::endl;
+  }
+  showStatus();
 }
 
 void ScavTrap::guardGate(void) {
