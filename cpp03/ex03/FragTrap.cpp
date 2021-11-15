@@ -15,7 +15,11 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
   showStatus();
 }
 
-FragTrap::FragTrap(const FragTrap& obj) : ClapTrap(obj) {}
+FragTrap::FragTrap(const FragTrap& obj) : ClapTrap(obj) {
+  *this = obj;
+  std::cout << "FragTrap " << name_ << " copy constructor called." << std::endl;
+  showStatus();
+}
 
 FragTrap& FragTrap::operator=(const FragTrap& obj) {
   if (this != &obj) {
