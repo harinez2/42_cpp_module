@@ -8,7 +8,7 @@ class ClapTrap {
   ClapTrap(std::string name);
   ClapTrap(const ClapTrap& obj);
   ClapTrap& operator=(const ClapTrap& obj);
-  ~ClapTrap();
+  virtual ~ClapTrap();
 
   std::string getName(void) const;
   int getHitPoints(void) const;
