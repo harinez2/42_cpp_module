@@ -37,10 +37,10 @@ ClapTrap::~ClapTrap() {
   std::cout << "ClapTrap " << name_ << " destructor called." << std::endl;
 }
 
-std::string	ClapTrap::getName(void) const { return name_; }
-int	ClapTrap::getHitPoints(void) const { return hit_points_; }
-int	ClapTrap::getEnergyPoints(void) const { return energy_points_; }
-int	ClapTrap::getAttackDamage(void) const { return attack_damage_; }
+std::string ClapTrap::getName(void) const { return name_; }
+int ClapTrap::getHitPoints(void) const { return hit_points_; }
+int ClapTrap::getEnergyPoints(void) const { return energy_points_; }
+int ClapTrap::getAttackDamage(void) const { return attack_damage_; }
 
 void ClapTrap::showStatus(void) const {
   std::cout << "  Status:  name:" << getName() << ", hitpoint:" << getHitPoints();
