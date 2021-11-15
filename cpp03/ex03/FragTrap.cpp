@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-  
+
 const int FragTrap::kHitPointsInitValue_ = 100;
 const int FragTrap::kEnergyPointsInitValue_ = 100;
 const int FragTrap::kAttackDamageInitValue_ = 30;
