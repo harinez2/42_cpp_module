@@ -3,14 +3,14 @@
 #include <iostream>
 #include <string>
 
-const int FragTrap::kHitPointsInitValue = 100;
-const int FragTrap::kEnergyPointsInitValue = 100;
-const int FragTrap::kAttackDamageInitValue = 30;
+const int FragTrap::kHitPointsInitValue_ = 100;
+const int FragTrap::kEnergyPointsInitValue_ = 100;
+const int FragTrap::kAttackDamageInitValue_ = 30;
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-  hit_points_ = kHitPointsInitValue;
-  energy_points_ = kEnergyPointsInitValue;
-  attack_damage_ = kAttackDamageInitValue;
+  hit_points_ = kHitPointsInitValue_;
+  energy_points_ = kEnergyPointsInitValue_;
+  attack_damage_ = kAttackDamageInitValue_;
   std::cout << "FragTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }

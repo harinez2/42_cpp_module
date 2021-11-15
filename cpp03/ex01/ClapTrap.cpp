@@ -3,15 +3,15 @@
 #include <iostream>
 #include <string>
 
-const int ClapTrap::kHitPointsInitValue = 10;
-const int ClapTrap::kEnergyPointsInitValue = 10;
-const int ClapTrap::kAttackDamageInitValue = 0;
+const int ClapTrap::kHitPointsInitValue_ = 10;
+const int ClapTrap::kEnergyPointsInitValue_ = 10;
+const int ClapTrap::kAttackDamageInitValue_ = 0;
 
 ClapTrap::ClapTrap(std::string name)
     : name_(name),
-      hit_points_(kHitPointsInitValue),
-      energy_points_(kEnergyPointsInitValue),
-      attack_damage_(kAttackDamageInitValue) {
+      hit_points_(kHitPointsInitValue_),
+      energy_points_(kEnergyPointsInitValue_),
+      attack_damage_(kAttackDamageInitValue_) {
   std::cout << "ClapTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }
@@ -23,10 +23,12 @@ ClapTrap::ClapTrap(const ClapTrap& obj) {
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
-  name_ = obj.getName();
-  hit_points_ = obj.getHitPoints();
-  energy_points_ = obj.getEnergyPoints();
-  attack_damage_ = obj.getAttackDamage();
+  if (this != &obj) {
+    name_ = obj.getName();
+    hit_points_ = obj.getHitPoints();
+    energy_points_ = obj.getEnergyPoints();
+    attack_damage_ = obj.getAttackDamage();
+  }
   std::cout << "ClapTrap " << name_ << " operator= called." << std::endl;
   return *this;
 }

@@ -23,10 +23,12 @@ ClapTrap::ClapTrap(const ClapTrap& obj) {
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
-  name_ = obj.getName();
-  hit_points_ = obj.getHitPoints();
-  energy_points_ = obj.getEnergyPoints();
-  attack_damage_ = obj.getAttackDamage();
+  if (this != &obj) {
+    name_ = obj.getName();
+    hit_points_ = obj.getHitPoints();
+    energy_points_ = obj.getEnergyPoints();
+    attack_damage_ = obj.getAttackDamage();
+  }
   std::cout << "ClapTrap " << name_ << " operator= called." << std::endl;
   return *this;
 }

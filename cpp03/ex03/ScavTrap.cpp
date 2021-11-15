@@ -3,14 +3,14 @@
 #include <iostream>
 #include <string>
 
-const int ScavTrap::kHitPointsInitValue = 100;
-const int ScavTrap::kEnergyPointsInitValue = 50;
-const int ScavTrap::kAttackDamageInitValue = 20;
+const int ScavTrap::kHitPointsInitValue_ = 100;
+const int ScavTrap::kEnergyPointsInitValue_ = 50;
+const int ScavTrap::kAttackDamageInitValue_ = 20;
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-  hit_points_ = kHitPointsInitValue;
-  energy_points_ = kEnergyPointsInitValue;
-  attack_damage_ = kAttackDamageInitValue;
+  hit_points_ = kHitPointsInitValue_;
+  energy_points_ = kEnergyPointsInitValue_;
+  attack_damage_ = kAttackDamageInitValue_;
   std::cout << "ScavTrap " << name_ << " constructor called." << std::endl;
   showStatus();
 }
