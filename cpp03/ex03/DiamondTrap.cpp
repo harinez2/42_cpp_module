@@ -16,6 +16,26 @@ DiamondTrap::DiamondTrap(std::string name)
   showStatus();
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap& obj)
+    : ClapTrap(obj),
+      FragTrap(obj),
+      ScavTrap(obj) {
+  *this = obj;
+  std::cout << "DiamondTrap " << name_ << " copy constructor called." << std::endl;
+  showStatus();
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj) {
+  if (this != &obj) {
+    name_ = obj.getName();
+    hit_points_ = obj.getHitPoints();
+    energy_points_ = obj.getEnergyPoints();
+    attack_damage_ = obj.getAttackDamage();
+  }
+  std::cout << "DiamondTrap " << name_ << " operator= called." << std::endl;
+  return *this;
+}
+
 DiamondTrap::~DiamondTrap(void) {
   std::cout << "DiamondTrap " << name_ << " destructor called." << std::endl;
 }
