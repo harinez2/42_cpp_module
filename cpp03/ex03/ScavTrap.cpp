@@ -15,6 +15,19 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   showStatus();
 }
 
+ScavTrap::ScavTrap(const ScavTrap& obj) : ClapTrap(obj) {}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
+  if (this != &obj) {
+    name_ = obj.getName();
+    hit_points_ = obj.getHitPoints();
+    energy_points_ = obj.getEnergyPoints();
+    attack_damage_ = obj.getAttackDamage();
+  }
+  std::cout << "ScavTrap " << name_ << " operator= called." << std::endl;
+  return *this;
+}
+
 ScavTrap::~ScavTrap(void) {
   std::cout << "ScavTrap " << name_ << " destructor called." << std::endl;
 }
