@@ -1,12 +1,13 @@
 #include "DiamondTrap.hpp"
 
-int	main(void)
+int main(void)
 {
-	DiamondTrap me("me");
-	me.whoAmI();
-	me.attack("enemy");
-	me.takeDamage(10);
-	me.beRepaired(10);
-	me.highFivesGuys();
-	return 0;
+  DiamondTrap me("me");
+  me.whoAmI();
+  me.attack("enemy");
+  me.takeDamage(10);
+  me.beRepaired(10);
+  me.guardGate();
+  me.highFivesGuys();
+  return 0;
 }
