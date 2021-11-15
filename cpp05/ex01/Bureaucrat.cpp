@@ -6,9 +6,9 @@ Bureaucrat::Bureaucrat() : kName_("fresh-person"), grade_(150) {}
 Bureaucrat::Bureaucrat(const std::string name, const int grade)
     : kName_(name) {
   if (grade < 1)
-    throw Bureaucrat::GradeTooHighException("specified grade in constructor is too high");
+    throw Bureaucrat::GradeTooHighException("Specified grade in constructor is too high.");
   else if (150 < grade)
-    throw Bureaucrat::GradeTooLowException("specified grade in constructor is too low");
+    throw Bureaucrat::GradeTooLowException("Specified grade in constructor is too low.");
   grade_ = grade;
 }
 
@@ -30,13 +30,13 @@ int Bureaucrat::getGrade() const { return grade_; }
 
 void Bureaucrat::incrementGrade() {
   if (grade_ == 1)
-    throw Bureaucrat::GradeTooHighException("already highest grade");
+    throw Bureaucrat::GradeTooHighException("Already highest grade.");
   --grade_;
 }
 
 void Bureaucrat::decrementGrade() {
   if (grade_ == 150)
-    throw Bureaucrat::GradeTooLowException("already lowest grade");
+    throw Bureaucrat::GradeTooLowException("Already lowest grade.");
   ++grade_;
 }
 
@@ -49,9 +49,9 @@ void Bureaucrat::signForm(Form& form) {
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& message)
-    : invalid_argument(message) {}
+    : domain_error(message) {}
 Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& message)
-    : invalid_argument(message) {}
+    : domain_error(message) {}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
   os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
