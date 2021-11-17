@@ -4,16 +4,17 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
-{
-private:
-	Brain*			brain;
-public:
-	Cat(void);
-	Cat&			operator=(const Cat& obj);
-	virtual ~Cat(void);
+class Cat : public Animal {
+ public:
+  Cat();
+  Cat(const Cat& obj);
+  Cat& operator=(const Cat& obj);
+  virtual ~Cat();
 
-	virtual void	makeSound(void) const;
+  virtual void makeSound() const;
+
+private:
+  Brain* brain;
 };
 
 #endif
