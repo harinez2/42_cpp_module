@@ -5,11 +5,11 @@
 
 class ShrubberyCreationForm : public Form {
  public:
-
-
- private:
-  static const int grade_required_to_sign_;
-  static const int grade_required_to_execute_;
+  ShrubberyCreationForm();
+  ShrubberyCreationForm(const std::string name);
+  ShrubberyCreationForm(const ShrubberyCreationForm& obj);
+  ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
+  ~ShrubberyCreationForm();
 };
 
 #endif
