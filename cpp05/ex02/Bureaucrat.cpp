@@ -52,7 +52,7 @@ void Bureaucrat::executeForm(Form const& form) const {
   if (grade_ > form.getGradeRequiredToExecute())
     throw GradeTooLowException(
       kName_ + " cannot execute " + form.getName() + " because the bureaucrat grade is too low.");
-  std::cout << kName_ << " executes " << form.getName() << std::endl;
+  std::cout << kName_ << " executes " << form.getName() << "." << std::endl;
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& message)
