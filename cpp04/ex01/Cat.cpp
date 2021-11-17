@@ -1,26 +1,33 @@
 #include "Cat.hpp"
+
 #include <iostream>
 
-Cat::Cat(void)
-{
-	std::cout << "Cat construcotr called" << std::endl;
-	type = "Cat";
-	brain = new Brain();
+Cat::Cat() {
+  type = "Cat";
+  brain = new Brain();
+  std::cout << "Cat " << type << " constructor called." << std::endl;
 }
 
-Cat&	Cat::operator=(const Cat& obj)
-{
-	brain = new Brain(obj.brain);
-	return *this;
+Cat::Cat(const Cat& obj) {
+  *this = obj;
+  std::cout << "Cat " << type << " copy constructor called." << std::endl;
 }
 
-Cat::~Cat(void)
-{
-	delete brain;
-	std::cout << "Cat destrucotr called" << std::endl;
+Cat& Cat::operator=(const Cat& obj) {
+  if (this != &obj) {
+    type = obj.type;
+    brain = new Brain(obj.brain);
+  }
+  std::cout << "Cat " << type << " operator= called." << std::endl;
+  return *this;
 }
 
-void	Cat::makeSound(void) const
-{
-	std::cout << "Meow" << std::endl;
+Cat::~Cat() {
+  delete brain;
+  brain = NULL;
+  std::cout << "Cat " << type << " destructor called." << std::endl;
+}
+
+void Cat::makeSound() const {
+  std::cout << "Meow" << std::endl;
 }
