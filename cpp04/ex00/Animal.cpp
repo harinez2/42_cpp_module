@@ -8,15 +8,15 @@ Animal::Animal() : type("Animal") {
 }
 
 Animal::Animal(const Animal& obj) {
-  *this = obj;
   std::cout << "Animal " << type << " copy constructor called." << std::endl;
+  *this = obj;
 }
 
 Animal& Animal::operator=(const Animal& obj) {
+  std::cout << "Animal " << type << " operator= called." << std::endl;
   if (this != &obj) {
     type = obj.type;
   }
-  std::cout << "Animal " << type << " operator= called." << std::endl;
   return *this;
 }
 
