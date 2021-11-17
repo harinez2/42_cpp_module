@@ -1,27 +1,32 @@
 #include "Form.hpp"
 
+#include <string>
+#include <iostream>
+#include <exception>
+
 Form::Form()
     : kName_("buy-goods"),
-      grade_required_to_sign_(30),
-      grade_required_to_execute_(40),
+      kGradeRequiredToSign_(30),
+      kGradeRequiredToExecute_(40),
       signed_(false) {}
 
 Form::Form(const std::string name,
-    const int grade_required_to_sign, const int grade_required_to_execute)
+           const int grade_required_to_sign,
+           const int grade_required_to_execute)
     : kName_(name),
-      grade_required_to_sign_(grade_required_to_sign),
-      grade_required_to_execute_(grade_required_to_execute),
+      kGradeRequiredToSign_(grade_required_to_sign),
+      kGradeRequiredToExecute_(grade_required_to_execute),
       signed_(false) {
   if (grade_required_to_sign < 1 || grade_required_to_execute < 1)
-    throw Form::GradeTooHighException("specified grade in constructor is too high");
-  else if (150 < grade_required_to_sign || 150 < grade_required_to_sign)
-    throw Form::GradeTooLowException("specified grade in constructor is too low");
+    throw GradeTooHighException("Specified grade in constructor is too high.");
+  else if (150 < grade_required_to_sign || 150 < grade_required_to_execute)
+    throw GradeTooLowException("Specified grade in constructor is too low.");
 }
 
 Form::Form(const Form& obj)
     : kName_(obj.kName_),
-      grade_required_to_sign_(obj.grade_required_to_sign_),
-      grade_required_to_execute_(obj.grade_required_to_execute_),
+      kGradeRequiredToSign_(obj.kGradeRequiredToSign_),
+      kGradeRequiredToExecute_(obj.kGradeRequiredToExecute_),
       signed_(obj.signed_) {}
 
 Form& Form::operator=(const Form& obj) {
@@ -34,13 +39,13 @@ Form& Form::operator=(const Form& obj) {
 Form::~Form() {}
 
 std::string Form::getName() const { return kName_; }
-int Form::getGradeRequiredToSign() const { return grade_required_to_sign_; }
+int Form::getGradeRequiredToSign() const { return kGradeRequiredToSign_; }
+int Form::getGradeRequiredToExecute() const { return kGradeRequiredToExecute_; }
 bool Form::getSigned() const { return signed_; }
 
 void Form::beSigned(Bureaucrat& b) {
-  if (b.getGrade() > grade_required_to_sign_)
-    throw GradeTooLowException("cannot be sign because the bureaucrat grade is too low");
-  signed_ = true;
+  if (b.signForm(*this) == true)
+    signed_ = true;
 }
 
 void Form::execute(Bureaucrat const & executor) const {
@@ -52,11 +57,14 @@ void Form::executeForm(Form const & form) {
 }
 
 Form::GradeTooHighException::GradeTooHighException(const std::string& message)
-    : invalid_argument(message) {}
+    : domain_error(message) {}
 Form::GradeTooLowException::GradeTooLowException(const std::string& message)
-    : invalid_argument(message) {}
+    : domain_error(message) {}
 
 std::ostream& operator<<(std::ostream& os, const Form& obj) {
-  os << "Form " << obj.getName() << ", signed status is " << obj.getSigned();
+  os << "Form " << obj.getName()
+      << ", grade required to sign is " << obj.getGradeRequiredToSign()
+      << ", grade required to execute is " << obj.getGradeRequiredToExecute()
+      << ", signed status is " << obj.getSigned();
   return os;
 }

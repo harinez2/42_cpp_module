@@ -20,13 +20,13 @@ class Bureaucrat {
   void incrementGrade();
   void decrementGrade();
 
-  void signForm(Form& form);
+  bool signForm(Form& form);
 
-  class GradeTooHighException : public std::invalid_argument {
+  class GradeTooHighException : public std::domain_error {
    public:
     GradeTooHighException(const std::string& message);
   };
-  class GradeTooLowException : public std::invalid_argument {
+  class GradeTooLowException : public std::domain_error {
    public:
     GradeTooLowException(const std::string& message);
   };

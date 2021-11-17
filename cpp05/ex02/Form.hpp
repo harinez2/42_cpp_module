@@ -18,24 +18,26 @@ class Form {
 
   std::string getName() const;
   int getGradeRequiredToSign() const;
+  int getGradeRequiredToExecute() const;
   bool getSigned() const;
+
   void beSigned(Bureaucrat& b);
   void execute(Bureaucrat const & executor) const;
   void executeForm(Form const & form);
 
-  class GradeTooHighException : public std::invalid_argument {
+  class GradeTooHighException : public std::domain_error {
    public:
     GradeTooHighException(const std::string& message);
   };
-  class GradeTooLowException : public std::invalid_argument {
+  class GradeTooLowException : public std::domain_error {
    public:
     GradeTooLowException(const std::string& message);
   };
 
  private:
   const std::string kName_;
-  const int grade_required_to_sign_;
-  const int grade_required_to_execute_;
+  const int kGradeRequiredToSign_;
+  const int kGradeRequiredToExecute_;
   bool signed_;
 };
 
