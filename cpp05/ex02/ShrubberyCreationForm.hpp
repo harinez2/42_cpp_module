@@ -10,6 +10,8 @@ class ShrubberyCreationForm : public Form {
   ShrubberyCreationForm(const ShrubberyCreationForm& obj);
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
   ~ShrubberyCreationForm();
+
+  void execute(Bureaucrat const& executor) const;
 };
 
 #endif

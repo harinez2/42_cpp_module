@@ -1,12 +1,10 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-void test_shruberry(const int bureaucrat_grade,
-                    const int grade_required_to_sign,
-                    const int grade_required_to_execute) {
+void test_shruberry(const int bureaucrat_grade) {
   try {
     Bureaucrat b("A bureaucrat", bureaucrat_grade);
-    Form form("shruberry", grade_required_to_sign, grade_required_to_execute);
+    ShrubberyCreationForm form("shruberry");
     std::cout << form << std::endl;
     form.beSigned(b);
     std::cout << form << std::endl;
@@ -22,7 +20,7 @@ void test_shruberry(const int bureaucrat_grade,
 int main(void)
 {
   // normal case
-  test_shruberry(30, 70, 80);
+  test_shruberry(30);
 
   return 0;
 }
