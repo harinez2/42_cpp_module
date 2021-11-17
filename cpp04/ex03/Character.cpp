@@ -1,63 +1,69 @@
 #include "Character.hpp"
 
-Character::Character(const std::string name) : name(name)
-{
-	for (int i = 0; i < slot_max; ++i)
-	{
-		slot[i] = NULL;
-		equipped[i] = false;
-	}
+#include <iostream>
+#include <string>
+
+Character::Character(const std::string name) : name_(name) {
+  std::cout << "Character " << name_ << " constructor called." << std::endl;
+  for (int i = 0; i < kSlotMax_; ++i) {
+    slot_[i] = NULL;
+    equipped_[i] = false;
+  }
 }
 
-Character::Character(const Character & obj)
-{
-	*this = obj;
+Character::Character(const Character & obj) {
+  std::cout << "Character " << name_ << " copy constructor called." << std::endl;
+  *this = obj;
 }
 
-Character& Character::operator=(const Character& obj)
-{
-	if (this != &obj)
-	{
-		name = obj.name;
-		for (int i = 0; i < slot_max; ++i)
-		{
-			slot[i] = obj.slot[i]->clone();
-			equipped[i] = obj.equipped[i];
-		}
-	}
-	return *this;
+Character& Character::operator=(const Character& obj) {
+  std::cout << "Character " << name_ << " operator= called." << std::endl;
+  if (this != &obj) {
+    name_ = obj.name_;
+    for (int i = 0; i < kSlotMax_; ++i) {
+      if (!slot_[i])
+        delete slot_[i];
+      slot_[i] = obj.slot_[i]->clone();
+      equipped_[i] = obj.equipped_[i];
+    }
+  }
+  return *this;
 }
 
-Character::~Character()
-{
+Character::~Character() {
+  std::cout << "Character " << name_ << " destructor called." << std::endl;
+  for (int i = 0; i < kSlotMax_; ++i)
+    if (!slot_[i])
+      delete slot_[i];
 }
 
-std::string const &	Character::getName() const
-{
-	return name;
+std::string const& Character::getName() const { return name_; }
+
+void Character::equip(AMateria* m) {
+  std::cout << "Character equip() called." << std::endl;
+  for (int i = 0; i < kSlotMax_; ++i) {
+    if (slot_[i] == NULL) {
+      slot_[i] = m;
+      equipped_[i] = true;
+      return;
+    }
+  }
+  delete m;
 }
 
-void	Character::equip(AMateria* m)
-{
-	for (int i = 0; i < slot_max; ++i)
-	{
-		if (slot[i] == NULL)
-		{
-			slot[i] = m;
-			equipped[i] = true;
-			return;
-		}
-	}
-	delete m;
+void Character::unequip(int idx) {
+  std::cout << "Character unequip() called." << std::endl;
+  if (idx < 0 || kSlotMax_ <= idx)
+    return;
+
+  equipped_[idx] = false;
 }
 
-void	Character::unequip(int idx)
-{
-	equipped[idx] = false;
-}
+void Character::use(int idx, ICharacter& target) {
+  std::cout << "Character use() called." << std::endl;
+  if (idx < 0 || kSlotMax_ <= idx)
+    return;
 
-void	Character::use(int idx, ICharacter& target)
-{
-	if (equipped[idx] == true)
-		slot[idx]->use(target);
+  if (equipped_[idx] == true)
+    slot_[idx]->use(target);
 }

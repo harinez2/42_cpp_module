@@ -1,18 +1,19 @@
 #ifndef ICE_HPP
 #define ICE_HPP
 
-#include <string>
 #include "AMateria.hpp"
 
-class Ice : public AMateria
-{
-protected:
+#include <string>
 
-public:
-	Ice();
+class Ice : public AMateria {
+ public:
+  Ice();
+  Ice(const Ice& obj);
+  Ice& operator=(const Ice& obj);
+  virtual ~Ice();
 
-	virtual AMateria*		clone() const;
-	virtual void			use(ICharacter& target);
+  virtual AMateria* clone() const;
+  virtual void use(ICharacter& target);
 };
 
 #endif

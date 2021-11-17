@@ -4,18 +4,21 @@
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 
-class MateriaSource : public IMateriaSource
-{
-private:
-	static const int		slot_max = 4;
-	int						slot_idx;
-	AMateria*				slot[slot_max];
-public:
-	MateriaSource();
-	~MateriaSource();
+class MateriaSource : public IMateriaSource {
+ public:
+  MateriaSource();
+  MateriaSource(const MateriaSource& obj);
+  MateriaSource& operator=(const MateriaSource& obj);
+  virtual ~MateriaSource();
 
-	virtual void			learnMateria(AMateria*);
-	virtual AMateria*		createMateria(std::string const & type);
+  virtual void learnMateria(AMateria*);
+  virtual AMateria* createMateria(std::string const& type);
+
+ private:
+  static const int kSlotMax_ = 4;
+  int slot_idx_;
+  AMateria* slot_[kSlotMax_];
+
 };
 
 #endif
