@@ -21,6 +21,9 @@ int main(void)
 {
   // normal case
   test_shruberry(30);
+  // error case
+  test_shruberry(146);
+  test_shruberry(138);
 
   return 0;
 }
