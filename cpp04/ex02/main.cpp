@@ -16,6 +16,8 @@ void test_simple() {
 
 void test_error() {
   // const Animal* i = new Animal();  // compile error
+  
+  // Animal a;  // compile error
 }
 
 int main(void)
