@@ -24,7 +24,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 MateriaSource::~MateriaSource() {
   std::cout << "MateriaSource destructor called." << std::endl;
   while (slot_idx_ > 0)
-   delete slot_[--slot_idx_];
+    delete slot_[--slot_idx_];
 }
 
 void MateriaSource::learnMateria(AMateria* m) {

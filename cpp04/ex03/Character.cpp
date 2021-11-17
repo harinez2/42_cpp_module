@@ -33,7 +33,7 @@ Character& Character::operator=(const Character& obj) {
 Character::~Character() {
   std::cout << "Character " << name_ << " destructor called." << std::endl;
   for (int i = 0; i < kSlotMax_; ++i)
-    if (!slot_[i])
+    if (slot_[i])
       delete slot_[i];
 }
 
@@ -41,6 +41,9 @@ std::string const& Character::getName() const { return name_; }
 
 void Character::equip(AMateria* m) {
   std::cout << "Character equip() called." << std::endl;
+  if (!m)
+    return;
+
   for (int i = 0; i < kSlotMax_; ++i) {
     if (slot_[i] == NULL) {
       slot_[i] = m;
