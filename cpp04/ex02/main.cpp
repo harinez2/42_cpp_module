@@ -4,16 +4,23 @@
 
 #include <iostream>
 
-int	main(void)
+void test_simple() {
+  std::cout << "-----test_simple" << std::endl;
+  const Animal* j = new Dog();
+  const Animal* i = new Cat();
+
+  delete j;//should not create a leak
+  delete i;
+  std::cout << std::endl;
+}
+
+void test_error() {
+  // const Animal* i = new Animal();  // compile error
+}
+
+int main(void)
 {
-	// impossible to instantiate Animal class
-	// const Animal* a = new Animal();
-
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-
-	delete j;//should not create a leak
-	delete i;
-
-	return 0;
+  test_simple();
+  test_error();
+  return 0;
 }
