@@ -28,7 +28,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   std::string filename = "sample.txt";
   std::ofstream ofs("sample.txt");//, std::ios::out);
   std::string writing_text;
-      writing_text += "        .\n";
+      writing_text += "      .\n";
       writing_text += "   __/ \\__\n";
       writing_text += "   \\     /\n";
       writing_text += "   /.\'o\'.\\\n";
