@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
   if (this == &obj) {
-    this->grade_ = obj.grade_;
+    grade_ = obj.grade_;
   }
   return *this;
 }
@@ -46,6 +46,13 @@ bool Bureaucrat::signForm(Form& form) {
       kName_ + " cannot sign " + form.getName() + " because the bureaucrat grade is too low.");
   std::cout << kName_ << " signs " << form.getName() << "." << std::endl;
   return true;
+}
+
+void Bureaucrat::executeForm(Form const& form) const {
+  if (grade_ > form.getGradeRequiredToExecute())
+    throw GradeTooLowException(
+      kName_ + " cannot execute " + form.getName() + " because the bureaucrat grade is too low.");
+  std::cout << kName_ << " executes " << form.getName() << std::endl;
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& message)

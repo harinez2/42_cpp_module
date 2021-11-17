@@ -44,21 +44,22 @@ int Form::getGradeRequiredToExecute() const { return kGradeRequiredToExecute_; }
 bool Form::getSigned() const { return signed_; }
 
 void Form::beSigned(Bureaucrat& b) {
-  if (b.signForm(*this) == true)
-    signed_ = true;
+  if (signed_)
+    return;
+  signed_ = b.signForm(*this);
 }
 
-void Form::execute(Bureaucrat const & executor) const {
-
-}
-
-void Form::executeForm(Form const & form) {
-
+void Form::execute(Bureaucrat const& executor) const {
+  if (!signed_)
+    throw FormNotSignedException("Form " + kName_ + " is not signed.");
+  executor.executeForm(*this);
 }
 
 Form::GradeTooHighException::GradeTooHighException(const std::string& message)
     : domain_error(message) {}
 Form::GradeTooLowException::GradeTooLowException(const std::string& message)
+    : domain_error(message) {}
+Form::FormNotSignedException::FormNotSignedException(const std::string& message)
     : domain_error(message) {}
 
 std::ostream& operator<<(std::ostream& os, const Form& obj) {

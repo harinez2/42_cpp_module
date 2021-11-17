@@ -3,11 +3,13 @@
 
 #include "Form.hpp"
 
-class RobotomyRequestForm : public Form {
-
- private:
-  static const int grade_required_to_sign_;
-  static const int grade_required_to_execute_;
+class PresidentialPardonForm : public Form {
+ public:
+  PresidentialPardonForm();
+  PresidentialPardonForm(const std::string name);
+  PresidentialPardonForm(const PresidentialPardonForm& obj);
+  PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
+  ~PresidentialPardonForm();
 };
 
 #endif

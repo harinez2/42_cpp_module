@@ -14,7 +14,7 @@ class Form {
     const int grade_required_to_sign, const int grade_required_to_execute);
   Form(const Form& obj);
   Form& operator=(const Form& obj);
-  ~Form();
+  virtual ~Form();
 
   std::string getName() const;
   int getGradeRequiredToSign() const;
@@ -22,8 +22,7 @@ class Form {
   bool getSigned() const;
 
   void beSigned(Bureaucrat& b);
-  void execute(Bureaucrat const& executor) const;
-  void executeForm(Form const & form);
+  virtual void execute(Bureaucrat const& executor) const;
 
   class GradeTooHighException : public std::domain_error {
    public:
@@ -32,6 +31,10 @@ class Form {
   class GradeTooLowException : public std::domain_error {
    public:
     GradeTooLowException(const std::string& message);
+  };
+  class FormNotSignedException : public std::domain_error {
+   public:
+    FormNotSignedException(const std::string& message);
   };
 
  private:

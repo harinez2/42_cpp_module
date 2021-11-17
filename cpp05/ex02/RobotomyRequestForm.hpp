@@ -4,10 +4,12 @@
 #include "Form.hpp"
 
 class RobotomyRequestForm : public Form {
-
- private:
-  static const int grade_required_to_sign_;
-  static const int grade_required_to_execute_;
+ public:
+  RobotomyRequestForm();
+  RobotomyRequestForm(const std::string name);
+  RobotomyRequestForm(const RobotomyRequestForm& obj);
+  RobotomyRequestForm& operator=(const RobotomyRequestForm& obj);
+  ~RobotomyRequestForm();
 };
 
 #endif

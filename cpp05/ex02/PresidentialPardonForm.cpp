@@ -1,4 +1,20 @@
 #include "PresidentialPardonForm.hpp"
 
-const int RobotomyRequestForm::grade_required_to_sign_ = 25;
-const int RobotomyRequestForm::grade_required_to_execute_ = 5;
+PresidentialPardonForm::PresidentialPardonForm()
+    : Form("home", 25, 5) {}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string name)
+    : Form(name, 25, 5) {}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& obj) {
+  *this = obj;
+}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& obj) {
+  if (this != &obj) {
+
+  }
+  return *this;
+}
+
+PresidentialPardonForm::~PresidentialPardonForm() {}
