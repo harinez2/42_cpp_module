@@ -7,7 +7,6 @@ class Brain {
  public:
   Brain();
   Brain(const Brain& obj);
-  Brain(const Brain* obj);
   Brain& operator=(const Brain& obj);
   virtual ~Brain();
 

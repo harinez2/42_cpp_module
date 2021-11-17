@@ -4,27 +4,26 @@
 
 Dog::Dog() {
   type = "Dog";
-  brain = new Brain();
   std::cout << "Dog " << type << " constructor called." << std::endl;
+  brain = new Brain();
 }
 
 Dog::Dog(const Dog& obj) {
-  *this = obj;
   std::cout << "Dog " << type << " copy constructor called." << std::endl;
+  *this = obj;
 }
 
 Dog& Dog::operator=(const Dog& obj) {
+  std::cout << "Dog " << type << " operator= called." << std::endl;
   if (this != &obj) {
     type = obj.type;
-    brain = new Brain(obj.brain);
+    brain = new Brain(*obj.brain);
   }
-  std::cout << "Dog " << type << " operator= called." << std::endl;
   return *this;
 }
 
 Dog::~Dog() {
   delete brain;
-  brain = NULL;
   std::cout << "Dog " << type << " destructor called." << std::endl;
 }
 
