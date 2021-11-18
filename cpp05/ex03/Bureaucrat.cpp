@@ -12,12 +12,12 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade)
   grade_ = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : kName_(obj.kName_) {
   *this = obj;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
-  if (this == &obj) {
+  if (this != &obj) {
     grade_ = obj.grade_;
   }
   return *this;
@@ -40,13 +40,13 @@ void Bureaucrat::decrementGrade() {
   ++grade_;
 }
 
-bool Bureaucrat::signForm(Form& form) {
-  if (grade_ > form.getGradeRequiredToSign())
-    throw GradeTooLowException(
-      kName_ + " cannot sign " + form.getName() + " because the bureaucrat grade is too low.");
-  std::cout << kName_ << " signs " << form.getName() << "." << std::endl;
-  return true;
-}
+void Bureaucrat::signForm(Form& form) {
+  try {
+    form.beSigned(*this);
+    std::cout << kName_ << " signs " << form.getName() << "." << std::endl;
+  } catch (std::exception& e) {
+    std::cerr << e.what() << std::endl;
+  }
 
 void Bureaucrat::executeForm(Form const& form) const {
   if (grade_ > form.getGradeRequiredToExecute())
@@ -61,6 +61,6 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& messag
     : domain_error(message) {}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
-  os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+  os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
   return os;
 }
