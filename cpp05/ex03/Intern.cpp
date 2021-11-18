@@ -6,6 +6,12 @@
 
 #include <iostream>
 
+const std::string Intern::form_name_lst_[3] = {
+  "home",
+  "robotomy request",
+  "presidential pardon"
+};
+
 Intern::Intern() {}
 
 Intern::Intern(const Intern& obj) {
@@ -20,29 +26,21 @@ Intern& Intern::operator=(const Intern& obj) {
 
 Intern::~Intern() {}
 
-  enum form_num {
-    ShrubberyCreationForm,
-    RobotomyRequestForm,
-    PresidentialPardonForm
-  };
-  std::string form_name_lst[3] = {
-    "home",
-    "robotomy request",
-    "presidential pardon"
-  };
-
-Form* Intern::makeForm(const std::string& form_name, const std::string& target_form) {
+Form* Intern::makeForm(const std::string& form_name, const std::string& target) {
   Form* form;
-  switch (getFormCode(target_form)) {
-    case ShrubberyCreationForm:
-      form = new class ShrubberyCreationForm(form_name);
+  switch (getFormCode(form_name)) {
+    case kShrubberyCreationForm:
+      form = new class ShrubberyCreationForm(target);
       break;
-    case RobotomyRequestForm:
-      form = new class RobotomyRequestForm(form_name);
+    case kRobotomyRequestForm:
+      form = new class RobotomyRequestForm(target);
       break;
-    case PresidentialPardonForm:
-      form = new class PresidentialPardonForm(form_name);
+    case kPresidentialPardonForm:
+      form = new class PresidentialPardonForm(target);
       break;
+    default:
+      std::cerr << "No such form." << std::endl;
+      return NULL;
   }
   std::cout << "Intern creates " << form->getName() << std::endl;
   return form;
@@ -50,7 +48,7 @@ Form* Intern::makeForm(const std::string& form_name, const std::string& target_f
 
 int Intern::getFormCode(const std::string& form_name) {
   for (int i = 0; i < 3; ++i)
-    if (form_name_lst[i] == form_name)
+    if (form_name_lst_[i] == form_name)
       return i;
   return -1;
 }

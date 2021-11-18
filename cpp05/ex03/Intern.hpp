@@ -16,6 +16,13 @@ class Intern {
 
  private:
   int getFormCode(const std::string& form_name);
+  
+  enum FormNum_ {
+    kShrubberyCreationForm,
+    kRobotomyRequestForm,
+    kPresidentialPardonForm
+  };
+  static const std::string form_name_lst_[3];
 };
 
 #endif
