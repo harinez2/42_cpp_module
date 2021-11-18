@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade)
   grade_ = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) : kName_("fresh-person") {
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : kName_(obj.kName_) {
   *this = obj;
 }
 
