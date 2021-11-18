@@ -1,6 +1,8 @@
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
+#include "Form.hpp"
+
 #include <string>
 
 class Intern {

@@ -4,7 +4,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-
 #include <iostream>
 
 Intern::Intern() {}
@@ -36,13 +35,13 @@ Form* Intern::makeForm(const std::string& form_name, const std::string& target_f
   Form* form;
   switch (getFormCode(target_form)) {
     case ShrubberyCreationForm:
-      form = new ShrubberyCreationForm::ShrubberyCreationForm();
+      form = new class ShrubberyCreationForm(form_name);
       break;
     case RobotomyRequestForm:
-      form = new RobotomyRequestForm::RobotomyRequestForm();
+      form = new class RobotomyRequestForm(form_name);
       break;
     case PresidentialPardonForm:
-      form = new PresidentialPardonForm::PresidentialPardonForm();
+      form = new class PresidentialPardonForm(form_name);
       break;
   }
   std::cout << "Intern creates " << form->getName() << std::endl;

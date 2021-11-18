@@ -9,4 +9,7 @@ int main(void) {
   rrf = someRandomIntern.makeForm("robotomy request", "Bender");
   rrf->beSigned(b);
   rrf->execute(b);
+  rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+  rrf->beSigned(b);
+  rrf->execute(b);
 }
