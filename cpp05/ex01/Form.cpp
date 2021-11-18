@@ -44,8 +44,10 @@ int Form::getGradeRequiredToExecute() const { return kGradeRequiredToExecute_; }
 bool Form::getSigned() const { return signed_; }
 
 void Form::beSigned(Bureaucrat& b) {
-  if (b.signForm(*this) == true)
-    signed_ = true;
+  if (kGradeRequiredToSign_ < b.getGrade())
+    throw GradeTooLowException("Required bureaucrat grade to sign is too low.");
+  signed_ = true;
+  std::cout << "Form " << getName() << " is signed by " << b.getName() << std::endl;
 }
 
 Form::GradeTooHighException::GradeTooHighException(const std::string& message)

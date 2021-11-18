@@ -12,7 +12,7 @@ void test_form(const int bureaucrat_grade,
     // Form f;
     Form form("sample-form", grade_required_to_sign, grade_required_to_execute);
     std::cout << form << std::endl;
-    form.beSigned(b);
+    b.signForm(form);
     std::cout << form << std::endl;
   }
   catch (std::exception & e) {
