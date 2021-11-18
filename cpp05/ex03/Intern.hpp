@@ -10,10 +10,10 @@ class Intern {
   Intern& operator=(const Intern& obj);
   ~Intern();
 
-  void makeForm(std::string name, std::string target);
+  Form* makeForm(const std::string& form_name, const std::string& target_form);
 
  private:
-  std::string name_;
+  int getFormCode(const std::string& form_name);
 };
 
 #endif
