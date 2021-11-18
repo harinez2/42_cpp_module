@@ -2,24 +2,7 @@
 
 #include <iostream>
 
-void test_bureaucrat_basic(const std::string& name, int initial_grade) {
-  try {
-    Bureaucrat b(name, initial_grade);
-    std::cout << b << std::endl;
-    b.incrementGrade();
-    std::cout << b << std::endl;
-    b.decrementGrade();
-    std::cout << b << std::endl;
-    b.decrementGrade();
-    std::cout << b << std::endl;
-  }
-  catch (std::exception & e) {
-    std::cerr << e.what() << std::endl;
-  }
-  std::cout << std::endl;
-}
-
-void test_bureaucrat_copyconstructor(const std::string& name, int initial_grade) {
+void test_bureaucrat_canonicals(const std::string& name, int initial_grade) {
   try {
     Bureaucrat b(name, initial_grade);
     std::cout << b << std::endl;
@@ -50,10 +33,29 @@ void test_bureaucrat_copyconstructor(const std::string& name, int initial_grade)
   std::cout << std::endl;
 }
 
+void test_bureaucrat_basic(const std::string& name, int initial_grade) {
+  try {
+    Bureaucrat b(name, initial_grade);
+    std::cout << b << std::endl;
+    b.incrementGrade();
+    std::cout << b << std::endl;
+    b.decrementGrade();
+    std::cout << b << std::endl;
+    b.decrementGrade();
+    std::cout << b << std::endl;
+  }
+  catch (std::exception & e) {
+    std::cerr << e.what() << std::endl;
+  }
+  std::cout << std::endl;
+}
+
 int main(void)
 {
   // normal case
+  test_bureaucrat_canonicals("me", 10);
   test_bureaucrat_basic("me", 10);
+  std::cout << "-------------" << std::endl;
 
   // error cases
   test_bureaucrat_basic("me", -1);
@@ -62,7 +64,5 @@ int main(void)
   test_bureaucrat_basic("me", 1);
   test_bureaucrat_basic("me", 150);
 
-  // normal case
-  test_bureaucrat_copyconstructor("me", 10);
   return 0;
 }
