@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void test_bureaaucrat(const std::string& name, int initial_grade) {
+void test_bureaucrat_basic(const std::string& name, int initial_grade) {
   try {
     Bureaucrat b(name, initial_grade);
     std::cout << b << std::endl;
@@ -19,16 +19,50 @@ void test_bureaaucrat(const std::string& name, int initial_grade) {
   std::cout << std::endl;
 }
 
+void test_bureaucrat_copyconstructor(const std::string& name, int initial_grade) {
+  try {
+    Bureaucrat b(name, initial_grade);
+    std::cout << b << std::endl;
+    b.incrementGrade();
+    std::cout << b << std::endl;
+    b.decrementGrade();
+    std::cout << b << std::endl;
+
+    Bureaucrat c(b);
+    std::cout << c << std::endl;
+    c.incrementGrade();
+    std::cout << c << std::endl;
+    c.decrementGrade();
+    std::cout << c << std::endl;
+
+    Bureaucrat d;
+    b.incrementGrade();
+    d = b;
+    std::cout << d << std::endl;
+    d.incrementGrade();
+    std::cout << d << std::endl;
+    d.decrementGrade();
+    std::cout << d << std::endl;
+  }
+  catch (std::exception & e) {
+    std::cerr << e.what() << std::endl;
+  }
+  std::cout << std::endl;
+}
+
 int main(void)
 {
   // normal case
-  test_bureaaucrat("me", 10);
+  test_bureaucrat_basic("me", 10);
 
   // error cases
-  test_bureaaucrat("me", 0);
-  test_bureaaucrat("me", 151);
-  test_bureaaucrat("me", 1);
-  test_bureaaucrat("me", 150);
+  test_bureaucrat_basic("me", -1);
+  test_bureaucrat_basic("me", 0);
+  test_bureaucrat_basic("me", 151);
+  test_bureaucrat_basic("me", 1);
+  test_bureaucrat_basic("me", 150);
 
+  // normal case
+  test_bureaucrat_copyconstructor("me", 10);
   return 0;
 }
