@@ -12,13 +12,13 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade)
   grade_ = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : kName_("fresh-person") {
   *this = obj;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
-  if (this == &obj) {
-    this->grade_ = obj.grade_;
+  if (this != &obj) {
+    grade_ = obj.grade_;
   }
   return *this;
 }
@@ -54,6 +54,6 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& messag
     : domain_error(message) {}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
-  os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+  os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
   return os;
 }
