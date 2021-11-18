@@ -20,7 +20,7 @@ class Bureaucrat {
 
   void incrementGrade();
   void decrementGrade();
-  bool signForm(Form& form);
+  void signForm(Form& form);
 
   class GradeTooHighException : public std::domain_error {
    public:

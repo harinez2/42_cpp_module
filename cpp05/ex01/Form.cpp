@@ -5,7 +5,7 @@
 #include <exception>
 
 Form::Form()
-    : kName_("buy-goods"),
+    : kName_("new-form"),
       kGradeRequiredToSign_(30),
       kGradeRequiredToExecute_(40),
       signed_(false) {}
@@ -30,8 +30,8 @@ Form::Form(const Form& obj)
       signed_(obj.signed_) {}
 
 Form& Form::operator=(const Form& obj) {
-  if (this == &obj) {
-    this->signed_ = obj.signed_;
+  if (this != &obj) {
+    signed_ = obj.signed_;
   }
   return *this;
 }
@@ -59,6 +59,6 @@ std::ostream& operator<<(std::ostream& os, const Form& obj) {
   os << "Form " << obj.getName()
       << ", grade required to sign is " << obj.getGradeRequiredToSign()
       << ", grade required to execute is " << obj.getGradeRequiredToExecute()
-      << ", signed status is " << obj.getSigned();
+      << ", signed status is " << obj.getSigned() << ".";
   return os;
 }
