@@ -1,15 +1,36 @@
 #include "Intern.hpp"
 #include "Form.hpp"
 
-int main(void) {
+void test_intern(
+    std::string bureaucrat_name,
+    int bureaucrat_grade,
+    std::string form_name,
+    std::string target) {
   Intern someRandomIntern;
   Form* rrf;
-  Bureaucrat b("A bureaucrat", 10);
+  Bureaucrat b(bureaucrat_name, bureaucrat_grade);
 
-  rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-  rrf->beSigned(b);
-  rrf->execute(b);
-  rrf = someRandomIntern.makeForm("home", "nice one");
-  rrf->beSigned(b);
-  rrf->execute(b);
+  rrf = someRandomIntern.makeForm(form_name, target);
+  if (rrf) {
+    try {
+      rrf->beSigned(b);
+      rrf->execute(b);
+    }
+    catch (std::exception & e) {
+      std::cerr << e.what() << std::endl;
+    }
+  }
+  delete rrf;
+  std::cout << "------------------" << std::endl;
+}
+
+int main(void) {
+  // success case
+  test_intern("A bureaucrat", 10, "robotomy request", "Bender");
+  test_intern("A bureaucrat", 10, "home", "nice one");
+  test_intern("A bureaucrat", 5, "presidential pardon", "plzzzz");
+
+  // error case
+  test_intern("A bureaucrat", 5, "dummy", "plzzzz");
+  test_intern("A bureaucrat", 150, "presidential pardon", "plzzzz");
 }
