@@ -12,6 +12,9 @@ class ShrubberyCreationForm : public Form {
   ~ShrubberyCreationForm();
 
   void execute(Bureaucrat const& executor) const;
+
+ private:
+  void output_file(const std::string& file_name, const std::string& output_text) const;
 };
 
 #endif

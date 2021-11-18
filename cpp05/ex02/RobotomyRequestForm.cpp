@@ -1,5 +1,8 @@
 #include "RobotomyRequestForm.hpp"
 
+#include <cstdlib>
+#include <ctime>
+
 RobotomyRequestForm::RobotomyRequestForm()
     : Form("me", 72, 45) {}
 
@@ -18,3 +21,12 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
+
+void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
+  Form::execute(executor);
+  std::cout << "ZZZZzzzzzzz......." << std::endl;
+  if (std::rand() % 2 == 0)
+    std::cout << executor.getName() << " has been robotomized succesfully." << std::endl;
+  else
+    std::cout << executor.getName() << " has been failed to robotomize." << std::endl;
+}
