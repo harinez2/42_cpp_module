@@ -2,6 +2,9 @@
 #define ROBOTOMY_REQUEST_FORM_HPP
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+
+#include <string>
 
 class RobotomyRequestForm : public Form {
  public:

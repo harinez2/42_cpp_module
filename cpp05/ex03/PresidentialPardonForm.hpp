@@ -2,6 +2,9 @@
 #define PRESIDENTIAL_PARDON_FORM_HPP
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+
+#include <string>
 
 class PresidentialPardonForm : public Form {
  public:

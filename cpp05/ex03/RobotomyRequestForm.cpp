@@ -15,7 +15,6 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj) {
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& obj) {
   if (this != &obj) {
-
   }
   return *this;
 }
@@ -24,7 +23,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
   Form::execute(executor);
-  std::cout << "ZZZZzzzzzzz......." << std::endl;
+  std::cout << "BZZZZzzzzzzz......." << std::endl;
   std::srand(static_cast<unsigned int>(time(NULL)));
   if (std::rand() % 2 == 0)
     std::cout << executor.getName() << " has been robotomized succesfully." << std::endl;
