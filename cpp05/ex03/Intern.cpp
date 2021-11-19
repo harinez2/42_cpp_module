@@ -5,6 +5,7 @@
 #include "PresidentialPardonForm.hpp"
 
 #include <iostream>
+#include <string>
 
 const std::string Intern::form_name_lst_[3] = {
   "home",
