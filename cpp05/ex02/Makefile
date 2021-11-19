@@ -1,4 +1,4 @@
-NAME		= bureaucrat
+NAME		= forms
 SRCDIR		= .
 SRCS		= $(shell find $(SRCDIR) -name "*.cpp" -type f | xargs)
 OBJS		= $(SRCS:.cpp=.o)

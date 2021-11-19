@@ -2,6 +2,9 @@
 #define SHRUBBERY_CREATION_FORM_HPP
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+
+#include <string>
 
 class ShrubberyCreationForm : public Form {
  public:
