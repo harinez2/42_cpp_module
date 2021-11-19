@@ -22,7 +22,7 @@ class Form {
   bool getSigned() const;
 
   void beSigned(Bureaucrat& b);
-  virtual void execute(Bureaucrat const& executor) const;
+  void execute(Bureaucrat const& executor) const;
 
   class GradeTooHighException : public std::domain_error {
    public:
@@ -36,6 +36,9 @@ class Form {
    public:
     FormNotSignedException(const std::string& message);
   };
+
+ protected:
+  virtual void doAction(Bureaucrat const& executor) const = 0;
 
  private:
   const std::string kName_;

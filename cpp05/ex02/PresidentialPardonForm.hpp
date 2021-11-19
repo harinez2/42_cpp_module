@@ -14,7 +14,8 @@ class PresidentialPardonForm : public Form {
   PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
   ~PresidentialPardonForm();
 
-  void execute(Bureaucrat const& executor) const;
+ protected:
+  void doAction(Bureaucrat const& executor) const;
 };
 
 #endif
