@@ -21,8 +21,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
-  Form::execute(executor);
+void RobotomyRequestForm::doAction(Bureaucrat const& executor) const {
   std::cout << "BZZZZzzzzzzz......." << std::endl;
   std::srand(static_cast<unsigned int>(time(NULL)));
   if (std::rand() % 2 == 0)
