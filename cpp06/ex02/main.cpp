@@ -48,18 +48,21 @@ void identify(Base* p) {
 void identify(Base& p) {
   std::string type;
   try {
-    A a = dynamic_cast<A&>(p);
+    A& a = dynamic_cast<A&>(p);
     type = "A";
+    (void)a;
   } catch (std::exception& e) {}
 
   try {
-    B b = dynamic_cast<B&>(p);
+    B& b = dynamic_cast<B&>(p);
     type = "B";
+    (void)b;
   } catch (std::exception& e) {}
   
   try {
-    C c = dynamic_cast<C&>(p);
+    C& c = dynamic_cast<C&>(p);
     type = "C";
+    (void)c;
   } catch (std::exception& e) {}
 
   if (type != "")
