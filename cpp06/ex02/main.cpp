@@ -42,12 +42,30 @@ void identify(Base* p) {
     std::cout << "C" << std::endl;
     return;
   }
-  else
-    std::cout << "Cannot identify the opject type." << std::endl;
+  std::cout << "Cannot identify the opject type." << std::endl;
 }
 
 void identify(Base& p) {
-  (void)p;
+  std::string type;
+  try {
+    A a = dynamic_cast<A&>(p);
+    type = "A";
+  } catch (std::exception& e) {}
+
+  try {
+    B b = dynamic_cast<B&>(p);
+    type = "B";
+  } catch (std::exception& e) {}
+  
+  try {
+    C c = dynamic_cast<C&>(p);
+    type = "C";
+  } catch (std::exception& e) {}
+
+  if (type != "")
+    std::cout << type << std::endl;
+  else
+    std::cout << "Cannot identify the opject type." << std::endl;
 }
 
 void test_generate_and_identify(std::string type) {
