@@ -10,14 +10,27 @@ void convert_int(char* s) {
   std::cout << "int: " << static_cast<char>(s) << std::endl;
 }
 
+void convert_float(char* s) {
+
+  std::cout << "float: " << static_cast<char>(s) << std::endl;
+}
+
+void convert_double(char* s) {
+
+  std::cout << "double: " << static_cast<char>(s) << std::endl;
+}
+
+void print_in_all_type(char* s) {
+  convert_char(s);
+  convert_int(s);
+  convert_float(s);
+  convert_double(s);
+}
+
 int main(int argc, char** argv) {
   if (argc != 2)
     return 0;
-
-  convert_char(argv[1]);
-  convert_int(argv[1]);
-  std::cout << "float: " << static_cast<float>(argv[1]) << std::endl;
-  std::cout << "double: " << static_cast<double>(argv[1]) << std::endl;
+  print_in_all_type(argv[1]);
   return 0;
 }
 
