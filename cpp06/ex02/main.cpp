@@ -11,10 +11,13 @@ Base* generate(std::string type) {
   if (type == "base") {
     std::cout << "generated Base instance." << std::endl;
     return new Base;
-  } else if (std::rand() % 3 == 0) {
+  }
+  
+  int rand_num = std::rand() % 3;
+  if (rand_num == 0) {
     std::cout << "generated A instance." << std::endl;
     return new A;
-  } else if (std::rand() % 3 == 1) {
+  } else if (rand_num == 1) {
     std::cout << "generated B instance." << std::endl;
     return new B;
   } else {
