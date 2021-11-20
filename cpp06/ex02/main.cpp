@@ -7,16 +7,17 @@
 #include <cstdlib>
 #include <ctime>
 
-Base* generate(void) {
-  if (std::rand() % 3 == 0) {
+Base* generate(std::string type) {
+  if (type == "base") {
+    std::cout << "generated Base instance." << std::endl;
+    return new Base;
+  } else if (std::rand() % 3 == 0) {
     std::cout << "generated A instance." << std::endl;
     return new A;
-  }
-  else if (std::rand() % 3 == 1) {
+  } else if (std::rand() % 3 == 1) {
     std::cout << "generated B instance." << std::endl;
     return new B;
-  }
-  else {
+  } else {
     std::cout << "generated C instance." << std::endl;
     return new C;
   }
@@ -49,8 +50,8 @@ void identify(Base& p) {
   (void)p;
 }
 
-void test_generate_and_identify() {
-  Base* b = generate();
+void test_generate_and_identify(std::string type) {
+  Base* b = generate(type);
   identify(b);
   identify(*b);
   delete b;
@@ -60,6 +61,8 @@ void test_generate_and_identify() {
 int main(void) {
   std::srand(static_cast<unsigned int>(time(NULL)));
   for (int i = 0; i < 5; ++i)
-    test_generate_and_identify();
+    test_generate_and_identify("");
+  
+  test_generate_and_identify("base");
   return 0;
 }
