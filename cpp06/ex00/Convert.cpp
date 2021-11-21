@@ -95,10 +95,14 @@ int Convert::toInt() {
 }
 
 float Convert::toFloat() {
+  if (isPseudoLiteral(data_))
+    throw std::domain_error("impossible");
   return 0;
 }
 
 double Convert::toDouble() {
+  if (isPseudoLiteral(data_))
+    throw std::domain_error("impossible");
   return 0;
 }
 
@@ -133,15 +137,25 @@ void Convert::printInt() {
 }
 
 void Convert::printFloat() {
-  std::cout << "float: " << toFloat() << std::endl;
+  std::cout << "float : ";
+  try {
+    std::cout << toFloat() << std::endl;
+  } catch(std::domain_error& e) {
+    std::cout << data_ << std::endl;
+    return;
+  } catch(std::exception& e) {
+    std::cout << "impossible" << std::endl;
+  }
 }
 
 void Convert::printDouble() {
-  std::cout << "double: " << toDouble() << std::endl;
+  std::cout << "double : ";
+  try {
+    std::cout << toDouble() << std::endl;
+  } catch(std::domain_error& e) {
+    std::cout << data_ << std::endl;
+    return;
+  } catch(std::exception& e) {
+    std::cout << "impossible" << std::endl;
+  }
 }
-
-// int Convert::chatToInt(char* s) {n
-//   (void)s;
-//   std::cout << "char: " ;//<< static_cast<char>(s) << std::endl;
-//   return 0;
-// }
