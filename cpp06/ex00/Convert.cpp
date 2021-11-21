@@ -28,6 +28,9 @@ char Convert::toChar() {
   else if (data_.length() == 1 && !std::isdigit(data_[0]) && std::isprint(data_[0]))
     return data_[0];
   else {
+    double d = toDouble();
+    if (d < 0 || static_cast<double>(static_cast<int>(d)) != d)
+      throw std::domain_error("Failed to convert char in toChar().");
     char c = static_cast<char>(toInt());
     if (std::isprint(c) == false)
       throw std::out_of_range("Impossible to print in toChar().");
@@ -37,11 +40,21 @@ char Convert::toChar() {
 }
 
 int Convert::toInt() {
-  return static_cast<int>(toDouble());
+  double d = toDouble();
+  if (d > std::numeric_limits<int>::max())
+    throw std::overflow_error("Overflow error in toInt().");
+  else if (d < std::numeric_limits<int>::min())
+    throw std::underflow_error("Underflow error in toInt().");
+  return static_cast<int>(d);
 }
 
 float Convert::toFloat() {
-  return static_cast<float>(toDouble());
+  double d = toDouble();
+  if (d > std::numeric_limits<float>::max())
+    throw std::overflow_error("Overflow error in toFloat().");
+  else if (d < - std::numeric_limits<float>::max())
+    throw std::underflow_error("Underflow error in toFloat().");
+  return static_cast<float>(d);
 }
 
 double Convert::toDouble() {
@@ -72,12 +85,13 @@ double Convert::toDouble() {
   if (minus)
     read *= -1;
 
-  if (read > std::numeric_limits<int>::max())
-    throw std::overflow_error("Overflow error in toInt().");
-  else if (read < std::numeric_limits<int>::min())
-    throw std::underflow_error("Underflow error in toInt().");
-  else if (i != data_.length() && !(i + 1 == data_.length() && data_[i] == 'f'))
-    throw std::invalid_argument("Cannot read input in toInt().");
+  if (i != data_.length() && !(i + 1 == data_.length() && data_[i] == 'f'))
+    throw std::invalid_argument("Cannot read input in toDouble().");
+    
+  if (read >= std::numeric_limits<double>::max())
+    throw std::overflow_error("Overflow error in toFloat().");
+  else if (read <= - std::numeric_limits<double>::max())
+    throw std::underflow_error("Underflow error in toFloat().");
   return read;
 }
 
@@ -135,15 +149,12 @@ void Convert::printDouble() {
 }
 
 double Convert::readNum(unsigned long& i, double base) {
-  long overflow_limit_l = std::numeric_limits<int>::max();
-  overflow_limit_l++;
-
   double read = 0;
   unsigned long starti = i;
   for (; i < data_.length(); ++i) {
     if (!std::isdigit(data_[i]))
       break;
-    else if (base >= 1 && read <= overflow_limit_l)
+    else if (base >= 1)
       read = read * base + data_[i] - '0';
     else if (base < 1)
       read = read + (data_[i] - '0') * std::pow(base, i - starti + 1);
