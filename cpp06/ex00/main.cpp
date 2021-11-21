@@ -8,22 +8,21 @@ void print_all_type(const char* s) {
   c.printInt();
   c.printFloat();
   c.printDouble();
-  std::cout << std::endl;
 }
 
 void print_basic_tests() {
     std::cout << "Ex)" << std::endl;
 
     const std::string s1 = "0";
-    std::cout << "Input: " << s1 << std::endl;
+    std::cout << "./convert " << s1 << std::endl;
     print_all_type(s1.c_str());
 
     const std::string s2 = "nan";
-    std::cout << "Input: " << s2 << std::endl;
+    std::cout << "./convert " << s2 << std::endl;
     print_all_type(s2.c_str());
     
     const std::string s3 = "42.0f";
-    std::cout << "Input: " << s3 << std::endl;
+    std::cout << "./convert " << s3 << std::endl;
     print_all_type(s3.c_str());
 }
 
