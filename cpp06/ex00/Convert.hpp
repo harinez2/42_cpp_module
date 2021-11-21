@@ -21,9 +21,12 @@ class Convert {
 
  private:
   const std::string data_;
-  int type_;
+  // const double data_double;
+  // int isConvertedToDouble;
+  // int type_;
   
   bool isPseudoLiteral(const std::string& s);
+  double readNum(unsigned long& i, double base);
 };
 
 #endif

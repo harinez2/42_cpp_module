@@ -4,47 +4,7 @@
 #include <limits>
 #include <stdexcept>
 
-// char : length=1, if not, "impossible"
-//        isprint, if not, "Non displayable"
-Convert::Convert(std::string s) : data_(s) {
-  if (data_.length() == 0)
-    type_ = 0;
-  else if (isPseudoLiteral(s)) {
-    // num
-    type_ = 1;
-  } else if (data_.length() == 1 && std::isprint(data_[0])) {
-    //char
-  } else {
-    // is int
-    // is char
-
-  }
-}
-
-bool Convert::isPseudoLiteral(const std::string& s) {
-  if (s.compare("-inff") == 0 || s.compare("-inf") == 0
-      || s.compare("+inff") == 0 || s.compare("+inf") == 0
-      || s.compare("nanf") == 0 || s.compare("nan") == 0)
-    return true;
-  else
-    return false;
-}
-
-// bool Convert::isFloat() {
-//   int period_cnt = 0;
-//   bool float_flg = false;
-//   for (int i = 0; i < data_.length(); ++i) {
-//     if (std::isdigit(data_[i])
-//       continue;
-//     else if (data_[i] == '.')
-//       ++period_cnt;
-//     else if (data_[i] == 'f' && i == data_.length() - 1)
-//       float_flg = true;
-//     else
-//       break;
-//   }
-//   return false;
-// }
+Convert::Convert(std::string s) : data_(s) {}
 
 Convert::~Convert() {}
 
@@ -63,6 +23,17 @@ char Convert::toChar() {
 }
 
 int Convert::toInt() {
+  return static_cast<int>(toDouble());
+}
+
+float Convert::toFloat() {
+  return static_cast<float>(toDouble());
+}
+
+double Convert::toDouble() {
+  if (isPseudoLiteral(data_))
+    throw std::domain_error("impossible");
+  
   bool minus = false;
   unsigned long i = 0;
   for (; i < data_.length(); ++i) {
@@ -73,37 +44,21 @@ int Convert::toInt() {
     else
       break;
   }
-  long read = 0;
-  unsigned long j = i;
-  for (; j < data_.length(); ++j) {
-    if (std::isdigit(data_[j]))
-      read = read * 10 + data_[j] - '0';
-    else
-      break;
-    if (read > std::numeric_limits<int>::max())
-      break;
+  double read = readNum(i, 10);
+  if (i < data_.length() && data_[i] == '.') {
+    ++i;
+    read += readNum(i, 0.1);
   }
   if (minus)
     read *= -1;
+
   if (read > std::numeric_limits<int>::max())
     throw std::overflow_error("Overflow error in toInt().");
   else if (read < std::numeric_limits<int>::min())
     throw std::underflow_error("Underflow error in toInt().");
-  else if (j != data_.length())
+  else if (i != data_.length() && !(i + 1 == data_.length() && data_[i] == 'f'))
     throw std::invalid_argument("Cannot read input in toInt().");
   return read;
-}
-
-float Convert::toFloat() {
-  if (isPseudoLiteral(data_))
-    throw std::domain_error("impossible");
-  return 0;
-}
-
-double Convert::toDouble() {
-  if (isPseudoLiteral(data_))
-    throw std::domain_error("impossible");
-  return 0;
 }
 
 
@@ -158,4 +113,30 @@ void Convert::printDouble() {
   } catch(std::exception& e) {
     std::cout << "impossible" << std::endl;
   }
+}
+
+double Convert::readNum(unsigned long& i, double base) {
+  long overflow_limit = std::numeric_limits<int>::max();
+  overflow_limit++;
+  double read = 0;
+  for (; i < data_.length(); ++i) {
+    if (!std::isdigit(data_[i]))
+      break;
+    else if (read <= overflow_limit) {
+      if (base >= 1)
+        read = read * base + data_[i] - '0';
+      else
+        read = read + (data_[i] - '0') * base;
+    }
+  }
+  return read;
+}
+
+bool Convert::isPseudoLiteral(const std::string& s) {
+  if (s.compare("-inff") == 0 || s.compare("-inf") == 0
+      || s.compare("+inff") == 0 || s.compare("+inf") == 0
+      || s.compare("nanf") == 0 || s.compare("nan") == 0)
+    return true;
+  else
+    return false;
 }
