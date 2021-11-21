@@ -1,36 +1,25 @@
+#include "Convert.hpp"
+
 #include <iostream>
 
-void convert_char(char* s) {
-
-  std::cout << "char: " << static_cast<char>(s) << std::endl;
-}
-
-void convert_int(char* s) {
-
-  std::cout << "int: " << static_cast<char>(s) << std::endl;
-}
-
-void convert_float(char* s) {
-
-  std::cout << "float: " << static_cast<char>(s) << std::endl;
-}
-
-void convert_double(char* s) {
-
-  std::cout << "double: " << static_cast<char>(s) << std::endl;
-}
-
-void print_in_all_type(char* s) {
-  convert_char(s);
-  convert_int(s);
-  convert_float(s);
-  convert_double(s);
+void print_all_type(char* s) {
+  std::cout << "Converting value : " << s << std::endl;
+  Convert c(s);
+  // convert_char(s);
+  // convert_int(s);
+  // convert_float(s);
+  // convert_double(s);
+  // std::cout << "char : " << c.toChar() << std::endl;
+  c.printInt();
+  c.printChar();
 }
 
 int main(int argc, char** argv) {
-  if (argc != 2)
+  if (argc < 2) {
+    std::cout << "Usage: ./convert <converting value>" << std::endl;
     return 0;
-  print_in_all_type(argv[1]);
+  }
+  print_all_type(argv[1]);
   return 0;
 }
 
