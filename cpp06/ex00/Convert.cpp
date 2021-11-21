@@ -4,6 +4,7 @@
 #include <limits>
 #include <iomanip>
 #include <stdexcept>
+#include <cmath>
 
 Convert::Convert(std::string s) : data_(s) {}
 
@@ -11,7 +12,7 @@ Convert::~Convert() {}
 
 char Convert::toChar() {
   if (isPseudoLiteral(data_))
-    throw std::domain_error("impossible");
+    throw std::domain_error("Impossible to convert in toChar().");
   else if (data_.length() == 1 && !std::isdigit(data_[0]) && std::isprint(data_[0]))
     return data_[0];
   else {
@@ -33,7 +34,7 @@ float Convert::toFloat() {
 
 double Convert::toDouble() {
   if (isPseudoLiteral(data_))
-    throw std::domain_error("impossible");
+    throw std::domain_error("Impossible to print in toDouble().");
   
   bool minus = false;
   unsigned long i = 0;
@@ -119,6 +120,7 @@ double Convert::readNum(unsigned long& i, double base) {
   long overflow_limit = std::numeric_limits<int>::max();
   overflow_limit++;
   double read = 0;
+  unsigned long starti = i;
   for (; i < data_.length(); ++i) {
     if (!std::isdigit(data_[i]))
       break;
@@ -126,7 +128,7 @@ double Convert::readNum(unsigned long& i, double base) {
       if (base >= 1)
         read = read * base + data_[i] - '0';
       else
-        read = read + (data_[i] - '0') * base;
+        read = read + (data_[i] - '0') * std::pow(base, i - starti + 1);
     }
   }
   return read;
