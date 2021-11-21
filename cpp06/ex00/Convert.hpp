@@ -11,13 +11,13 @@ class Convert {
 
   char toChar();
   int toInt();
-  // float toFloat();
-  // double toDouble();
+  float toFloat();
+  double toDouble();
 
   void printChar();
   void printInt();
-  // void printFloat();
-  // void printDouble();
+  void printFloat();
+  void printDouble();
 
  private:
   const std::string data_;

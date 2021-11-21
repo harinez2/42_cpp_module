@@ -94,13 +94,13 @@ int Convert::toInt() {
   return read;
 }
 
-// float Convert::toFloat() {
+float Convert::toFloat() {
+  return 0;
+}
 
-// }
-
-// double Convert::toDouble() {
-
-// }
+double Convert::toDouble() {
+  return 0;
+}
 
 
 void Convert::printChar() {
@@ -132,9 +132,13 @@ void Convert::printInt() {
   }
 }
 
-// void Convert::printFloat() { std::cout << "float " << toFloat() << std::endl; }
-// void Convert::printDouble() { std::cout << "double " << toDouble() << std::endl; }
+void Convert::printFloat() {
+  std::cout << "float: " << toFloat() << std::endl;
+}
 
+void Convert::printDouble() {
+  std::cout << "double: " << toDouble() << std::endl;
+}
 
 // int Convert::chatToInt(char* s) {n
 //   (void)s;
