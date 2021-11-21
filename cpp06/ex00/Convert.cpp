@@ -135,19 +135,18 @@ void Convert::printDouble() {
 }
 
 double Convert::readNum(unsigned long& i, double base) {
-  long overflow_limit = std::numeric_limits<int>::max();
-  overflow_limit++;
+  long overflow_limit_l = std::numeric_limits<int>::max();
+  overflow_limit_l++;
+
   double read = 0;
   unsigned long starti = i;
   for (; i < data_.length(); ++i) {
     if (!std::isdigit(data_[i]))
       break;
-    else if (read <= overflow_limit) {
-      if (base >= 1)
-        read = read * base + data_[i] - '0';
-      else
-        read = read + (data_[i] - '0') * std::pow(base, i - starti + 1);
-    }
+    else if (base >= 1 && read <= overflow_limit_l)
+      read = read * base + data_[i] - '0';
+    else if (base < 1)
+      read = read + (data_[i] - '0') * std::pow(base, i - starti + 1);
   }
   return read;
 }
