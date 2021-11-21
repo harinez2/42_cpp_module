@@ -6,6 +6,8 @@
 #include <stdexcept>
 #include <cmath>
 
+Convert::Convert() : data_("0") {}
+
 Convert::Convert(std::string s) : data_(s) {}
 
 Convert::Convert(const Convert& obj) : data_(obj.data_) {

@@ -11,11 +11,6 @@ class Convert {
   Convert& operator=(const Convert& obj);
   ~Convert();
 
-  char toChar();
-  int toInt();
-  float toFloat();
-  double toDouble();
-
   void printChar();
   void printInt();
   void printFloat();
@@ -23,12 +18,14 @@ class Convert {
 
  private:
   const std::string data_;
-  double data_double_;
-  // const double data_double;
-  // int isConvertedToDouble;
-  // int type_;
-  
+
   Convert();
+
+  char toChar();
+  int toInt();
+  float toFloat();
+  double toDouble();
+
   bool isPseudoLiteral_nan(const std::string& s);
   bool isPseudoLiteral_inf(const std::string& s);
   double readNum(unsigned long& i, double base);
