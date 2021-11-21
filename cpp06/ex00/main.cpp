@@ -26,8 +26,8 @@ int main(int argc, const char** argv) {
     //char
     print_all_type("31", 1);
     print_all_type("32", 1);
+    print_all_type("126", 1);
     print_all_type("127", 1);
-    print_all_type("128", 1);
     print_all_type("a", 1);
     print_all_type("Z", 1);
     print_all_type("9", 1);

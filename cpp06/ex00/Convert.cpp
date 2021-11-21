@@ -21,7 +21,7 @@ Convert& Convert::operator=(const Convert& obj) {
 Convert::~Convert() {}
 
 char Convert::toChar() {
-  if (isPseudoLiteral(data_))
+  if (isPseudoLiteral_nan(data_) || isPseudoLiteral_inf(data_))
     throw std::domain_error("Impossible to convert in toChar().");
   else if (data_.length() == 1 && !std::isdigit(data_[0]) && std::isprint(data_[0]))
     return data_[0];
@@ -43,9 +43,15 @@ float Convert::toFloat() {
 }
 
 double Convert::toDouble() {
-  if (isPseudoLiteral(data_))
+  if (data_.length() == 0)
+    throw std::invalid_argument("Length is zero in toDouble().");
+  else if (isPseudoLiteral_nan(data_))
     throw std::domain_error("Impossible to print in toDouble().");
-  
+  else if (isPseudoLiteral_inf(data_))
+    throw std::out_of_range("Impossible to print in toDouble().");
+  else if (data_.length() == 1 && !std::isdigit(data_[0]))
+    return static_cast<int>(data_[0]);
+
   bool minus = false;
   unsigned long i = 0;
   for (; i < data_.length(); ++i) {
@@ -74,11 +80,11 @@ double Convert::toDouble() {
 }
 
 void Convert::printChar() {
-  try {
-    std::cout << "  debugchar: '" << static_cast<char>(toInt()) << "'" << std::endl;//test
-  } catch(std::exception& e) {
-    std::cout << std::endl;
-  }
+  // try {
+  //   std::cout << "  debugchar: '" << static_cast<char>(toInt()) << "'" << std::endl;//test
+  // } catch(std::exception& e) {
+  //   std::cout << std::endl;
+  // }
 
   char c;
   try {
@@ -107,7 +113,10 @@ void Convert::printFloat() {
   try {
     std::cout << std::fixed << std::setprecision(1) << toFloat() << "f" << std::endl;
   } catch(std::domain_error& e) {
-    std::cout << data_ << "f" << std::endl;
+    std::cout << data_.substr(0, 3) << "f" << std::endl;
+    return;
+  } catch(std::out_of_range& e) {
+    std::cout << data_.substr(0, 4) << "f" << std::endl;
     return;
   } catch(std::exception& e) {
     std::cout << "impossible" << std::endl;
@@ -119,7 +128,10 @@ void Convert::printDouble() {
   try {
     std::cout << std::fixed << std::setprecision(1) << toDouble() << std::endl;
   } catch(std::domain_error& e) {
-    std::cout << data_ << std::endl;
+    std::cout << data_.substr(0, 3) << std::endl;
+    return;
+  } catch(std::out_of_range& e) {
+    std::cout << data_.substr(0, 4) << std::endl;
     return;
   } catch(std::exception& e) {
     std::cout << "impossible" << std::endl;
@@ -144,10 +156,16 @@ double Convert::readNum(unsigned long& i, double base) {
   return read;
 }
 
-bool Convert::isPseudoLiteral(const std::string& s) {
-  if (s.compare("-inff") == 0 || s.compare("-inf") == 0
-      || s.compare("+inff") == 0 || s.compare("+inf") == 0
-      || s.compare("nanf") == 0 || s.compare("nan") == 0)
+bool Convert::isPseudoLiteral_nan(const std::string& s) {
+  if (s.compare("nan") == 0 || s.compare("nanf") == 0)
+    return true;
+  else
+    return false;
+}
+
+bool Convert::isPseudoLiteral_inf(const std::string& s) {
+  if (s.compare("-inff") == 0 || s.compare("+inff") == 0
+      || s.compare("-inf") == 0 || s.compare("+inf") == 0)
     return true;
   else
     return false;

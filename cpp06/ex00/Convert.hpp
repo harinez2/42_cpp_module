@@ -23,12 +23,14 @@ class Convert {
 
  private:
   const std::string data_;
+  double data_double_;
   // const double data_double;
   // int isConvertedToDouble;
   // int type_;
   
   Convert();
-  bool isPseudoLiteral(const std::string& s);
+  bool isPseudoLiteral_nan(const std::string& s);
+  bool isPseudoLiteral_inf(const std::string& s);
   double readNum(unsigned long& i, double base);
 };
 
