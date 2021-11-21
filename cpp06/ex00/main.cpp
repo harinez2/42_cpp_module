@@ -39,6 +39,7 @@ int main(int argc, const char** argv) {
     print_all_type("+1", 1);
     print_all_type("2147483647", 1);
     print_all_type("2147483648", 1);
+    print_all_type("+-+---+42", 1);
     //float/double
     print_all_type("0.0", 1);
     print_all_type("+0.012", 1);
@@ -52,12 +53,11 @@ int main(int argc, const char** argv) {
     print_all_type("-inf", 1);
     print_all_type("+inf", 1);
     print_all_type("nan", 1);
-    //random
+    //broken
     print_all_type("", 1);
     print_all_type("abcdefghijklmn", 1);
     print_all_type("3.1415k", 1);
     print_all_type("3.14.15", 1);
-    print_all_type("+-+---+42", 1);
     print_all_type("- 4.2", 1);
     return 0;
   }
