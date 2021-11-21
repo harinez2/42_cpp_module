@@ -8,6 +8,16 @@
 
 Convert::Convert(std::string s) : data_(s) {}
 
+Convert::Convert(const Convert& obj) : data_(obj.data_) {
+  *this = obj;
+}
+
+Convert& Convert::operator=(const Convert& obj) {
+  if (this != &obj) {
+  }
+  return *this;
+}
+
 Convert::~Convert() {}
 
 char Convert::toChar() {

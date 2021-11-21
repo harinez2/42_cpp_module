@@ -7,6 +7,8 @@
 class Convert {
  public:
   Convert(std::string s);
+  Convert(const Convert& obj);
+  Convert& operator=(const Convert& obj);
   ~Convert();
 
   char toChar();
@@ -25,6 +27,7 @@ class Convert {
   // int isConvertedToDouble;
   // int type_;
   
+  Convert();
   bool isPseudoLiteral(const std::string& s);
   double readNum(unsigned long& i, double base);
 };
