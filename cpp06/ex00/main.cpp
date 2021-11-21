@@ -42,8 +42,8 @@ int main(int argc, const char** argv) {
     print_all_type("+-+---+42", 1);
     //float/double
     print_all_type("0.0", 1);
-    print_all_type("+0.012", 1);
-    print_all_type("-0.012", 1);
+    print_all_type("+12.34", 1);
+    print_all_type("-12.34", 1);
     print_all_type("3.141592653589793238462643383279502884197169399375105820974944", 1);
     print_all_type("0.000000000000000000000000000000000000000000000000000000000001", 1);
     //scientific

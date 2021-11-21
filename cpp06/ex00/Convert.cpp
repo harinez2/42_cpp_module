@@ -31,7 +31,7 @@ char Convert::toChar() {
       throw std::out_of_range("Impossible to print in toChar().");
     return c;
   }
-  throw std::out_of_range("Failed to convert char in toChar().");
+  throw std::domain_error("Failed to convert char in toChar().");
 }
 
 int Convert::toInt() {
@@ -80,20 +80,14 @@ double Convert::toDouble() {
 }
 
 void Convert::printChar() {
-  // try {
-  //   std::cout << "  debugchar: '" << static_cast<char>(toInt()) << "'" << std::endl;//test
-  // } catch(std::exception& e) {
-  //   std::cout << std::endl;
-  // }
-
   char c;
   try {
     c = toChar();
-  } catch(std::domain_error& e) {
-    std::cout << "char: impossible" << std::endl;
+  } catch(std::out_of_range& e) {
+    std::cout << "char: Non displayable" << std::endl;
     return;
   } catch(std::exception& e) {
-    std::cout << "char: Non displayable" << std::endl;
+    std::cout << "char: impossible" << std::endl;
     return;
   }
   std::cout << "char: '" << c << "'" << std::endl;
