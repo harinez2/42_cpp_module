@@ -88,9 +88,9 @@ double Convert::toDouble() {
   if (i != data_.length() && !(i + 1 == data_.length() && data_[i] == 'f'))
     throw std::invalid_argument("Cannot read input in toDouble().");
     
-  if (read >= std::numeric_limits<double>::max())
+  if (read > std::numeric_limits<double>::max())
     throw std::overflow_error("Overflow error in toFloat().");
-  else if (read <= - std::numeric_limits<double>::max())
+  else if (read < - std::numeric_limits<double>::max())
     throw std::underflow_error("Underflow error in toFloat().");
   return read;
 }
