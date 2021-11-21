@@ -84,7 +84,7 @@ void Convert::printChar() {
 }
 
 void Convert::printInt() {
-  std::cout << "int : ";
+  std::cout << "int: ";
   try {
     std::cout << toInt() << std::endl;
   } catch(std::exception& e) {
@@ -93,11 +93,11 @@ void Convert::printInt() {
 }
 
 void Convert::printFloat() {
-  std::cout << "float : ";
+  std::cout << "float: ";
   try {
     std::cout << std::fixed << std::setprecision(1) << toFloat() << "f" << std::endl;
   } catch(std::domain_error& e) {
-    std::cout << data_ << std::endl;
+    std::cout << data_ << "f" << std::endl;
     return;
   } catch(std::exception& e) {
     std::cout << "impossible" << std::endl;
@@ -105,7 +105,7 @@ void Convert::printFloat() {
 }
 
 void Convert::printDouble() {
-  std::cout << "double : ";
+  std::cout << "double: ";
   try {
     std::cout << std::fixed << std::setprecision(1) << toDouble() << std::endl;
   } catch(std::domain_error& e) {
