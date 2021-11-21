@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <limits>
+#include <iomanip>
 #include <stdexcept>
 
 Convert::Convert(std::string s) : data_(s) {}
@@ -61,7 +62,6 @@ double Convert::toDouble() {
   return read;
 }
 
-
 void Convert::printChar() {
   try {
     std::cout << "  debugchar: '" << static_cast<char>(toInt()) << "'" << std::endl;//test
@@ -94,7 +94,7 @@ void Convert::printInt() {
 void Convert::printFloat() {
   std::cout << "float : ";
   try {
-    std::cout << toFloat() << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << toFloat() << "f" << std::endl;
   } catch(std::domain_error& e) {
     std::cout << data_ << std::endl;
     return;
@@ -106,7 +106,7 @@ void Convert::printFloat() {
 void Convert::printDouble() {
   std::cout << "double : ";
   try {
-    std::cout << toDouble() << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << toDouble() << std::endl;
   } catch(std::domain_error& e) {
     std::cout << data_ << std::endl;
     return;
