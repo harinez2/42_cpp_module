@@ -1,13 +1,6 @@
+#include "whatever.hpp"
+
 #include <iostream>
-
-template <typename T>
-void ::swap(T& left, T& right);
-
-template <typename T>
-T& ::min(T& left, T& right);
-
-template <typename T>
-T& ::max(T& left, T& right);
 
 int main(void) {
   int a = 2;

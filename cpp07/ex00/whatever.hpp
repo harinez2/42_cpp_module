@@ -1,13 +1,13 @@
 
 template <typename T>
-void ::swap(T& left, T& right) {
+void swap(T& left, T& right) {
   T tmp = left;
   left = right;
   right = tmp;
 }
 
 template <typename T>
-T& ::min(T& left, T& right) {
+T& min(T& left, T& right) {
   if (left < right)
     return left;
   else
@@ -15,7 +15,7 @@ T& ::min(T& left, T& right) {
 }
 
 template <typename T>
-T& ::max(T& left, T& right) {
+T& max(T& left, T& right) {
   if (left > right)
     return left;
   else

@@ -1,4 +1,4 @@
-NAME		= convert
+NAME		= function_template
 SRCDIR		= .
 SRCS		= $(shell find $(SRCDIR) -name "*.cpp" -type f | xargs)
 OBJS		= $(SRCS:.cpp=.o)
