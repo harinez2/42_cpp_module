@@ -1,6 +1,8 @@
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
+#include <exception>
+
 template <typename T>
 class Array {
  public:
@@ -11,11 +13,11 @@ class Array {
   ~Array();
 
   // Array<T>* operator new();
-  Array<T>& operator[](int i);
+  T& operator[](int i);
 
  private:
   int size() const;
-  unsigned int size_;
+  int size_;
   T* data_;
 };
 
@@ -34,8 +36,8 @@ template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& obj) {
   if (this != &obj) {
     size_ = obj.size_;
-    data_ = new T(obj.data_);
-    for (int i = 0; i < n_; ++i)
+    data_ = new T[size_];
+    for (int i = 0; i < size_; ++i)
       data_[i] = obj.data_[i];
   }
   return *this;
@@ -47,9 +49,9 @@ Array<T>::~Array() {
 }
 
 template <typename T>
-Array<T>& Array<T>::operator[](int i) {
-  if (i < 0 || n_ <= i)
-    throw std::exception;
+T& Array<T>::operator[](int i) {
+  if (i < 0 || size_ <= i)
+    throw std::exception();
   return data_[i];
 }
 
