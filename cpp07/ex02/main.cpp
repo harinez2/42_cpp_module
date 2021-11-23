@@ -2,8 +2,31 @@
 #include <cstdlib>
 #include <ctime>
 #include "Array.hpp"
+#include "../ex01/iter.hpp"
 
-#define MAX_VAL 750
+// #define MAX_VAL 750
+#define MAX_VAL 5
+
+template <typename T>
+void print_it(T& elem) {
+  std::cout << elem << std::endl;
+}
+
+void print_all(int* mirror, Array<int>& numbers) {
+  if (mirror) {
+    std::cout << "Array<int> array:" << std::endl;
+    for(int i = 0; i < MAX_VAL; ++i)
+        std::cout << numbers[i] << std::endl;
+    // iter(&numbers, MAX_VAL, &print_it);
+    std::cout << std::endl;
+  }
+  if (mirror) {
+    std::cout << "int* array:" << std::endl;
+    iter(mirror, MAX_VAL, &print_it);
+    std::cout << std::endl;
+  }
+}
+
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -15,11 +38,14 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
+    print_all(mirror, numbers);
+
     //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
+    print_all(mirror, numbers);
 
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -50,6 +76,7 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
+    print_all(NULL, numbers);
     delete [] mirror;//
     return 0;
 }

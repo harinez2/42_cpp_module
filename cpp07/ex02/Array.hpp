@@ -13,11 +13,12 @@ class Array {
   ~Array();
 
   // Array<T>* operator new();
-  T& operator[](int i);
+  T operator[](std::size_t idx) const;
+  T& operator[](std::size_t idx);
 
  private:
   int size() const;
-  int size_;
+  std::size_t size_;
   T* data_;
 };
 
@@ -37,7 +38,7 @@ Array<T>& Array<T>::operator=(const Array<T>& obj) {
   if (this != &obj) {
     size_ = obj.size_;
     data_ = new T[size_];
-    for (int i = 0; i < size_; ++i)
+    for (std::size_t i = 0; i < size_; ++i)
       data_[i] = obj.data_[i];
   }
   return *this;
@@ -49,10 +50,17 @@ Array<T>::~Array() {
 }
 
 template <typename T>
-T& Array<T>::operator[](int i) {
-  if (i < 0 || size_ <= i)
+T Array<T>::operator[](std::size_t idx) const {
+  if (idx < 0 || size_ <= idx)
     throw std::exception();
-  return data_[i];
+  return data_[idx];
+}
+
+template <typename T>
+T& Array<T>::operator[](std::size_t idx) {
+  if (idx < 0 || size_ <= idx)
+    throw std::exception();
+  return data_[idx];
 }
 
 template <typename T>
