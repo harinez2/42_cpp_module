@@ -15,17 +15,17 @@ void print_it(T& elem) {
 }
 
 // A class for tests
-class Printer {
+class SimpleClass {
  public:
-  Printer() : n_(42) {}
-  Printer(int n) : n_(n) {}
-  Printer operator+(Printer& obj) { Printer p(n_ + obj.n_); return p; }
+  SimpleClass() : n_(42) {}
+  SimpleClass(int n) : n_(n) {}
+  SimpleClass operator+(SimpleClass& obj) { SimpleClass p(n_ + obj.n_); return p; }
   int get() const { return n_; }
 
  private:
   int n_;
 };
-std::ostream& operator<<(std::ostream& os, const Printer& p) { return os << p.get();}
+std::ostream& operator<<(std::ostream& os, const SimpleClass& p) { return os << p.get();}
 
 // tests
 void test_intarray() {
@@ -47,13 +47,13 @@ void test_strarray() {
 }
 
 void test_classarray() {
-  const std::size_t pr_size = 5;
-  Printer* pr = new Printer[pr_size];
+  const std::size_t sc_size = 5;
+  SimpleClass* sc = new SimpleClass[sc_size];
 
-  iter(pr, pr_size, &print_it);
-  iter(pr, pr_size, &twicer);
-  iter(pr, pr_size, &print_it);
-  delete[] pr;
+  iter(sc, sc_size, &print_it);
+  iter(sc, sc_size, &twicer);
+  iter(sc, sc_size, &print_it);
+  delete[] sc;
 }
 
 int main(void) {
