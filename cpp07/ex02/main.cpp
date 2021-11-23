@@ -11,7 +11,7 @@ void print_it(T& elem) {
   std::cout << elem << std::endl;
 }
 
-void print_all(int* mirror, Array<int>& numbers) {
+void print_all(int* mirror, const Array<int>& numbers) {
   if (mirror) {
     std::cout << "int* array:" << std::endl;
     iter(mirror, MAX_VAL, print_it<int>);
@@ -21,13 +21,15 @@ void print_all(int* mirror, Array<int>& numbers) {
     std::cout << "Array<int> array:" << std::endl;
     for(int i = 0; i < MAX_VAL; ++i)
         std::cout << numbers[i] << std::endl;
-    // iter(&numbers, MAX_VAL, &print_it);
+    // iter(numbers, MAX_VAL, print_it<int>);
     std::cout << std::endl;
   }
 }
 
 int main(int, char**)
 {
+  Array<int> empty;
+
   Array<int> numbers(MAX_VAL);
   int* mirror = new int[MAX_VAL];
   srand(time(NULL));
@@ -64,11 +66,16 @@ int main(int, char**)
   } catch(const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
+  std::cout << std::endl;
 
   for (int i = 0; i < MAX_VAL; i++) {
     numbers[i] = rand();
   }
   print_all(NULL, numbers);
+
+  const Array<int> const_numbers(numbers);
+  print_all(NULL, const_numbers);
+
   delete [] mirror;
   return 0;
 }
