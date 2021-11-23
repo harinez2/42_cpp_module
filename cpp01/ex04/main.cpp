@@ -12,14 +12,11 @@ static int	read_from_file(char* filename, std::string &read_data)
 	}
 
 	std::string	buf;
-	int	newline_flg = 0;
 	while (std::getline(ifs, buf))
 	{
-		if (newline_flg)
-			read_data += '\n';
-		else
-			newline_flg = 1;
 		read_data += buf;
+		if (!ifs.eof())
+			read_data += '\n';
 	}
 	return (0);
 }
@@ -27,14 +24,15 @@ static int	read_from_file(char* filename, std::string &read_data)
 static void	replace_str(
 		std::string &read_data, std::string replacing_str, std::string replaced_str)
 {
+	if (replacing_str.length() == 0)
+		return ;
+
 	std::string::size_type pos = read_data.find(replacing_str);
 	while (pos != std::string::npos)
 	{
 		read_data.erase(pos, replacing_str.length());
 		read_data.insert(pos, replaced_str);
 		pos = read_data.find(replacing_str, pos + replaced_str.length());
-		if (pos == std::string::npos)
-			read_data += '\n';
 	}
 }
 
