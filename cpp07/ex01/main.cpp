@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream& os, const Printer& p) { return os << p.ge
 // tests
 void test_intarray() {
   int array_int[] = {4, 2, 42};
-  const int array_int_size = sizeof(array_int) / sizeof (int);
+  const std::size_t array_int_size = sizeof(array_int) / sizeof (int);
 
   iter(array_int, array_int_size, &print_it);
   iter(array_int, array_int_size, &twicer);
@@ -39,7 +39,7 @@ void test_intarray() {
 
 void test_strarray() {
   std::string array_str[] = {"four", "two", "forty-two"};
-  const int array_str_size = sizeof(array_str) / sizeof (std::string);
+  const std::size_t array_str_size = sizeof(array_str) / sizeof (std::string);
 
   iter(array_str, array_str_size, &print_it);
   iter(array_str, array_str_size, &twicer);
@@ -47,7 +47,7 @@ void test_strarray() {
 }
 
 void test_classarray() {
-  const int pr_size = 5;
+  const std::size_t pr_size = 5;
   Printer* pr = new Printer[pr_size];
 
   iter(pr, pr_size, &print_it);
