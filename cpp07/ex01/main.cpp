@@ -32,27 +32,27 @@ void test_intarray() {
   int array_int[] = {4, 2, 42};
   const std::size_t array_int_size = sizeof(array_int) / sizeof (int);
 
-  iter(array_int, array_int_size, &print_it);
-  iter(array_int, array_int_size, &twicer);
-  iter(array_int, array_int_size, &print_it);
+  iter(array_int, array_int_size, print_it<int>);
+  iter(array_int, array_int_size, twicer<int>);
+  iter(array_int, array_int_size, print_it<int>);
 }
 
 void test_strarray() {
   std::string array_str[] = {"four", "two", "forty-two"};
   const std::size_t array_str_size = sizeof(array_str) / sizeof (std::string);
 
-  iter(array_str, array_str_size, &print_it);
-  iter(array_str, array_str_size, &twicer);
-  iter(array_str, array_str_size, &print_it);
+  iter(array_str, array_str_size, print_it<std::string>);
+  iter(array_str, array_str_size, twicer<std::string>);
+  iter(array_str, array_str_size, print_it<std::string>);
 }
 
 void test_classarray() {
   const std::size_t sc_size = 5;
   SimpleClass* sc = new SimpleClass[sc_size];
 
-  iter(sc, sc_size, &print_it);
-  iter(sc, sc_size, &twicer);
-  iter(sc, sc_size, &print_it);
+  iter(sc, sc_size, print_it<SimpleClass>);
+  iter(sc, sc_size, twicer<SimpleClass>);
+  iter(sc, sc_size, print_it<SimpleClass>);
   delete[] sc;
 }
 
