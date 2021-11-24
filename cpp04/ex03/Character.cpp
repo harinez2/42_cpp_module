@@ -13,6 +13,10 @@ Character::Character(const std::string name) : name_(name) {
 
 Character::Character(const Character & obj) {
   std::cout << "Character " << name_ << " copy constructor called." << std::endl;
+  for (int i = 0; i < kSlotMax_; ++i) {
+    slot_[i] = NULL;
+    equipped_[i] = false;
+  }
   *this = obj;
 }
 
@@ -21,9 +25,12 @@ Character& Character::operator=(const Character& obj) {
   if (this != &obj) {
     name_ = obj.name_;
     for (int i = 0; i < kSlotMax_; ++i) {
-      if (!slot_[i])
+      if (slot_[i])
         delete slot_[i];
-      slot_[i] = obj.slot_[i]->clone();
+      if (obj.slot_[i])
+        slot_[i] = obj.slot_[i]->clone();
+      else
+        slot_[i] = NULL;
       equipped_[i] = obj.equipped_[i];
     }
   }
