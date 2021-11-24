@@ -10,7 +10,7 @@ Cat::Cat() {
 
 Cat::Cat(const Cat& obj) {
   std::cout << "Cat " << type << " copy constructor called." << std::endl;
-  this->brain = new Brain();
+  brain = new Brain();
   *this = obj;
 }
 
@@ -30,4 +30,18 @@ Cat::~Cat() {
 
 void Cat::makeSound() const {
   std::cout << "Meow" << std::endl;
+}
+
+void Cat::setIdea(std::size_t idx, std::string idea) {
+  if (!brain)
+    return;
+  if (idx < 0 || 100 <= idx)
+    throw std::out_of_range("Index of brain out of range.");
+  brain->setIdea(idx, idea);
+}
+
+std::string& Cat::getIdea(std::size_t idx) {
+  if (idx < 0 || 100 <= idx)
+    throw std::out_of_range("Index of brain out of range.");
+  return brain->getIdea(idx);
 }

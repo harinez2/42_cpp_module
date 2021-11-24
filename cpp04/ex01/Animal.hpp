@@ -12,6 +12,8 @@ class Animal {
 
   std::string getType() const;
   virtual void makeSound() const;
+  void setIdea(std::size_t idx, std::string idea);
+  std::string& getIdea(std::size_t idx);
 
  protected:
   std::string type;
