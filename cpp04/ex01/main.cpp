@@ -74,9 +74,9 @@ void test_operatoreq() {
   std::cout << std::endl;
 }
 
-void test_copy_constructor() {
-  std::cout << "----------------------------------------test_copy_constructor" << std::endl;
-  // copy constructor
+void test_copy_constructor_heap() {
+  std::cout << "----------------------------------------test_copy_constructor_heap" << std::endl;
+  // copy constructor(heap)
   Dog* dog = new Dog();
   std::cout << std::endl;
   Dog* dog_copy = new Dog(*dog);
@@ -90,7 +90,7 @@ void test_copy_constructor() {
   std::cout << std::endl;
   std::cout << std::endl;
 
-  // copy constructor
+  // copy constructor(heap)
   const Cat* cat = new Cat();
   std::cout << std::endl;
   const Cat* cat_copy = new Cat(*cat);
@@ -102,6 +102,14 @@ void test_copy_constructor() {
   std::cout << std::endl;
   delete cat;
   std::cout << std::endl;
+}
+
+void test_copy_constructor_stack() {
+  std::cout << "----------------------------------------test_copy_constructor_stack" << std::endl;
+  // copy constructor(stack)
+  Dog sdog1;
+  std::cout << std::endl;
+  Dog sdog2 = sdog1;
   std::cout << std::endl;
 }
 
@@ -109,6 +117,7 @@ int main() {
   test_simple();
   test_array();
   test_operatoreq();
-  test_copy_constructor();
+  test_copy_constructor_heap();
+  test_copy_constructor_stack();
   return 0;
 }
