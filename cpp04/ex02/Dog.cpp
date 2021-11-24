@@ -31,3 +31,17 @@ Dog::~Dog() {
 void Dog::makeSound() const {
   std::cout << "Bow-wow" << std::endl;
 }
+
+void Dog::setIdea(std::size_t idx, std::string idea) {
+  if (!brain)
+    return;
+  if (idx < 0 || 100 <= idx)
+    throw std::out_of_range("Index of brain out of range.");
+  brain->setIdea(idx, idea);
+}
+
+std::string& Dog::getIdea(std::size_t idx) {
+  if (idx < 0 || 100 <= idx)
+    throw std::out_of_range("Index of brain out of range.");
+  return brain->getIdea(idx);
+}

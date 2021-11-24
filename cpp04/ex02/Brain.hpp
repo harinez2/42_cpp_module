@@ -10,8 +10,8 @@ class Brain {
   Brain& operator=(const Brain& obj);
   virtual ~Brain();
 
-  // void setIdea(int idx, std::string idea_txt);
-  // std::string getIdea(int idx);
+  void setIdea(std::size_t idx, std::string idea);
+  std::string& getIdea(std::size_t idx);
 
  protected:
   std::string ideas[100];
