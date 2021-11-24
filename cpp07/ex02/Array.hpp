@@ -30,6 +30,7 @@ Array<T>::Array(unsigned int n) : size_(n), data_(new T[n]) {}
 
 template <typename T>
 Array<T>::Array(const Array<T>& obj) {
+  data_ = new T[obj.size_];
   *this = obj;
 }
 
@@ -37,7 +38,6 @@ template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& obj) {
   if (this != &obj) {
     size_ = obj.size_;
-    data_ = new T[size_];
     for (std::size_t i = 0; i < size_; ++i)
       data_[i] = obj.data_[i];
   }
