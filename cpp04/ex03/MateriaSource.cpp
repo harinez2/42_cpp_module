@@ -9,7 +9,7 @@ MateriaSource::MateriaSource() : slot_idx_(0) {
   std::cout << "MateriaSource constructor called." << std::endl;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& obj) {
+MateriaSource::MateriaSource(const MateriaSource& obj) : slot_idx_(0) {
   std::cout << "MateriaSource copy constructor called." << std::endl;
   *this = obj;
 }
