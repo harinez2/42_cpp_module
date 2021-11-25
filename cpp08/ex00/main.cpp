@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 
 template <typename T>
 void print_vec(T& vec) {
@@ -37,9 +38,9 @@ void print_easyfind_result(const T& vec, U n) {
     std::cout << "not found." << std::endl;
 }
 
-int main(void) {
-  std::cout << "std::vector<int>" << std::endl;
+void test_vector() {
   int intarr[] = {1, 4, 3, 5, 2};
+  std::cout << "std::vector<int>" << std::endl;
   std::vector<int> vec_int(intarr, intarr + sizeof(intarr) / sizeof(int));
   print_vec(vec_int);
   print_easyfind_result(vec_int, 1);
@@ -48,6 +49,38 @@ int main(void) {
   print_easyfind_result(vec_int, 9);
   std::cout << std::endl;
 
+  std::cout << "const std::vector<int>" << std::endl;
+  const std::vector<int> vec_c_int(intarr, intarr + sizeof(intarr) / sizeof(int));
+  print_vec(vec_c_int);
+  print_easyfind_result(vec_c_int, 1);
+  print_easyfind_result(vec_c_int, 3);
+  print_easyfind_result(vec_c_int, 2);
+  print_easyfind_result(vec_c_int, 9);
+  std::cout << std::endl;
+}
+
+void test_list() {
+  int intarr[] = {1, 4, 3, 5, 2};
+  std::cout << "std::list<int>" << std::endl;
+  std::list<int> list_int(intarr, intarr + sizeof(intarr) / sizeof(int));
+  print_vec(list_int);
+  print_easyfind_result(list_int, 1);
+  print_easyfind_result(list_int, 3);
+  print_easyfind_result(list_int, 2);
+  print_easyfind_result(list_int, 9);
+  std::cout << std::endl;
+
+  std::cout << "const std::list<int>" << std::endl;
+  const std::list<int> list_c_int(intarr, intarr + sizeof(intarr) / sizeof(int));
+  print_vec(list_c_int);
+  print_easyfind_result(list_c_int, 1);
+  print_easyfind_result(list_c_int, 3);
+  print_easyfind_result(list_c_int, 2);
+  print_easyfind_result(list_c_int, 9);
+  std::cout << std::endl;
+}
+
+void test_vector_string() {
   std::cout << "std::vector<std::string>" << std::endl;
   std::string str[] = {"a", "bb", "ccc", "dddd"};
   std::vector<std::string> vec_str(str, str + sizeof(str) / sizeof(std::string));
@@ -57,16 +90,11 @@ int main(void) {
   print_easyfind_result(vec_str, "dddd");
   print_easyfind_result(vec_str, "d");
   std::cout << std::endl;
-  
-  std::cout << "const std::vector<int>" << std::endl;
-  int c_intarr[] = {1, 4, 3, 5, 2};
-  const std::vector<int> vec_c_int(c_intarr, c_intarr + sizeof(c_intarr) / sizeof(int));
-  print_vec(vec_c_int);
-  print_easyfind_result(vec_c_int, 1);
-  print_easyfind_result(vec_c_int, 3);
-  print_easyfind_result(vec_c_int, 2);
-  print_easyfind_result(vec_c_int, 9);
-  std::cout << std::endl;
+}
 
+int main(void) {
+  test_vector();
+  test_list();
+  test_vector_string();
   return 0;
 }
