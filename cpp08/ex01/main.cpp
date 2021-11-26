@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <climits>
+#include <cstdlib>
+#include <ctime>
 
 void test_setsize() {
   std::cout << "<test_setsize>" << std::endl;
@@ -72,6 +74,23 @@ void test_span() {
 
   std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
   std::cout << "Logest span  : " << sp.longestSpan() << std::endl;
+  std::cout << std::endl;
+}
+
+void test_span10000() {
+  std::cout << "<test_span10000>" << std::endl;
+  Span sp = Span(10000);
+  for (int i = 0; i < 10000; ++i) {
+    try {
+      sp.addNumber(rand());
+    } catch (std::exception& e) {
+      std::cerr << e.what() << std::endl;
+    }
+  }
+
+  std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+  std::cout << "Logest span  : " << sp.longestSpan() << std::endl;
+  std::cout << std::endl;
 }
 
 int main(void) {
@@ -79,5 +98,9 @@ int main(void) {
   test_add();
   test_copy();
   test_span();
+  
+  srand(time(NULL));
+  for (int i = 0; i < 5; ++i)
+    test_span10000();
   return 0;
 }

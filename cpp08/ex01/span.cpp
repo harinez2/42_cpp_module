@@ -8,7 +8,7 @@ Span::Span() : N(0) {}
 
 Span::Span(unsigned int N) : N(N) {}
 
-Span::Span(const Span& rhs): N(rhs.N) {
+Span::Span(const Span& rhs) : N(rhs.N) {
   *this = rhs;
 }
 
