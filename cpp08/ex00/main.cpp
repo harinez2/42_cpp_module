@@ -1,3 +1,6 @@
+// [compile command]
+// clang++ -Wall -Wextra -Werror -std=c++98 -pedantic-errors -MMD -MP main.cpp
+
 #include "easyfind.hpp"
 
 #include <iostream>
