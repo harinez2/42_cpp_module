@@ -32,6 +32,9 @@ void Span::addNumber(int num) {
 }
 
 int Span::shortestSpan() {
+  if (setdata_.size() < 2)
+    throw std::range_error("Storing num count is less than 2.");
+
   int shortest = INT_MAX;
   std::set<int>::iterator it = setdata_.begin();
   while (true) {
@@ -47,6 +50,9 @@ int Span::shortestSpan() {
 }
 
 int Span::longestSpan() {
+  if (setdata_.size() < 2)
+    throw std::range_error("Storing num count is less than 2.");
+
   int longest = 0;
   std::set<int>::iterator it = setdata_.begin();
   while (true) {

@@ -62,6 +62,23 @@ void test_copy() {
   std::cout << std::endl;
 }
 
+void test_spanerror() {
+  std::cout << "<test_spanerror>" << std::endl;
+  Span sp = Span(5);
+  sp.addNumber(3);
+  try {
+    sp.shortestSpan();
+  } catch (std::exception& e) {
+    std::cerr << e.what() << std::endl;
+  }
+  try {
+    sp.longestSpan();
+  } catch (std::exception& e) {
+    std::cerr << e.what() << std::endl;
+  }
+  std::cout << std::endl;
+}
+
 void test_span() {
   std::cout << "<test_span>" << std::endl;
   Span sp = Span(5);
@@ -97,8 +114,9 @@ int main(void) {
   test_setsize();
   test_add();
   test_copy();
+  test_spanerror();
   test_span();
-  
+
   srand(time(NULL));
   for (int i = 0; i < 5; ++i)
     test_span10000();
