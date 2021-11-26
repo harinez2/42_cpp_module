@@ -12,8 +12,8 @@ class Span {
   ~Span();
 
   void addNumber(int num);
-  int shortestSpan();
-  int longestSpan();
+  long shortestSpan();
+  long longestSpan();
   void showData();
 
  private:
