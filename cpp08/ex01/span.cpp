@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <exception>
-#include <climits>
+#include <limits>
 
 Span::Span() : N(0) {}
 
@@ -35,7 +35,7 @@ long Span::shortestSpan() {
   if (setdata_.size() < 2)
     throw std::range_error("Storing num count is less than 2.");
 
-  long shortest = LONG_MAX;
+  long shortest = std::numeric_limits<long>::max();
   std::set<int>::iterator it = setdata_.begin();
   while (true) {
     long diff = *it - *(++it);
