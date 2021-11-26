@@ -1,9 +1,10 @@
 #include "span.hpp"
 
 #include <iostream>
-#include <climits>
+#include <limits>
 #include <cstdlib>
 #include <ctime>
+#include <set>
 
 void test_setsize() {
   std::cout << "<test_setsize>" << std::endl;
@@ -11,7 +12,7 @@ void test_setsize() {
   sp.showData();
   Span sp2 = Span(0);
   sp2.showData();
-  Span sp3 = Span(UINT_MAX);
+  Span sp3 = Span(std::numeric_limits<unsigned int>::max());
   sp3.showData();
   std::cout << std::endl;
 }
@@ -97,13 +98,10 @@ void test_span() {
 void test_span10000() {
   std::cout << "<test_span10000>" << std::endl;
   Span sp = Span(10000);
-  for (int i = 0; i < 10000; ++i) {
-    try {
-      sp.addNumber(rand());
-    } catch (std::exception& e) {
-      std::cerr << e.what() << std::endl;
-    }
-  }
+  std::set<int> input_data;
+  for (int i = 0; i < 10000; ++i)
+    input_data.insert(rand());
+  sp.addNumber< std::set<int> >(input_data.begin(), input_data.end());
 
   std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
   std::cout << "Logest span  : " << sp.longestSpan() << std::endl;

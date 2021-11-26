@@ -15,10 +15,19 @@ class Span {
   long shortestSpan();
   long longestSpan();
   void showData();
+  
+  template <typename T>
+  void addNumber(typename T::iterator begin, typename T::iterator end);
 
  private:
   const unsigned int N;
   std::set<int> setdata_;
 };
+
+template <typename T>
+void Span::addNumber(typename T::iterator begin, typename T::iterator end) {
+  for (typename T::iterator it = begin; it != end; ++it)
+    setdata_.insert(*it);
+}
 
 #endif
