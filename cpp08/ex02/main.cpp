@@ -4,6 +4,7 @@
 #include "mutantstack.hpp"
 
 #include <iostream>
+#include <iostream>
 
 void test_subject() {
   std::cout << "<test_subject>" << std::endl;
@@ -42,10 +43,10 @@ void test_subject() {
 void test_subject_additional() {
   std::cout << "<test_subject_additional>" << std::endl;
   MutantStack<int> mstack;
-  std::cout << "empty() : " << mstack.empty() << std::endl;
+  std::cout << "empty() : " << std::boolalpha << mstack.empty() << std::endl;
   mstack.push(5);
   mstack.push(17);
-  std::cout << "empty() : " << mstack.empty() << std::endl;
+  std::cout << "empty() : " << std::boolalpha << mstack.empty() << std::endl;
 
   for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
     std::cout << *it << " ";
