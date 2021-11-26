@@ -70,8 +70,8 @@ void test_span() {
   sp.addNumber(11);
   sp.showData();
 
-  std::cout << sp.shortestSpan() << std::endl;
-  std::cout << sp.longestSpan() << std::endl;
+  std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+  std::cout << "Logest span  : " << sp.longestSpan() << std::endl;
 }
 
 int main(void) {

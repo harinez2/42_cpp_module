@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <exception>
+#include <climits>
 
 Span::Span() : N(0) {}
 
@@ -31,11 +32,33 @@ void Span::addNumber(int num) {
 }
 
 int Span::shortestSpan() {
-  return 0;
+  int shortest = INT_MAX;
+  std::set<int>::iterator it = setdata_.begin();
+  while (true) {
+    int diff = *it - *(++it);
+    if (it == setdata_.end())
+      break;
+    if (diff < 0)
+      diff *= -1;
+    if (diff < shortest)
+      shortest = diff;
+  }
+  return shortest;
 }
 
 int Span::longestSpan() {
-  return 0;
+  int longest = 0;
+  std::set<int>::iterator it = setdata_.begin();
+  while (true) {
+    int diff = *it - *(++it);
+    if (it == setdata_.end())
+      break;
+    if (diff < 0)
+      diff *= -1;
+    if (diff > longest)
+      longest = diff;
+  }
+  return longest;
 }
 
 void Span::showData() {
