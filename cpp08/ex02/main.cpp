@@ -36,6 +36,25 @@ void test_subject() {
   std::cout << std::endl;
 }
 
+void test_subject_additional() {
+  std::cout << "<test_subject_additional>" << std::endl;
+  MutantStack<int> mstack;
+  std::cout << "empty() : " << mstack.empty() << std::endl;
+  mstack.push(5);
+  mstack.push(17);
+  std::cout << "empty() : " << mstack.empty() << std::endl;
+
+  for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
+    std::cout << *it << " ";
+  std::cout << std::endl;
+  MutantStack<int> mstack2;
+  mstack2 = mstack;
+  for (MutantStack<int>::iterator it = mstack2.begin(); it != mstack2.end(); ++it)
+    std::cout << *it << " ";
+  std::cout << std::endl;
+  std::cout << std::endl;
+}
+
 void test_iterator(MutantStack<int>& mstack) {
   std::cout << "<test_iterator>" << std::endl;  
   MutantStack<int>::iterator it = mstack.begin();
@@ -82,7 +101,8 @@ void test_constriterator(MutantStack<int>& mstack) {
 
 int main() {
   test_subject();
-  
+  test_subject_additional();
+
   MutantStack<int> mstack;
   mstack.push(3);
   mstack.push(17);
