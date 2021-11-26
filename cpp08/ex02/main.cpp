@@ -4,7 +4,6 @@
 #include "mutantstack.hpp"
 
 #include <iostream>
-#include <iostream>
 
 void test_subject() {
   std::cout << "<test_subject>" << std::endl;
