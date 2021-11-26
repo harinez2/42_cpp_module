@@ -55,6 +55,40 @@ void test_subject_additional() {
   std::cout << std::endl;
 }
 
+void test_subject_string() {
+  std::cout << "<test_subject_string>" << std::endl;
+  MutantStack<std::string> mstack;
+
+  mstack.push("four");
+  mstack.push("two");
+
+  std::cout << mstack.top() << std::endl;
+
+  mstack.pop();
+
+  std::cout << mstack.size() << std::endl;
+
+  mstack.push("three");
+  mstack.push("five");
+  mstack.push("seven");
+  //[...]
+  mstack.push("zero");
+
+  MutantStack<std::string>::iterator it = mstack.begin();
+  MutantStack<std::string>::iterator ite = mstack.end();
+
+  ++it;
+  --it;
+
+  while (it != ite)
+  {
+    std::cout << *it << std::endl;
+    ++it;
+  }
+  std::stack<std::string> s(mstack);
+  std::cout << std::endl;
+}
+
 void test_iterator(MutantStack<int>& mstack) {
   std::cout << "<test_iterator>" << std::endl;  
   MutantStack<int>::iterator it = mstack.begin();
@@ -102,6 +136,7 @@ void test_constriterator(MutantStack<int>& mstack) {
 int main() {
   test_subject();
   test_subject_additional();
+  test_subject_string();
 
   MutantStack<int> mstack;
   mstack.push(3);
