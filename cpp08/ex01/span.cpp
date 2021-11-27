@@ -53,18 +53,10 @@ long Span::longestSpan() {
   if (setdata_.size() < 2)
     throw std::range_error("Storing num count is less than 2.");
 
-  long longest = 0;
   std::set<int>::iterator it = setdata_.begin();
-  while (true) {
-    long diff = *it - *(++it);
-    if (it == setdata_.end())
-      break;
-    if (diff < 0)
-      diff *= -1;
-    if (diff > longest)
-      longest = diff;
-  }
-  return longest;
+  std::set<int>::iterator it_end = setdata_.end();
+  --it_end;
+  return *it_end - *it;
 }
 
 void Span::showData() {
