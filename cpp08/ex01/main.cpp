@@ -9,6 +9,21 @@
 #include <ctime>
 #include <set>
 
+void test_subject() {
+  std::cout << "<test_subject>" << std::endl;
+  Span sp = Span(5);
+
+  sp.addNumber(5);
+  sp.addNumber(3);
+  sp.addNumber(17);
+  sp.addNumber(9);
+  sp.addNumber(11);
+
+  std::cout << sp.shortestSpan() << std::endl;
+  std::cout << sp.longestSpan() << std::endl;
+  std::cout << std::endl;
+}
+
 void test_setsize() {
   std::cout << "<test_setsize>" << std::endl;
   Span sp;
@@ -112,6 +127,7 @@ void test_span10000() {
 }
 
 int main(void) {
+  test_subject();
   test_setsize();
   test_add();
   test_copy();
