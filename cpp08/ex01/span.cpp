@@ -3,6 +3,7 @@
 #include <iostream>
 #include <exception>
 #include <limits>
+#include <algorithm>
 
 Span::Span() : N(0) {}
 
@@ -33,14 +34,13 @@ long Span::shortestSpan() {
   if (setdata_.size() < 2)
     throw std::range_error("Storing num count is less than 2.");
 
-  unsigned int shortest = std::numeric_limits<unsigned int>::max();
+  long shortest = std::numeric_limits<long>::max();
   std::set<int>::iterator it = setdata_.begin();
   for (std::set<int>::iterator it_nxt = it; ; ++it) {
     if (++it_nxt == setdata_.end())
       break;
     long diff = static_cast<long>(*it_nxt) - static_cast<long>(*it);
-    if (diff < shortest)
-      shortest = diff;
+    shortest = std::min(diff, shortest);
   }
   return shortest;
 }
