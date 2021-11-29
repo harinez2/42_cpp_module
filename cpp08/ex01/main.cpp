@@ -98,8 +98,8 @@ void test_spanerror() {
 void test_span() {
   std::cout << "<test_span>" << std::endl;
   Span sp = Span(5);
-  sp.addNumber(5);
-  sp.addNumber(3);
+  sp.addNumber(std::numeric_limits<int>::max());
+  sp.addNumber(std::numeric_limits<int>::min());
   sp.addNumber(17);
   sp.addNumber(-4);
   sp.addNumber(11);
