@@ -12,8 +12,8 @@ class Span {
   ~Span();
 
   void addNumber(int num);
-  unsigned int shortestSpan();
-  unsigned int longestSpan();
+  long shortestSpan();
+  long longestSpan();
   void showData();
   
   template <typename T>

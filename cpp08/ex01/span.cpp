@@ -29,7 +29,7 @@ void Span::addNumber(int num) {
   setdata_.insert(num);
 }
 
-unsigned int Span::shortestSpan() {
+long Span::shortestSpan() {
   if (setdata_.size() < 2)
     throw std::range_error("Storing num count is less than 2.");
 
@@ -38,22 +38,21 @@ unsigned int Span::shortestSpan() {
   for (std::set<int>::iterator it_nxt = it; ; ++it) {
     if (++it_nxt == setdata_.end())
       break;
-    unsigned int diff =
-      static_cast<unsigned int>(*it_nxt) - static_cast<unsigned int>(*it);
+    long diff = static_cast<long>(*it_nxt) - static_cast<long>(*it);
     if (diff < shortest)
       shortest = diff;
   }
   return shortest;
 }
 
-unsigned int Span::longestSpan() {
+long Span::longestSpan() {
   if (setdata_.size() < 2)
     throw std::range_error("Storing num count is less than 2.");
 
   std::set<int>::iterator it = setdata_.begin();
   std::set<int>::iterator it_end = setdata_.end();
   --it_end;
-  return static_cast<unsigned int>(*it_end) - static_cast<unsigned int>(*it);
+  return static_cast<long>(*it_end) - static_cast<long>(*it);
 }
 
 void Span::showData() {
