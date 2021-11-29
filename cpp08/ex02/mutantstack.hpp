@@ -12,7 +12,7 @@ class MutantStack : public std::stack<T> {
   typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
   MutantStack() : std::stack<T>() {}
-  MutantStack(const MutantStack& rhs) : std::stack<T>(rhs) { *this = rhs; }
+  MutantStack(const MutantStack& rhs) : std::stack<T>(rhs) {}
   MutantStack& operator=(const MutantStack& rhs) {
     if (this != &rhs) {
       std::stack<T>::operator=(rhs);
