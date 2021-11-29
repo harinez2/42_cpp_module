@@ -14,7 +14,7 @@ Span::Span(const Span& rhs) : N(rhs.N) {
 
 Span& Span::operator=(const Span& rhs)  {
   if (this != &rhs) {
-    if (N < rhs.N)
+    if (N < rhs.setdata_.size())
       throw std::out_of_range("Copy target size is smaller than copy from.");
     setdata_ = rhs.setdata_;
   }

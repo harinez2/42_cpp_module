@@ -69,7 +69,7 @@ void test_copy() {
   sp4 = sp;
   sp4.showData();
 
-  Span sp5;
+  Span sp5(2);
   try {
     sp5 = sp;
   } catch (std::exception& e) {
