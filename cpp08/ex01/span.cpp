@@ -37,12 +37,10 @@ long Span::shortestSpan() {
 
   long shortest = std::numeric_limits<long>::max();
   std::set<int>::iterator it = setdata_.begin();
-  while (true) {
-    long diff = *it - *(++it);
-    if (it == setdata_.end())
+  for (std::set<int>::iterator it_nxt = it; ; ++it) {
+    if (++it_nxt == setdata_.end())
       break;
-    if (diff < 0)
-      diff *= -1;
+    long diff = *it_nxt - *it;
     if (diff < shortest)
       shortest = diff;
   }
