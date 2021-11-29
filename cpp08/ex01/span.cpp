@@ -26,8 +26,6 @@ Span::~Span() {}
 void Span::addNumber(int num) {
   if (setdata_.size() == N)
     throw std::out_of_range("Storing data capacity is full.");
-  if (setdata_.find(num) != setdata_.end())
-    throw std::out_of_range("Storing data is already in the dataset.");
   setdata_.insert(num);
 }
 

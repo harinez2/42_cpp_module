@@ -37,17 +37,14 @@ void test_add() {
   Span sp = Span(3);
   sp.addNumber(1);
   sp.addNumber(2);
+  sp.addNumber(2);
   try {
-    sp.addNumber(2);
+    sp.addNumber(3);
   } catch (std::exception& e) {
     std::cerr << e.what() << std::endl;
   }
-  sp.addNumber(3);
-  try {
-    sp.addNumber(4);
-  } catch (std::exception& e) {
-    std::cerr << e.what() << std::endl;
-  }
+  std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+  std::cout << "Logest span  : " << sp.longestSpan() << std::endl;
   std::cout << std::endl;
 }
 

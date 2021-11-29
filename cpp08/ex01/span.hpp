@@ -21,7 +21,7 @@ class Span {
 
  private:
   const unsigned int N;
-  std::set<int> setdata_;
+  std::multiset<int> setdata_;
 };
 
 template <typename T>
