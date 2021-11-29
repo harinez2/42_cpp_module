@@ -1,6 +1,3 @@
-// [compile command]
-// clang++ -Wall -Wextra -Werror -std=c++98 -pedantic-errors main.cpp mutantstack.cpp
-
 #include "mutantstack.hpp"
 
 #include <iostream>
